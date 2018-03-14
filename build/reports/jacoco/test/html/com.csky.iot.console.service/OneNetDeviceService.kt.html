@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OneNetDeviceService.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cop-console</a> &gt; <a href="index.source.html" class="el_package">com.csky.iot.console.service</a> &gt; <span class="el_source">OneNetDeviceService.kt</span></div><h1>OneNetDeviceService.kt</h1><pre class="source lang-java linenums">/*
+ * Copyright (C) 2017 C-SKY Microsystems Co., Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.csky.iot.console.service
+
+import com.csky.iot.console.dao.DeviceOneNetRepository
+import com.csky.iot.console.dao.LicenseCidRepository
+import com.csky.iot.console.dao.LicenseRepository
+import com.csky.iot.console.dao.ProductOneNetRepository
+import com.csky.iot.console.manager.OnenetManager
+import com.csky.iot.console.service.entity.onenet.NbiotShadow
+import com.csky.iot.console.service.entity.onenet.OneNetDeviceShadow
+import com.csky.iot.constants.Constant
+import com.csky.iot.exception.CskyException
+import com.csky.iot.utils.LogUtil
+import com.csky.iot.utils.RedisUtil
+import org.springframework.stereotype.Service
+
+interface OneNetDeviceService {
+    fun enableOnenetDevice(cid: String)
+
+    fun disableOnenetDevice(cid: String)
+
+    fun pubMessage(cid: String, message: String): String
+}
+
+@Service
+<span class="fc" id="L41">class OneNetDeviceServiceImpl(val productOneNetRepository: ProductOneNetRepository,</span>
+<span class="fc" id="L42">                              val deviceOneNetRepository: DeviceOneNetRepository,</span>
+<span class="fc" id="L43">                              val licenseCidRepository: LicenseCidRepository,</span>
+<span class="fc" id="L44">                              val licenseRepository: LicenseRepository,</span>
+<span class="fc" id="L45">                              val onenetManager: OnenetManager,</span>
+<span class="fc" id="L46">                              val redisUtil: RedisUtil): OneNetDeviceService {</span>
+<span class="fc" id="L47">    private val IOT_TAG = &quot;onenet_iot&quot;</span>
+
+    override fun enableOnenetDevice(cid: String) {
+<span class="fc" id="L50">        val oneNetDeviceShadow = getOneNetDeviceShadow(cid)</span>
+
+<span class="fc" id="L52">        val isOneNetDeviceAbsent = redisUtil.hashPutIfAbsent(redisUtil.SCOPE_ONENET_DEVICE_SHADOW_MAP, cid, oneNetDeviceShadow)</span>
+
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        if(isOneNetDeviceAbsent) {//new device</span>
+<span class="fc" id="L55">            LogUtil.i(javaClass, &quot;[$cid@$IOT_TAG] Device is enabled&quot;)</span>
+        } else {
+<span class="fc" id="L57">            LogUtil.i(javaClass, &quot;[$cid@$IOT_TAG] Device is already enabled&quot;)</span>
+        }
+<span class="fc" id="L59">    }</span>
+
+    override fun disableOnenetDevice(cid: String) {
+<span class="fc" id="L62">        redisUtil.hashDelete(redisUtil.SCOPE_ONENET_DEVICE_SHADOW_MAP, cid)</span>
+<span class="fc" id="L63">        LogUtil.i(javaClass, &quot;[$cid@$IOT_TAG]] Device is released&quot;)</span>
+<span class="fc" id="L64">    }</span>
+
+    override fun pubMessage(cid: String, message: String): String {
+<span class="fc" id="L67">        LogUtil.i(javaClass, &quot;[@$IOT_TAG]Publishing onenet message begins&quot;)</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        val oneNetDeviceShadow = redisUtil.hashGet(redisUtil.SCOPE_ONENET_DEVICE_SHADOW_MAP, cid) as OneNetDeviceShadow?</span>
+<span class="fc" id="L69">                ?: throw CskyException(Constant.PARAM_ERROR, &quot;Please enable your device first&quot;)</span>
+
+<span class="fc" id="L71">        return onenetManager.nbiotExecute(oneNetDeviceShadow, message, NbiotShadow())</span>
+    }
+
+    fun getOneNetDeviceShadow(cid: String): OneNetDeviceShadow {
+<span class="fc bfc" id="L75" title="All 4 branches covered.">        val licenseId = licenseCidRepository.findByCid(cid)?.licenseId</span>
+<span class="fc" id="L76">                ?: throw CskyException(Constant.PARAM_ERROR, &quot;[$cid@$IOT_TAG] Device's licenseId is not exist&quot;)</span>
+<span class="fc bfc" id="L77" title="All 4 branches covered.">        val productId = licenseRepository.findById(licenseId)?.productId</span>
+<span class="fc" id="L78">                ?: throw CskyException(Constant.PARAM_ERROR, &quot;[$cid@$IOT_TAG] Device's productId is not exist&quot;)</span>
+
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        val apiKey = (productOneNetRepository.findByProductId(productId)</span>
+<span class="fc" id="L81">                ?: throw CskyException(Constant.PARAM_ERROR, &quot;[$cid@$IOT_TAG] OneNetProduct's apiKey is null&quot;)).apiKey</span>
+
+<span class="fc bfc" id="L83" title="All 2 branches covered.">        val deviceOneNetDO = deviceOneNetRepository.findByCid(cid)</span>
+<span class="fc" id="L84">                ?: throw CskyException(Constant.PARAM_ERROR, &quot;[$cid@$IOT_TAG] OneNetDevice's deviceOneNetDO is null&quot;)</span>
+
+<span class="fc bfc" id="L86" title="All 2 branches covered.">        val imei = deviceOneNetDO.imei</span>
+<span class="fc" id="L87">                ?: throw CskyException(Constant.PARAM_ERROR, &quot;[$cid@$IOT_TAG] OneNetDevice's imei is null&quot;)</span>
+<span class="fc" id="L88">        val title = deviceOneNetDO.title</span>
+
+<span class="fc" id="L90">        return OneNetDeviceShadow(cid, apiKey, imei, title)</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

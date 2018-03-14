@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HttpClientUtil.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cop-console</a> &gt; <a href="index.source.html" class="el_package">com.csky.iot.utils.httpclient</a> &gt; <span class="el_source">HttpClientUtil.kt</span></div><h1>HttpClientUtil.kt</h1><pre class="source lang-java linenums">package com.csky.iot.utils.httpclient
+
+import java.io.IOException
+import org.apache.http.client.methods.CloseableHttpResponse
+import org.apache.http.client.methods.HttpPost
+import org.apache.http.client.methods.HttpOptions
+import org.apache.http.client.methods.HttpPatch
+import org.apache.http.client.methods.HttpTrace
+import org.apache.http.client.methods.HttpDelete
+import org.apache.http.client.methods.HttpPut
+import org.apache.http.client.methods.HttpHead
+import org.apache.http.client.methods.HttpGet
+import org.apache.http.client.methods.HttpRequestBase
+import com.csky.iot.utils.httpclient.exception.HttpProcessException
+import org.apache.http.util.EntityUtils
+import org.apache.http.client.methods.HttpEntityEnclosingRequestBase
+import java.util.ArrayList
+import com.csky.iot.utils.LogUtil
+import com.csky.iot.utils.httpclient.builder.HCB
+import com.csky.iot.utils.httpclient.common.HttpConfig
+import com.csky.iot.utils.httpclient.common.HttpMethods
+import com.csky.iot.utils.httpclient.common.Utils
+import org.apache.http.Header
+import org.apache.http.HttpResponse
+import org.apache.http.NameValuePair
+import org.apache.http.client.HttpClient
+import org.apache.http.protocol.HttpContext
+import java.io.OutputStream
+
+
+<span class="nc" id="L31">object HttpClientUtil {</span>
+
+    //榛樿閲囩敤鐨刪ttp鍗忚鐨凥ttpClient瀵硅薄
+    private var client4HTTP: HttpClient? = null
+
+    init {
+<span class="nc" id="L37">        try {</span>
+<span class="nc" id="L38">            client4HTTP = HCB().custom().build()</span>
+<span class="nc" id="L39">        } catch (e: HttpProcessException) {</span>
+<span class="nc" id="L40">            LogUtil.e(javaClass, &quot;鍒涘缓https鍗忚鐨凥ttpClient瀵硅薄鍑洪敊!&quot;)</span>
+<span class="nc" id="L41">        }</span>
+
+    }
+
+    /**
+     * 鍒ゅ畾鏄惁寮�鍚繛鎺ユ睜銆佸強url鏄痟ttp杩樻槸https &lt;br&gt;&lt;/br&gt;
+     * 濡傛灉宸插紑鍚繛鎺ユ睜锛屽垯鑷姩璋冪敤build鏂规硶锛屼粠杩炴帴姹犱腑鑾峰彇client瀵硅薄&lt;br&gt;&lt;/br&gt;
+     * 鍚﹀垯锛岀洿鎺ヨ繑鍥炵浉搴旂殑榛樿client瀵硅薄&lt;br&gt;&lt;/br&gt;
+
+     * @param config        璇锋眰鍙傛暟閰嶇疆
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    private fun create(config: HttpConfig) {
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        if (config.client() == null) {//濡傛灉涓虹┖锛岃涓洪粯璁lient瀵硅薄</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">            config.client(client4HTTP!!)</span>
+        }
+<span class="nc" id="L59">    }</span>
+
+    /**
+     * 浠et鏂瑰紡锛岃姹傝祫婧愭垨鏈嶅姟
+
+     * @param client                client瀵硅薄
+     * *
+     * @param url                    璧勬簮鍦板潃
+     * *
+     * @param headers            璇锋眰澶翠俊鎭�
+     * *
+     * @param context            http涓婁笅鏂囷紝鐢ㄤ簬cookie鎿嶄綔
+     * *
+     * @param encoding        缂栫爜
+     * *
+     * @return                        杩斿洖澶勭悊缁撴灉
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    operator fun get(client: HttpClient, url: String, headers: Array&lt;Header?&gt;, context: HttpContext, encoding: String): String {
+<span class="nc" id="L80">        return get(HttpConfig.custom().client(client).url(url).headers(headers).context(context).encoding(encoding))</span>
+    }
+
+    /**
+     * 浠et鏂瑰紡锛岃姹傝祫婧愭垨鏈嶅姟
+
+     * @param config        璇锋眰鍙傛暟閰嶇疆
+     * *
+     * @return
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    operator fun get(config: HttpConfig): String {
+<span class="nc" id="L94">        return send(config.method(HttpMethods.GET))</span>
+    }
+
+    /**
+     * 浠ost鏂瑰紡锛岃姹傝祫婧愭垨鏈嶅姟
+
+     * @param client                client瀵硅薄
+     * *
+     * @param url                    璧勬簮鍦板潃
+     * *
+     * @param headers            璇锋眰澶翠俊鎭�
+     * *
+     * @param parasMap        璇锋眰鍙傛暟
+     * *
+     * @param context            http涓婁笅鏂囷紝鐢ㄤ簬cookie鎿嶄綔
+     * *
+     * @param encoding        缂栫爜
+     * *
+     * @return                        杩斿洖澶勭悊缁撴灉
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun post(client: HttpClient, url: String, headers: Array&lt;Header?&gt;, parasMap: MutableMap&lt;String, Any&gt;, context: HttpContext, encoding: String): String {
+<span class="nc" id="L118">        return post(HttpConfig.custom().client(client).url(url).headers(headers).map(parasMap).context(context).encoding(encoding))</span>
+    }
+
+    /**
+     * 浠ost鏂瑰紡锛岃姹傝祫婧愭垨鏈嶅姟
+
+     * @param config        璇锋眰鍙傛暟閰嶇疆
+     * *
+     * @return
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun post(config: HttpConfig): String {
+<span class="nc" id="L132">        return send(config.method(HttpMethods.POST))</span>
+    }
+
+    /**
+     * 浠ut鏂瑰紡锛岃姹傝祫婧愭垨鏈嶅姟
+
+     * @param client                client瀵硅薄
+     * *
+     * @param url                    璧勬簮鍦板潃
+     * *
+     * @param parasMap        璇锋眰鍙傛暟
+     * *
+     * @param headers            璇锋眰澶翠俊鎭�
+     * *
+     * @param context            http涓婁笅鏂囷紝鐢ㄤ簬cookie鎿嶄綔
+     * *
+     * @param encoding        缂栫爜
+     * *
+     * @return                        杩斿洖澶勭悊缁撴灉
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun put(client: HttpClient, url: String, parasMap: MutableMap&lt;String, Any&gt;, headers: Array&lt;Header?&gt;, context: HttpContext, encoding: String): String {
+<span class="nc" id="L156">        return put(HttpConfig.custom().client(client).url(url).headers(headers).map(parasMap).context(context).encoding(encoding))</span>
+    }
+
+    /**
+     * 浠ut鏂瑰紡锛岃姹傝祫婧愭垨鏈嶅姟
+
+     * @param config        璇锋眰鍙傛暟閰嶇疆
+     * *
+     * @return
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun put(config: HttpConfig): String {
+<span class="nc" id="L170">        return send(config.method(HttpMethods.PUT))</span>
+    }
+
+    /**
+     * 浠elete鏂瑰紡锛岃姹傝祫婧愭垨鏈嶅姟
+
+     * @param client                client瀵硅薄
+     * *
+     * @param url                    璧勬簮鍦板潃
+     * *
+     * @param headers            璇锋眰澶翠俊鎭�
+     * *
+     * @param context            http涓婁笅鏂囷紝鐢ㄤ簬cookie鎿嶄綔
+     * *
+     * @param encoding        缂栫爜
+     * *
+     * @return                        杩斿洖澶勭悊缁撴灉
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun delete(client: HttpClient, url: String, headers: Array&lt;Header?&gt;, context: HttpContext, encoding: String): String {
+<span class="nc" id="L192">        return delete(HttpConfig.custom().client(client).url(url).headers(headers).context(context).encoding(encoding))</span>
+    }
+
+    /**
+     * 浠elete鏂瑰紡锛岃姹傝祫婧愭垨鏈嶅姟
+
+     * @param config        璇锋眰鍙傛暟閰嶇疆
+     * *
+     * @return
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun delete(config: HttpConfig): String {
+<span class="nc" id="L206">        return send(config.method(HttpMethods.DELETE))</span>
+    }
+
+    /**
+     * 浠atch鏂瑰紡锛岃姹傝祫婧愭垨鏈嶅姟
+
+     * @param client                client瀵硅薄
+     * *
+     * @param url                    璧勬簮鍦板潃
+     * *
+     * @param parasMap        璇锋眰鍙傛暟
+     * *
+     * @param headers            璇锋眰澶翠俊鎭�
+     * *
+     * @param context            http涓婁笅鏂囷紝鐢ㄤ簬cookie鎿嶄綔
+     * *
+     * @param encoding        缂栫爜
+     * *
+     * @return                        杩斿洖澶勭悊缁撴灉
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun patch(client: HttpClient, url: String, parasMap: MutableMap&lt;String, Any&gt;, headers: Array&lt;Header?&gt;, context: HttpContext, encoding: String): String {
+<span class="nc" id="L230">        return patch(HttpConfig.custom().client(client).url(url).headers(headers).map(parasMap).context(context).encoding(encoding))</span>
+    }
+
+    /**
+     * 浠atch鏂瑰紡锛岃姹傝祫婧愭垨鏈嶅姟
+
+     * @param config        璇锋眰鍙傛暟閰嶇疆
+     * *
+     * @return
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun patch(config: HttpConfig): String {
+<span class="nc" id="L244">        return send(config.method(HttpMethods.PATCH))</span>
+    }
+
+    /**
+     * 浠ead鏂瑰紡锛岃姹傝祫婧愭垨鏈嶅姟
+
+     * @param client                client瀵硅薄
+     * *
+     * @param url                    璧勬簮鍦板潃
+     * *
+     * @param headers            璇锋眰澶翠俊鎭�
+     * *
+     * @param context            http涓婁笅鏂囷紝鐢ㄤ簬cookie鎿嶄綔
+     * *
+     * @param encoding        缂栫爜
+     * *
+     * @return                        杩斿洖澶勭悊缁撴灉
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun head(client: HttpClient, url: String, headers: Array&lt;Header?&gt;, context: HttpContext, encoding: String): String {
+<span class="nc" id="L266">        return head(HttpConfig.custom().client(client).url(url).headers(headers).context(context).encoding(encoding))</span>
+    }
+
+    /**
+     * 浠ead鏂瑰紡锛岃姹傝祫婧愭垨鏈嶅姟
+
+     * @param config        璇锋眰鍙傛暟閰嶇疆
+     * *
+     * @return
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class) fun head(config: HttpConfig): String {
+<span class="nc" id="L279">        return send(config.method(HttpMethods.HEAD))</span>
+    }
+
+    /**
+     * 浠ptions鏂瑰紡锛岃姹傝祫婧愭垨鏈嶅姟
+
+     * @param client                client瀵硅薄
+     * *
+     * @param url                    璧勬簮鍦板潃
+     * *
+     * @param headers            璇锋眰澶翠俊鎭�
+     * *
+     * @param context            http涓婁笅鏂囷紝鐢ㄤ簬cookie鎿嶄綔
+     * *
+     * @param encoding        缂栫爜
+     * *
+     * @return                        杩斿洖澶勭悊缁撴灉
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun options(client: HttpClient, url: String, headers: Array&lt;Header?&gt;, context: HttpContext, encoding: String): String {
+<span class="nc" id="L301">        return options(HttpConfig.custom().client(client).url(url).headers(headers).context(context).encoding(encoding))</span>
+    }
+
+    /**
+     * 浠ptions鏂瑰紡锛岃姹傝祫婧愭垨鏈嶅姟
+
+     * @param config        璇锋眰鍙傛暟閰嶇疆
+     * *
+     * @return
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun options(config: HttpConfig): String {
+<span class="nc" id="L315">        return send(config.method(HttpMethods.OPTIONS))</span>
+    }
+
+    /**
+     * 浠race鏂瑰紡锛岃姹傝祫婧愭垨鏈嶅姟
+
+     * @param client                client瀵硅薄
+     * *
+     * @param url                    璧勬簮鍦板潃
+     * *
+     * @param headers            璇锋眰澶翠俊鎭�
+     * *
+     * @param context            http涓婁笅鏂囷紝鐢ㄤ簬cookie鎿嶄綔
+     * *
+     * @param encoding        缂栫爜
+     * *
+     * @return                        杩斿洖澶勭悊缁撴灉
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun trace(client: HttpClient, url: String, headers: Array&lt;Header?&gt;, context: HttpContext, encoding: String): String {
+<span class="nc" id="L337">        return trace(HttpConfig.custom().client(client).url(url).headers(headers).context(context).encoding(encoding))</span>
+    }
+
+    /**
+     * 浠race鏂瑰紡锛岃姹傝祫婧愭垨鏈嶅姟
+
+     * @param config        璇锋眰鍙傛暟閰嶇疆
+     * *
+     * @return
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun trace(config: HttpConfig): String {
+<span class="nc" id="L351">        return send(config.method(HttpMethods.TRACE))</span>
+    }
+
+    /**
+     * 涓嬭浇鏂囦欢
+
+     * @param client                client瀵硅薄
+     * *
+     * @param url                    璧勬簮鍦板潃
+     * *
+     * @param headers            璇锋眰澶翠俊鎭�
+     * *
+     * @param context            http涓婁笅鏂囷紝鐢ㄤ簬cookie鎿嶄綔
+     * *
+     * @param out                    杈撳嚭娴�
+     * *
+     * @return                        杩斿洖澶勭悊缁撴灉
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun down(client: HttpClient, url: String, headers: Array&lt;Header?&gt;, context: HttpContext, out: OutputStream): OutputStream {
+<span class="nc" id="L373">        return down(HttpConfig.custom().client(client).url(url).headers(headers).context(context).out(out))</span>
+    }
+
+    /**
+     * 涓嬭浇鏂囦欢
+
+     * @param config        璇锋眰鍙傛暟閰嶇疆
+     * *
+     * @return                        杩斿洖澶勭悊缁撴灉
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun down(config: HttpConfig): OutputStream {
+<span class="nc" id="L387">        return fmt2Stream(execute(config.method(HttpMethods.GET)), config.out())</span>
+    }
+
+    /**
+     * 涓婁紶鏂囦欢
+
+     * @param client                client瀵硅薄
+     * *
+     * @param url                    璧勬簮鍦板潃
+     * *
+     * @param headers            璇锋眰澶翠俊鎭�
+     * *
+     * @param context            http涓婁笅鏂囷紝鐢ㄤ簬cookie鎿嶄綔
+     * *
+     * @return                        杩斿洖澶勭悊缁撴灉
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun upload(client: HttpClient, url: String, headers: Array&lt;Header?&gt;, context: HttpContext): String {
+<span class="nc" id="L407">        return upload(HttpConfig.custom().client(client).url(url).headers(headers).context(context))</span>
+    }
+
+    /**
+     * 涓婁紶鏂囦欢
+
+     * @param config        璇锋眰鍙傛暟閰嶇疆
+     * *
+     * @return                杩斿洖澶勭悊缁撴灉
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class) fun upload(config: HttpConfig): String {
+<span class="nc bnc" id="L420" title="All 4 branches missed.">        if (config.method() !== HttpMethods.POST &amp;&amp; config.method() !== HttpMethods.PUT) {</span>
+<span class="nc" id="L421">            config.method(HttpMethods.POST)</span>
+        }
+<span class="nc" id="L423">        return send(config)</span>
+    }
+
+    /**
+     * 鏌ョ湅璧勬簮閾炬帴鎯呭喌锛岃繑鍥炵姸鎬佺爜
+
+     * @param client                client瀵硅薄
+     * *
+     * @param url                    璧勬簮鍦板潃
+     * *
+     * @param headers            璇锋眰澶翠俊鎭�
+     * *
+     * @param context            http涓婁笅鏂囷紝鐢ㄤ簬cookie鎿嶄綔
+     * *
+     * @return                        杩斿洖澶勭悊缁撴灉
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun status(client: HttpClient, url: String, headers: Array&lt;Header?&gt;, context: HttpContext, method: HttpMethods): Int {
+<span class="nc" id="L443">        return status(HttpConfig.custom().client(client).url(url).headers(headers).context(context).method(method))</span>
+    }
+
+    /**
+     * 鏌ョ湅璧勬簮閾炬帴鎯呭喌锛岃繑鍥炵姸鎬佺爜
+
+     * @param config        璇锋眰鍙傛暟閰嶇疆
+     * *
+     * @return                杩斿洖澶勭悊缁撴灉
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun status(config: HttpConfig): Int {
+<span class="nc" id="L457">        return fmt2Int(execute(config))</span>
+    }
+
+    /**
+     * 璇锋眰璧勬簮鎴栨湇鍔�
+
+     * @param config        璇锋眰鍙傛暟閰嶇疆
+     * *
+     * @return
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun send(config: HttpConfig): String {
+<span class="nc" id="L471">        return fmt2String(execute(config), config.outenc())</span>
+    }
+
+    /**
+     * 璇锋眰璧勬簮鎴栨湇鍔�
+
+     * @param config        璇锋眰鍙傛暟閰嶇疆
+     * *
+     * @return                杩斿洖HttpResponse瀵硅薄
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    private fun execute(config: HttpConfig): HttpResponse {
+<span class="nc" id="L485">        create(config)//鑾峰彇閾炬帴</span>
+        val resp: HttpResponse
+<span class="nc" id="L487">        try {</span>
+            //鍒涘缓璇锋眰瀵硅薄
+<span class="nc" id="L489">            val request = getRequest(config.url(), config.method())</span>
+
+            //璁剧疆header淇℃伅
+<span class="nc" id="L492">            request.setHeaders(config.headers())</span>
+
+            //鍒ゆ柇鏄惁鏀寔璁剧疆entity(浠匟ttpPost銆丠ttpPut銆丠ttpPatch鏀寔)
+<span class="nc bnc" id="L495" title="All 2 branches missed.">            if (HttpEntityEnclosingRequestBase::class.java.isAssignableFrom(request.javaClass)) {</span>
+<span class="nc" id="L496">                val nvps = ArrayList&lt;NameValuePair&gt;()</span>
+
+                //妫�娴媢rl涓槸鍚﹀瓨鍦ㄥ弬鏁�
+<span class="nc" id="L499">                config.url(Utils.checkHasParas(config.url()))</span>
+
+                //瑁呭～鍙傛暟
+<span class="nc" id="L502">                val entity = Utils.map2HttpEntity(config.map(), config.inenc())</span>
+
+                //璁剧疆鍙傛暟鍒拌姹傚璞′腑
+<span class="nc bnc" id="L505" title="All 2 branches missed.">                (request as HttpEntityEnclosingRequestBase).entity = entity</span>
+
+<span class="nc" id="L507">                LogUtil.i(javaClass,&quot;璇锋眰鍦板潃锛�&quot; + config.url())</span>
+<span class="nc bnc" id="L508" title="All 2 branches missed.">                if (nvps.size &gt; 0) {</span>
+<span class="nc" id="L509">                    LogUtil.i(javaClass,&quot;璇锋眰鍙傛暟锛�&quot; + nvps.toString())</span>
+                }
+<span class="nc bnc" id="L511" title="All 2 branches missed.">                if (config.json() != null) {</span>
+<span class="nc" id="L512">                    LogUtil.i(javaClass,&quot;璇锋眰鍙傛暟锛�&quot; + config.json())</span>
+                }
+            } else {
+<span class="nc" id="L515">                val idx = config.url().indexOf(&quot;?&quot;)</span>
+<span class="nc bnc" id="L516" title="All 4 branches missed.">                LogUtil.i(javaClass,&quot;璇锋眰鍦板潃锛�&quot; + config.url().substring(0, if (idx &gt; 0) idx else config.url().length))</span>
+<span class="nc bnc" id="L517" title="All 2 branches missed.">                if (idx &gt; 0) {</span>
+<span class="nc bnc" id="L518" title="All 2 branches missed.">                    LogUtil.i(javaClass,&quot;璇锋眰鍙傛暟锛�&quot; + config.url().substring(idx + 1))</span>
+                }
+            }
+            //鎵ц璇锋眰鎿嶄綔锛屽苟鎷垮埌缁撴灉锛堝悓姝ラ樆濉烇級
+<span class="nc bnc" id="L522" title="All 6 branches missed.">            resp = if (config.context() == null) config.client()!!.execute(request) else config.client()!!.execute(request, config.context())</span>
+
+<span class="nc bnc" id="L524" title="All 2 branches missed.">            if (config.sReturnRespHeaders) {</span>
+                //鑾峰彇鎵�鏈塺esponse鐨刪eader淇℃伅
+<span class="nc" id="L526">                config.headers(resp.allHeaders)</span>
+            }
+
+            //鑾峰彇缁撴灉瀹炰綋
+<span class="nc" id="L530">            return resp</span>
+
+<span class="nc" id="L532">        } catch (e: IOException) {</span>
+<span class="nc" id="L533">            throw HttpProcessException(e)</span>
+        }
+
+    }
+
+    /**
+     * 杞寲涓哄瓧绗︿覆
+
+     * @param resp            鍝嶅簲瀵硅薄
+     * *
+     * @param encoding    缂栫爜
+     * *
+     * @return
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    private fun fmt2String(resp: HttpResponse, encoding: String): String {
+        val body : String
+<span class="nc" id="L552">        try {</span>
+<span class="nc bnc" id="L553" title="All 2 branches missed.">            if (resp.entity != null) {</span>
+                // 鎸夋寚瀹氱紪鐮佽浆鎹㈢粨鏋滃疄浣撲负String绫诲瀷
+<span class="nc" id="L555">                body = EntityUtils.toString(resp.entity, encoding)</span>
+<span class="nc" id="L556">                LogUtil.i(javaClass, body)</span>
+            } else {//鏈夊彲鑳芥槸head璇锋眰
+<span class="nc" id="L558">                body = resp.statusLine.toString()</span>
+            }
+<span class="nc" id="L560">            EntityUtils.consume(resp.entity)</span>
+<span class="nc" id="L561">        } catch (e: IOException) {</span>
+<span class="nc" id="L562">            throw HttpProcessException(e)</span>
+        } finally {
+<span class="nc" id="L564">            close(resp)</span>
+        }
+<span class="nc" id="L566">        return body</span>
+    }
+
+    /**
+     * 杞寲涓烘暟瀛�
+
+     * @param resp            鍝嶅簲瀵硅薄
+     * *
+     * @return
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    private fun fmt2Int(resp: HttpResponse): Int {
+        val statusCode: Int
+<span class="nc" id="L581">        try {</span>
+<span class="nc" id="L582">            statusCode = resp.statusLine.statusCode</span>
+<span class="nc" id="L583">            EntityUtils.consume(resp.entity)</span>
+<span class="nc" id="L584">        } catch (e: IOException) {</span>
+<span class="nc" id="L585">            throw HttpProcessException(e)</span>
+        } finally {
+<span class="nc" id="L587">            close(resp)</span>
+        }
+<span class="nc" id="L589">        return statusCode</span>
+    }
+
+    /**
+     * 杞寲涓烘祦
+
+     * @param resp            鍝嶅簲瀵硅薄
+     * *
+     * @param out                杈撳嚭娴�
+     * *
+     * @return
+     * *
+     * @throws HttpProcessException
+     */
+    @Throws(HttpProcessException::class)
+    fun fmt2Stream(resp: HttpResponse, out: OutputStream): OutputStream {
+<span class="nc" id="L605">        try {</span>
+<span class="nc" id="L606">            resp.entity.writeTo(out)</span>
+<span class="nc" id="L607">            EntityUtils.consume(resp.entity)</span>
+<span class="nc" id="L608">        } catch (e: IOException) {</span>
+<span class="nc" id="L609">            throw HttpProcessException(e)</span>
+        } finally {
+<span class="nc" id="L611">            close(resp)</span>
+        }
+<span class="nc" id="L613">        return out</span>
+    }
+
+    /**
+     * 鏍规嵁璇锋眰鏂规硶鍚嶏紝鑾峰彇request瀵硅薄
+
+     * @param url                    璧勬簮鍦板潃
+     * *
+     * @param method            璇锋眰鏂瑰紡
+     * *
+     * @return
+     */
+    private fun getRequest(url: String, method: HttpMethods): HttpRequestBase {
+        val request: HttpRequestBase
+<span class="nc bnc" id="L627" title="All 9 branches missed.">        when (method.code) {</span>
+            0// HttpGet
+<span class="nc" id="L629">            -&gt; request = HttpGet(url)</span>
+            1// HttpPost
+<span class="nc" id="L631">            -&gt; request = HttpPost(url)</span>
+            2// HttpHead
+<span class="nc" id="L633">            -&gt; request = HttpHead(url)</span>
+            3// HttpPut
+<span class="nc" id="L635">            -&gt; request = HttpPut(url)</span>
+            4// HttpDelete
+<span class="nc" id="L637">            -&gt; request = HttpDelete(url)</span>
+            5// HttpTrace
+<span class="nc" id="L639">            -&gt; request = HttpTrace(url)</span>
+            6// HttpPatch
+<span class="nc" id="L641">            -&gt; request = HttpPatch(url)</span>
+            7// HttpOptions
+<span class="nc" id="L643">            -&gt; request = HttpOptions(url)</span>
+<span class="nc" id="L644">            else -&gt; request = HttpPost(url)</span>
+        }
+<span class="nc" id="L646">        return request</span>
+    }
+
+    /**
+     * 灏濊瘯鍏抽棴response
+
+     * @param resp                HttpResponse瀵硅薄
+     */
+    private fun close(resp: HttpResponse?) {
+<span class="nc" id="L655">        try {</span>
+<span class="nc bnc" id="L656" title="All 2 branches missed.">            if (resp == null) return</span>
+            //濡傛灉CloseableHttpResponse 鏄痳esp鐨勭埗绫伙紝鍒欐敮鎸佸叧闂�
+<span class="nc bnc" id="L658" title="All 2 branches missed.">            if (CloseableHttpResponse::class.java.isAssignableFrom(resp.javaClass)) {</span>
+<span class="nc" id="L659">                (resp as CloseableHttpResponse).close()</span>
+            }
+<span class="nc" id="L661">        } catch (e: IOException) {</span>
+<span class="nc" id="L662">            LogUtil.e(javaClass, e.message.toString())</span>
+        }
+<span class="nc" id="L664">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

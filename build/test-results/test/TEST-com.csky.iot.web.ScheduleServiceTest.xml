@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.csky.iot.web.ScheduleServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2017-12-21T08:25:42" hostname="DESKTOP-VG0BHG9" time="0.191">
+  <properties/>
+  <testcase name="pollingAndPubAliyunMsgTest1" classname="com.csky.iot.web.ScheduleServiceTest" time="0.042"/>
+  <testcase name="pollingAndPubAliyunMsgTest2" classname="com.csky.iot.web.ScheduleServiceTest" time="0.063"/>
+  <testcase name="disableDeviceTest1" classname="com.csky.iot.web.ScheduleServiceTest" time="0.022"/>
+  <testcase name="pollingAndPubOnenetMsgTest1" classname="com.csky.iot.web.ScheduleServiceTest" time="0.028"/>
+  <testcase name="pollingAndPubOnenetMsgTest2" classname="com.csky.iot.web.ScheduleServiceTest" time="0.026"/>
+  <system-out><![CDATA[2017-12-21 16:25:42.754 [Test worker] INFO  o.s.b.t.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.csky.iot.web.ScheduleServiceTest], using SpringBootContextLoader
+2017-12-21 16:25:42.756 [Test worker] INFO  o.s.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.csky.iot.web.ScheduleServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2017-12-21 16:25:42.775 [Test worker] INFO  o.s.b.t.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener]
+2017-12-21 16:25:42.782 [Test worker] INFO  o.s.b.t.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5879b642, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4188a9e5, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@29814c63, org.springframework.test.context.support.DirtiesContextTestExecutionListener@81cc961, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1d42b586, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1901f04a, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3ac0555d, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@54f9d4a5, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5c1fa539, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4a0a9d50, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@72d843f1, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@689efdf3]
+2017-12-21 16:25:42.819 [Test worker] INFO  o.s.b.test.mock.web.SpringBootMockServletContext - Initializing Spring FrameworkServlet ''
+2017-12-21 16:25:42.826 [Test worker] INFO  o.s.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2017-12-21 16:25:42.841 [Test worker] INFO  o.s.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 14 ms
+2017-12-21 16:25:42.863 [Test worker] INFO  o.s.b.test.mock.web.SpringBootMockServletContext - Initializing Spring FrameworkServlet ''
+2017-12-21 16:25:42.864 [Test worker] INFO  o.s.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2017-12-21 16:25:42.873 [Test worker] INFO  o.s.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 9 ms
+2017-12-21 16:25:42.915 [Test worker] INFO  com.csky.iot.console.service.ScheduleService - {"msgType":"status","payload":{"status":"offline"}}
+2017-12-21 16:25:42.927 [Test worker] INFO  o.s.b.test.mock.web.SpringBootMockServletContext - Initializing Spring FrameworkServlet ''
+2017-12-21 16:25:42.928 [Test worker] INFO  o.s.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2017-12-21 16:25:42.936 [Test worker] INFO  o.s.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 8 ms
+2017-12-21 16:25:42.939 [Test worker] INFO  com.csky.iot.console.service.ScheduleService - devices are all released
+2017-12-21 16:25:42.954 [Test worker] INFO  o.s.b.test.mock.web.SpringBootMockServletContext - Initializing Spring FrameworkServlet ''
+2017-12-21 16:25:42.954 [Test worker] INFO  o.s.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2017-12-21 16:25:42.964 [Test worker] INFO  o.s.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 10 ms
+2017-12-21 16:25:42.983 [Test worker] INFO  o.s.b.test.mock.web.SpringBootMockServletContext - Initializing Spring FrameworkServlet ''
+2017-12-21 16:25:42.984 [Test worker] INFO  o.s.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2017-12-21 16:25:42.993 [Test worker] INFO  o.s.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 9 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

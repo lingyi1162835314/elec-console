@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SecureUtils.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cop-console</a> &gt; <a href="index.source.html" class="el_package">com.aliyun.iot.util</a> &gt; <span class="el_source">SecureUtils.java</span></div><h1>SecureUtils.java</h1><pre class="source lang-java linenums">package com.aliyun.iot.util;
+
+import javax.crypto.Cipher;
+import javax.crypto.Mac;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+
+
+/**
+ * Created by Gary on 14-5-10.
+ */
+
+<span class="nc" id="L14">public class SecureUtils {</span>
+    
+
+    private static byte toByte(char c) {
+
+<span class="nc" id="L19">        return (byte) &quot;0123456789abcdef&quot;.indexOf(c);</span>
+    }
+
+    public static byte[] hexStringToByte(String hex) {
+
+<span class="nc" id="L24">        int len = (hex.length() / 2);</span>
+<span class="nc" id="L25">        byte[] result = new byte[len];</span>
+<span class="nc" id="L26">        char[] achar = hex.toCharArray();</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        for (int i = 0; i &lt; len; i++) {</span>
+<span class="nc" id="L28">            int pos = i * 2;</span>
+<span class="nc" id="L29">            result[i] = (byte) (toByte(achar[pos]) &lt;&lt; 4 | toByte(achar[pos + 1]));</span>
+        }
+<span class="nc" id="L31">        return result;</span>
+    }
+
+    public static final String bytesToHexString(byte[] bArray) {
+
+<span class="nc" id="L36">        StringBuffer sb = new StringBuffer(bArray.length);</span>
+        String sTemp;
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        for (int i = 0; i &lt; bArray.length; i++) {</span>
+<span class="nc" id="L39">            sTemp = Integer.toHexString(0xFF &amp; bArray[i]);</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">            if (sTemp.length() &lt; 2) {</span>
+<span class="nc" id="L41">                sb.append(0);</span>
+            }
+<span class="nc" id="L43">            sb.append(sTemp);</span>
+        }
+<span class="nc" id="L45">        return sb.toString();</span>
+    }
+
+   
+
+    private static byte[] doAes(byte[] byteData, byte[] strKey, int opmode,
+                                String algorithm) throws Exception {
+
+<span class="nc" id="L53">        Cipher cipher = null;</span>
+<span class="nc" id="L54">        SecretKeySpec aesKey = new SecretKeySpec(strKey, &quot;AES&quot;);</span>
+<span class="nc" id="L55">        cipher = Cipher.getInstance(algorithm);</span>
+<span class="nc" id="L56">        IvParameterSpec iv = null;</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">        if (algorithm.toLowerCase().contains(&quot;cbc&quot;)) {</span>
+<span class="nc" id="L58">            iv = new IvParameterSpec(new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,</span>
+                                                  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 });
+        }
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        if (algorithm.toLowerCase().contains(&quot;cbc/nopadding&quot;)) {</span>
+<span class="nc" id="L62">            int len = byteData.length;</span>
+            /* 璁＄畻琛�0鍚庣殑闀垮害 */
+<span class="nc bnc" id="L64" title="All 2 branches missed.">            while (len % 16 != 0) {</span>
+<span class="nc" id="L65">                len++;</span>
+            }
+<span class="nc" id="L67">            byte[] sraw = new byte[len];</span>
+            /* 鍦ㄦ渶鍚庤ˉ0 */
+<span class="nc bnc" id="L69" title="All 2 branches missed.">            for (int i = 0; i &lt; len; ++i) {</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">                if (i &lt; byteData.length) {</span>
+<span class="nc" id="L71">                    sraw[i] = byteData[i];</span>
+                } else {
+<span class="nc" id="L73">                    sraw[i] = 0;</span>
+                }
+            }
+<span class="nc" id="L76">            byteData = sraw;</span>
+        }
+<span class="nc" id="L78">        cipher.init(opmode, aesKey, iv);</span>
+<span class="nc" id="L79">        return cipher.doFinal(byteData);</span>
+    }
+
+    //AES瀵嗘枃瑙ｅ瘑
+    public static byte[] aesDecrypt(byte[] byteMi, byte[] strKey, String algorithm) {
+        try {
+<span class="nc" id="L85">            return doAes(byteMi, strKey, Cipher.DECRYPT_MODE, algorithm);</span>
+<span class="nc" id="L86">        } catch (Exception e) {</span>
+<span class="nc" id="L87">            e.printStackTrace();</span>
+        }
+<span class="nc" id="L89">        return null;</span>
+    }
+
+    //AES瀵嗘枃鍔犲瘑
+    public static byte[] aesEncrypt(byte[] byteMi, byte[] strKey, String algorithm) {
+
+        try {
+<span class="nc" id="L96">            return doAes(byteMi, strKey, Cipher.ENCRYPT_MODE, algorithm);</span>
+<span class="nc" id="L97">        } catch (Exception e) {</span>
+<span class="nc" id="L98">            e.printStackTrace();</span>
+        }
+<span class="nc" id="L100">        return null;</span>
+    }
+
+    
+    
+    /** 
+     * HMAC鍔犲瘑 
+     *  
+     * @param data 
+     * @param key 
+     * @return 
+     * @throws Exception 
+     */
+    public static String encryptHMAC(String signMethod,byte[] content, byte[] key){
+        try {
+<span class="nc" id="L115">            SecretKey secretKey = new SecretKeySpec(key, signMethod);</span>
+<span class="nc" id="L116">            Mac mac = Mac.getInstance(secretKey.getAlgorithm());</span>
+<span class="nc" id="L117">            mac.init(secretKey);</span>
+<span class="nc" id="L118">            byte[] data = mac.doFinal(content);</span>
+<span class="nc" id="L119">            return bytesToHexString(data);</span>
+<span class="nc" id="L120">        } catch (Exception e) {</span>
+<span class="nc" id="L121">            e.printStackTrace();</span>
+        }
+<span class="nc" id="L123">        return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

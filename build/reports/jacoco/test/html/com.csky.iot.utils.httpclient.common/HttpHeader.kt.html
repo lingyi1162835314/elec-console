@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HttpHeader.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cop-console</a> &gt; <a href="index.source.html" class="el_package">com.csky.iot.utils.httpclient.common</a> &gt; <span class="el_source">HttpHeader.kt</span></div><h1>HttpHeader.kt</h1><pre class="source lang-java linenums">package com.csky.iot.utils.httpclient.common
+
+import org.apache.http.Consts
+import org.apache.http.Header
+import org.apache.http.message.BasicHeader
+import java.util.HashMap
+
+
+<span class="nc" id="L9">class HttpHeader private constructor() {</span>
+
+    //璁板綍head澶翠俊鎭�
+<span class="nc" id="L12">    private var headerMaps: MutableMap&lt;String, Header&gt;? = mutableMapOf&lt;String, Header&gt;()</span>
+
+    /**
+     * 鎸囧畾瀹㈡埛绔兘澶熸帴鏀剁殑鍐呭绫诲瀷
+     * 渚嬪锛欰ccept: text/plain, text/html
+
+     * @param key,value
+     */
+    fun other(key: String, value: String): HttpHeader {
+<span class="nc bnc" id="L21" title="All 2 branches missed.">        headerMaps!!.put(key, BasicHeader(key, value))</span>
+<span class="nc" id="L22">        return this</span>
+    }
+
+    /**
+     * 鎸囧畾瀹㈡埛绔兘澶熸帴鏀剁殑鍐呭绫诲瀷
+     * 渚嬪锛欰ccept: text/plain, text/html
+
+     * @param accept
+     */
+    fun accept(accept: String): HttpHeader {
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.ACCEPT, BasicHeader(HttpReqHead.ACCEPT, accept))</span>
+<span class="nc" id="L33">        return this</span>
+    }
+
+    /**
+     * 娴忚鍣ㄥ彲浠ユ帴鍙楃殑瀛楃缂栫爜闆�
+     * 渚嬪锛欰ccept-Charset: iso-8859-5
+
+     * @param acceptCharset
+     */
+    fun acceptCharset(acceptCharset: String): HttpHeader {
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.ACCEPT_CHARSET, BasicHeader(HttpReqHead.ACCEPT_CHARSET, acceptCharset))</span>
+<span class="nc" id="L44">        return this</span>
+    }
+
+    /**
+     * 鎸囧畾娴忚鍣ㄥ彲浠ユ敮鎸佺殑web鏈嶅姟鍣ㄨ繑鍥炲唴瀹瑰帇缂╃紪鐮佺被鍨�
+     * 渚嬪锛欰ccept-Encoding: compress, gzip
+
+     * @param acceptEncoding
+     */
+    fun acceptEncoding(acceptEncoding: String): HttpHeader {
+<span class="nc bnc" id="L54" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.ACCEPT_ENCODING, BasicHeader(HttpReqHead.ACCEPT_ENCODING, acceptEncoding))</span>
+<span class="nc" id="L55">        return this</span>
+    }
+
+    /**
+     * 娴忚鍣ㄥ彲鎺ュ彈鐨勮瑷�
+     * 渚嬪锛欰ccept-Language: en,zh
+
+     * @param acceptLanguage
+     */
+    fun acceptLanguage(acceptLanguage: String): HttpHeader {
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.ACCEPT_LANGUAGE, BasicHeader(HttpReqHead.ACCEPT_LANGUAGE, acceptLanguage))</span>
+<span class="nc" id="L66">        return this</span>
+    }
+
+    /**
+     * 鍙互璇锋眰缃戦〉瀹炰綋鐨勪竴涓垨鑰呭涓瓙鑼冨洿瀛楁
+     * 渚嬪锛欰ccept-Ranges: bytes
+
+     * @param acceptRanges
+     */
+    fun acceptRanges(acceptRanges: String): HttpHeader {
+<span class="nc bnc" id="L76" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.ACCEPT_RANGES, BasicHeader(HttpReqHead.ACCEPT_RANGES, acceptRanges))</span>
+<span class="nc" id="L77">        return this</span>
+    }
+
+    /**
+     * HTTP鎺堟潈鐨勬巿鏉冭瘉涔�
+     * 渚嬪锛欰uthorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+
+     * @param authorization
+     */
+    fun authorization(authorization: String): HttpHeader {
+<span class="nc bnc" id="L87" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.AUTHORIZATION, BasicHeader(HttpReqHead.AUTHORIZATION, authorization))</span>
+<span class="nc" id="L88">        return this</span>
+    }
+
+    /**
+     * 鎸囧畾璇锋眰鍜屽搷搴旈伒寰殑缂撳瓨鏈哄埗
+     * 渚嬪锛欳ache-Control: no-cache
+
+     * @param cacheControl
+     */
+    fun cacheControl(cacheControl: String): HttpHeader {
+<span class="nc bnc" id="L98" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.CACHE_CONTROL, BasicHeader(HttpReqHead.CACHE_CONTROL, cacheControl))</span>
+<span class="nc" id="L99">        return this</span>
+    }
+
+    /**
+     * 琛ㄧず鏄惁闇�瑕佹寔涔呰繛鎺ワ紙HTTP 1.1榛樿杩涜鎸佷箙杩炴帴锛�
+     * 渚嬪锛欳onnection: close 鐭摼鎺ワ紱 Connection: keep-alive 闀胯繛鎺�
+
+     * @param connection
+     * *
+     * @return
+     */
+    fun connection(connection: String): HttpHeader {
+<span class="nc bnc" id="L111" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.CONNECTION, BasicHeader(HttpReqHead.CONNECTION, connection))</span>
+<span class="nc" id="L112">        return this</span>
+    }
+
+    /**
+     * HTTP璇锋眰鍙戦�佹椂锛屼細鎶婁繚瀛樺湪璇ヨ姹傚煙鍚嶄笅鐨勬墍鏈塩ookie鍊间竴璧峰彂閫佺粰web鏈嶅姟鍣�
+     * 渚嬪锛欳ookie: $Version=1; Skin=new;
+
+     * @param cookie
+     */
+    fun cookie(cookie: String): HttpHeader {
+<span class="nc bnc" id="L122" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.COOKIE, BasicHeader(HttpReqHead.COOKIE, cookie))</span>
+<span class="nc" id="L123">        return this</span>
+    }
+
+    /**
+     * 璇锋眰鍐呭闀垮害
+     * 渚嬪锛欳ontent-Length: 348
+
+     * @param contentLength
+     */
+    fun contentLength(contentLength: String): HttpHeader {
+<span class="nc bnc" id="L133" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.CONTENT_LENGTH, BasicHeader(HttpReqHead.CONTENT_LENGTH, contentLength))</span>
+<span class="nc" id="L134">        return this</span>
+    }
+
+    /**
+     * 璇锋眰鐨勪笌瀹炰綋瀵瑰簲鐨凪IME淇℃伅
+     * 渚嬪锛欳ontent-Type: application/x-www-form-urlencoded
+
+     * @param contentType
+     */
+    fun contentType(contentType: String): HttpHeader {
+<span class="nc bnc" id="L144" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.CONTENT_TYPE, BasicHeader(HttpReqHead.CONTENT_TYPE, contentType))</span>
+<span class="nc" id="L145">        return this</span>
+    }
+
+    /**
+     * 璇锋眰鍙戦�佺殑鏃ユ湡鍜屾椂闂�
+     * 渚嬪锛欴ate: Tue, 15 Nov 2010 08:12:31 GMT
+
+     * @param date
+     * *
+     * @return
+     */
+    fun date(date: String): HttpHeader {
+<span class="nc bnc" id="L157" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.DATE, BasicHeader(HttpReqHead.DATE, date))</span>
+<span class="nc" id="L158">        return this</span>
+    }
+
+    /**
+     * 璇锋眰鐨勭壒瀹氱殑鏈嶅姟鍣ㄨ涓�
+     * 渚嬪锛欵xpect: 100-continue
+
+     * @param expect
+     */
+    fun expect(expect: String): HttpHeader {
+<span class="nc bnc" id="L168" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.EXPECT, BasicHeader(HttpReqHead.EXPECT, expect))</span>
+<span class="nc" id="L169">        return this</span>
+    }
+
+    /**
+     * 鍙戝嚭璇锋眰鐨勭敤鎴风殑Email
+     * 渚嬪锛欶rom: user@email.com
+
+     * @param from
+     */
+    fun from(from: String): HttpHeader {
+<span class="nc bnc" id="L179" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.FROM, BasicHeader(HttpReqHead.FROM, from))</span>
+<span class="nc" id="L180">        return this</span>
+    }
+
+    /**
+     * 鎸囧畾璇锋眰鐨勬湇鍔″櫒鐨勫煙鍚嶅拰绔彛鍙�
+     * 渚嬪锛欻ost: blog.csdn.net
+
+     * @param host
+     * *
+     * @return
+     */
+    fun host(host: String): HttpHeader {
+<span class="nc bnc" id="L192" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.HOST, BasicHeader(HttpReqHead.HOST, host))</span>
+<span class="nc" id="L193">        return this</span>
+    }
+
+    /**
+     * 鍙湁璇锋眰鍐呭涓庡疄浣撶浉鍖归厤鎵嶆湁鏁�
+     * 渚嬪锛欼f-Match: 鈥�737060cd8c284d8af7ad3082f209582d鈥�
+
+     * @param ifMatch
+     * *
+     * @return
+     */
+    fun ifMatch(ifMatch: String): HttpHeader {
+<span class="nc bnc" id="L205" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.IF_MATCH, BasicHeader(HttpReqHead.IF_MATCH, ifMatch))</span>
+<span class="nc" id="L206">        return this</span>
+    }
+
+    /**
+     * 濡傛灉璇锋眰鐨勯儴鍒嗗湪鎸囧畾鏃堕棿涔嬪悗琚慨鏀瑰垯璇锋眰鎴愬姛锛屾湭琚慨鏀瑰垯杩斿洖304浠ｇ爜
+     * 渚嬪锛欼f-Modified-Since: Sat, 29 Oct 2010 19:43:31 GMT
+
+     * @param ifModifiedSince
+     * *
+     * @return
+     */
+    fun ifModifiedSince(ifModifiedSince: String): HttpHeader {
+<span class="nc bnc" id="L218" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.IF_MODIFIED_SINCE, BasicHeader(HttpReqHead.IF_MODIFIED_SINCE, ifModifiedSince))</span>
+<span class="nc" id="L219">        return this</span>
+    }
+
+    /**
+     * 濡傛灉鍐呭鏈敼鍙樿繑鍥�304浠ｇ爜锛屽弬鏁颁负鏈嶅姟鍣ㄥ厛鍓嶅彂閫佺殑Etag锛屼笌鏈嶅姟鍣ㄥ洖搴旂殑Etag姣旇緝鍒ゆ柇鏄惁鏀瑰彉
+     * 渚嬪锛欼f-None-Match: 鈥�737060cd8c284d8af7ad3082f209582d鈥�
+
+     * @param ifNoneMatch
+     * *
+     * @return
+     */
+    fun ifNoneMatch(ifNoneMatch: String): HttpHeader {
+<span class="nc bnc" id="L231" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.IF_NONE_MATCH, BasicHeader(HttpReqHead.IF_NONE_MATCH, ifNoneMatch))</span>
+<span class="nc" id="L232">        return this</span>
+    }
+
+    /**
+     * 濡傛灉瀹炰綋鏈敼鍙橈紝鏈嶅姟鍣ㄥ彂閫佸鎴风涓㈠け鐨勯儴鍒嗭紝鍚﹀垯鍙戦�佹暣涓疄浣撱�傚弬鏁颁篃涓篍tag
+     * 渚嬪锛欼f-Range: 鈥�737060cd8c284d8af7ad3082f209582d鈥�
+
+     * @param ifRange
+     * *
+     * @return
+     */
+    fun ifRange(ifRange: String): HttpHeader {
+<span class="nc bnc" id="L244" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.IF_RANGE, BasicHeader(HttpReqHead.IF_RANGE, ifRange))</span>
+<span class="nc" id="L245">        return this</span>
+    }
+
+    /**
+     * 鍙湪瀹炰綋鍦ㄦ寚瀹氭椂闂翠箣鍚庢湭琚慨鏀规墠璇锋眰鎴愬姛
+     * 渚嬪锛欼f-Unmodified-Since: Sat, 29 Oct 2010 19:43:31 GMT
+
+     * @param ifUnmodifiedSince
+     * *
+     * @return
+     */
+    fun ifUnmodifiedSince(ifUnmodifiedSince: String): HttpHeader {
+<span class="nc bnc" id="L257" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.IF_UNMODIFIED_SINCE, BasicHeader(HttpReqHead.IF_UNMODIFIED_SINCE, ifUnmodifiedSince))</span>
+<span class="nc" id="L258">        return this</span>
+    }
+
+    /**
+     * 闄愬埗淇℃伅閫氳繃浠ｇ悊鍜岀綉鍏充紶閫佺殑鏃堕棿
+     * 渚嬪锛歁ax-Forwards: 10
+
+     * @param maxForwards
+     * *
+     * @return
+     */
+    fun maxForwards(maxForwards: String): HttpHeader {
+<span class="nc bnc" id="L270" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.MAX_FORWARDS, BasicHeader(HttpReqHead.MAX_FORWARDS, maxForwards))</span>
+<span class="nc" id="L271">        return this</span>
+    }
+
+    /**
+     * 鐢ㄦ潵鍖呭惈瀹炵幇鐗瑰畾鐨勬寚浠�
+     * 渚嬪锛歅ragma: no-cache
+
+     * @param pragma
+     * *
+     * @return
+     */
+    fun pragma(pragma: String): HttpHeader {
+<span class="nc bnc" id="L283" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.PRAGMA, BasicHeader(HttpReqHead.PRAGMA, pragma))</span>
+<span class="nc" id="L284">        return this</span>
+    }
+
+    /**
+     * 杩炴帴鍒颁唬鐞嗙殑鎺堟潈璇佷功
+     * 渚嬪锛歅roxy-Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+
+     * @param proxyAuthorization
+     */
+    fun proxyAuthorization(proxyAuthorization: String): HttpHeader {
+<span class="nc bnc" id="L294" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.PROXY_AUTHORIZATION, BasicHeader(HttpReqHead.PROXY_AUTHORIZATION, proxyAuthorization))</span>
+<span class="nc" id="L295">        return this</span>
+    }
+
+    /**
+     * 鍙姹傚疄浣撶殑涓�閮ㄥ垎锛屾寚瀹氳寖鍥�
+     * 渚嬪锛歊ange: bytes=500-999
+
+     * @param range
+     */
+    fun range(range: String): HttpHeader {
+<span class="nc bnc" id="L305" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.RANGE, BasicHeader(HttpReqHead.RANGE, range))</span>
+<span class="nc" id="L306">        return this</span>
+    }
+
+    /**
+     * 鍏堝墠缃戦〉鐨勫湴鍧�锛屽綋鍓嶈姹傜綉椤电揣闅忓叾鍚�,鍗虫潵璺�
+     * 渚嬪锛歊eferer: http://www.zcmhi.com/archives/71.html
+
+     * @param referer
+     */
+    fun referer(referer: String): HttpHeader {
+<span class="nc bnc" id="L316" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.REFERER, BasicHeader(HttpReqHead.REFERER, referer))</span>
+<span class="nc" id="L317">        return this</span>
+    }
+
+    /**
+     * 瀹㈡埛绔効鎰忔帴鍙楃殑浼犺緭缂栫爜锛屽苟閫氱煡鏈嶅姟鍣ㄦ帴鍙楁帴鍙楀熬鍔犲ご淇℃伅
+     * 渚嬪锛歍E: trailers,deflate;q=0.5
+
+     * @param te
+     */
+    fun te(te: String): HttpHeader {
+<span class="nc bnc" id="L327" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.TE, BasicHeader(HttpReqHead.TE, te))</span>
+<span class="nc" id="L328">        return this</span>
+    }
+
+    /**
+     * 鍚戞湇鍔″櫒鎸囧畾鏌愮浼犺緭鍗忚浠ヤ究鏈嶅姟鍣ㄨ繘琛岃浆鎹紙濡傛灉鏀寔锛�
+     * 渚嬪锛歎pgrade: HTTP/2.0, SHTTP/1.3, IRC/6.9, RTA/x11
+
+     * @param upgrade
+     */
+    fun upgrade(upgrade: String): HttpHeader {
+<span class="nc bnc" id="L338" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.UPGRADE, BasicHeader(HttpReqHead.UPGRADE, upgrade))</span>
+<span class="nc" id="L339">        return this</span>
+    }
+
+    /**
+     * User-Agent鐨勫唴瀹瑰寘鍚彂鍑鸿姹傜殑鐢ㄦ埛淇℃伅
+
+     * @param userAgent
+     * *
+     * @return
+     */
+    fun userAgent(userAgent: String): HttpHeader {
+<span class="nc bnc" id="L350" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.USER_AGENT, BasicHeader(HttpReqHead.USER_AGENT, userAgent))</span>
+<span class="nc" id="L351">        return this</span>
+    }
+
+    /**
+     * 鍏充簬娑堟伅瀹炰綋鐨勮鍛婁俊鎭�
+     * 渚嬪锛歐arn: 199 Miscellaneous warning
+
+     * @param warning
+     * *
+     * @return
+     */
+    fun warning(warning: String): HttpHeader {
+<span class="nc bnc" id="L363" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.WARNING, BasicHeader(HttpReqHead.WARNING, warning))</span>
+<span class="nc" id="L364">        return this</span>
+    }
+
+    /**
+     * 閫氱煡涓棿缃戝叧鎴栦唬鐞嗘湇鍔″櫒鍦板潃锛岄�氫俊鍗忚
+     * 渚嬪锛歏ia: 1.0 fred, 1.1 nowhere.com (Apache/1.1)
+
+     * @param via
+     * *
+     * @return
+     */
+    fun via(via: String): HttpHeader {
+<span class="nc bnc" id="L376" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.VIA, BasicHeader(HttpReqHead.VIA, via))</span>
+<span class="nc" id="L377">        return this</span>
+    }
+
+    /**
+     * 璁剧疆姝TTP杩炴帴鐨勬寔缁椂闂达紙瓒呮椂鏃堕棿锛�
+     * 渚嬪锛欿eep-Alive: 300
+
+     * @param keepAlive
+     * *
+     * @return
+     */
+    fun keepAlive(keepAlive: String): HttpHeader {
+<span class="nc bnc" id="L389" title="All 2 branches missed.">        headerMaps!!.put(HttpReqHead.KEEP_ALIVE, BasicHeader(HttpReqHead.KEEP_ALIVE, keepAlive))</span>
+<span class="nc" id="L390">        return this</span>
+    }
+
+    fun accept(): String? {
+<span class="nc" id="L394">        return get(HttpReqHead.ACCEPT)</span>
+    }
+
+    fun acceptCharset(): String? {
+<span class="nc" id="L398">        return get(HttpReqHead.ACCEPT_CHARSET)</span>
+    }
+
+    fun acceptEncoding(): String? {
+<span class="nc" id="L402">        return get(HttpReqHead.ACCEPT_ENCODING)</span>
+    }
+
+    fun acceptLanguage(): String? {
+<span class="nc" id="L406">        return get(HttpReqHead.ACCEPT_LANGUAGE)</span>
+    }
+
+    fun acceptRanges(): String? {
+<span class="nc" id="L410">        return get(HttpReqHead.ACCEPT_RANGES)</span>
+    }
+
+    fun authorization(): String? {
+<span class="nc" id="L414">        return get(HttpReqHead.AUTHORIZATION)</span>
+    }
+
+    fun cacheControl(): String? {
+<span class="nc" id="L418">        return get(HttpReqHead.CACHE_CONTROL)</span>
+    }
+
+    fun connection(): String? {
+<span class="nc" id="L422">        return get(HttpReqHead.CONNECTION)</span>
+    }
+
+    fun contentLength(): String? {
+<span class="nc" id="L426">        return get(HttpReqHead.CONTENT_LENGTH)</span>
+    }
+
+    fun contentType(): String? {
+<span class="nc" id="L430">        return get(HttpReqHead.CONTENT_TYPE)</span>
+    }
+
+    fun maxForwards(): String? {
+<span class="nc" id="L434">        return get(HttpReqHead.MAX_FORWARDS)</span>
+    }
+
+    fun pragma(): String? {
+<span class="nc" id="L438">        return get(HttpReqHead.PRAGMA)</span>
+    }
+
+    fun proxyAuthorization(): String? {
+<span class="nc" id="L442">        return get(HttpReqHead.PROXY_AUTHORIZATION)</span>
+    }
+
+    fun referer(): String? {
+<span class="nc" id="L446">        return get(HttpReqHead.REFERER)</span>
+    }
+
+    fun te(): String? {
+<span class="nc" id="L450">        return get(HttpReqHead.TE)</span>
+    }
+
+    fun upgrade(): String? {
+<span class="nc" id="L454">        return get(HttpReqHead.UPGRADE)</span>
+    }
+
+    fun userAgent(): String? {
+<span class="nc" id="L458">        return get(HttpReqHead.USER_AGENT)</span>
+    }
+
+    fun via(): String? {
+<span class="nc" id="L462">        return get(HttpReqHead.VIA)</span>
+    }
+
+    fun warning(): String? {
+<span class="nc" id="L466">        return get(HttpReqHead.WARNING)</span>
+    }
+
+    fun keepAlive(): String?{
+<span class="nc" id="L470">        return get(HttpReqHead.KEEP_ALIVE)</span>
+    }
+
+
+    /**
+     * 鑾峰彇head淇℃伅
+
+     * @return
+     */
+    private operator fun get(headName: String): String? {
+<span class="nc bnc" id="L480" title="All 4 branches missed.">        if (headerMaps!!.containsKey(headName)) {</span>
+<span class="nc bnc" id="L481" title="All 4 branches missed.">            return headerMaps!![headName]!!.value</span>
+        }
+<span class="nc" id="L483">        return null</span>
+    }
+
+    /**
+     * 杩斿洖header澶翠俊鎭�
+
+     * @return
+     */
+    fun build(): Array&lt;Header?&gt; {
+<span class="nc bnc" id="L492" title="All 2 branches missed.">        val headers = arrayOfNulls&lt;Header&gt;(headerMaps!!.size)</span>
+
+<span class="nc bnc" id="L494" title="All 4 branches missed.">        for ((i, header) in headerMaps!!.values.withIndex()) {</span>
+<span class="nc" id="L495">            headers[i] = header</span>
+        }
+//
+//        val arrayHeaders : Array&lt;Header&gt; = arrayOf(headers.size)
+//        for(i in 0..headers.size) {
+//            arrayHeaders[i] = headers[i]!!
+//        }
+<span class="nc bnc" id="L502" title="All 2 branches missed.">        headerMaps!!.clear()</span>
+<span class="nc" id="L503">        headerMaps = null</span>
+<span class="nc" id="L504">        return headers</span>
+    }
+
+    /**
+     * Http澶翠俊鎭�
+
+     * @author wangjun
+     * *
+     * @date 2017骞�11鏈�1鏃�
+     * *
+     * @version 1.0
+     */
+<span class="nc" id="L516">    private object HttpReqHead {</span>
+<span class="nc" id="L517">        val ACCEPT = &quot;Accept&quot;</span>
+<span class="nc" id="L518">        val ACCEPT_CHARSET = &quot;Accept-Charset&quot;</span>
+<span class="nc" id="L519">        val ACCEPT_ENCODING = &quot;Accept-Encoding&quot;</span>
+<span class="nc" id="L520">        val ACCEPT_LANGUAGE = &quot;Accept-Language&quot;</span>
+<span class="nc" id="L521">        val ACCEPT_RANGES = &quot;Accept-Ranges&quot;</span>
+<span class="nc" id="L522">        val AUTHORIZATION = &quot;Authorization&quot;</span>
+<span class="nc" id="L523">        val CACHE_CONTROL = &quot;Cache-Control&quot;</span>
+<span class="nc" id="L524">        val CONNECTION = &quot;Connection&quot;</span>
+<span class="nc" id="L525">        val COOKIE = &quot;Cookie&quot;</span>
+<span class="nc" id="L526">        val CONTENT_LENGTH = &quot;Content-Length&quot;</span>
+<span class="nc" id="L527">        val CONTENT_TYPE = &quot;Content-Type&quot;</span>
+<span class="nc" id="L528">        val DATE = &quot;Date&quot;</span>
+<span class="nc" id="L529">        val EXPECT = &quot;Expect&quot;</span>
+<span class="nc" id="L530">        val FROM = &quot;From&quot;</span>
+<span class="nc" id="L531">        val HOST = &quot;Host&quot;</span>
+<span class="nc" id="L532">        val IF_MATCH = &quot;If-Match &quot;</span>
+<span class="nc" id="L533">        val IF_MODIFIED_SINCE = &quot;If-Modified-Since&quot;</span>
+<span class="nc" id="L534">        val IF_NONE_MATCH = &quot;If-None-Match&quot;</span>
+<span class="nc" id="L535">        val IF_RANGE = &quot;If-Range&quot;</span>
+<span class="nc" id="L536">        val IF_UNMODIFIED_SINCE = &quot;If-Unmodified-Since&quot;</span>
+<span class="nc" id="L537">        val KEEP_ALIVE = &quot;Keep-Alive&quot;</span>
+<span class="nc" id="L538">        val MAX_FORWARDS = &quot;Max-Forwards&quot;</span>
+<span class="nc" id="L539">        val PRAGMA = &quot;Pragma&quot;</span>
+<span class="nc" id="L540">        val PROXY_AUTHORIZATION = &quot;Proxy-Authorization&quot;</span>
+<span class="nc" id="L541">        val RANGE = &quot;Range&quot;</span>
+<span class="nc" id="L542">        val REFERER = &quot;Referer&quot;</span>
+<span class="nc" id="L543">        val TE = &quot;TE&quot;</span>
+<span class="nc" id="L544">        val UPGRADE = &quot;Upgrade&quot;</span>
+<span class="nc" id="L545">        val USER_AGENT = &quot;User-Agent&quot;</span>
+<span class="nc" id="L546">        val VIA = &quot;Via&quot;</span>
+<span class="nc" id="L547">        val WARNING = &quot;Warning&quot;</span>
+    }
+
+    /**
+     * 甯哥敤澶翠俊鎭厤缃�
+
+     * @author wangjun
+     * *
+     * @date 2017骞�11鏈�18鏃�
+     * *
+     * @version 1.0
+     */
+<span class="nc" id="L559">    object Headers {</span>
+<span class="nc" id="L560">        val APP_FORM_URLENCODED = &quot;application/x-www-form-urlencoded&quot;</span>
+<span class="nc" id="L561">        val TEXT_PLAIN = &quot;text/plain&quot;</span>
+<span class="nc" id="L562">        val TEXT_HTML = &quot;text/html&quot;</span>
+<span class="nc" id="L563">        val TEXT_XML = &quot;text/xml&quot;</span>
+<span class="nc" id="L564">        val TEXT_JSON = &quot;text/json&quot;</span>
+<span class="nc" id="L565">        val CONTENT_CHARSET_ISO_8859_1 = Consts.ISO_8859_1.name()</span>
+<span class="nc" id="L566">        val CONTENT_CHARSET_UTF8 = Consts.UTF_8.name()</span>
+<span class="nc" id="L567">        val DEF_PROTOCOL_CHARSET = Consts.ASCII.name()</span>
+<span class="nc" id="L568">        val CONN_CLOSE = &quot;close&quot;</span>
+<span class="nc" id="L569">        val KEEP_ALIVE = &quot;keep-alive&quot;</span>
+<span class="nc" id="L570">        val EXPECT_CONTINUE = &quot;100-continue&quot;</span>
+    }
+
+<span class="nc" id="L573">    companion object {</span>
+
+        fun custom(): HttpHeader {
+<span class="nc" id="L576">            return HttpHeader()</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

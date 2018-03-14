@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CipherUtils.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cop-console</a> &gt; <a href="index.source.html" class="el_package">com.csky.iot.utils</a> &gt; <span class="el_source">CipherUtils.kt</span></div><h1>CipherUtils.kt</h1><pre class="source lang-java linenums">/*
+ * Copyright (C) 2017 C-SKY Microsystems Co., Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.csky.iot.utils
+
+import org.springframework.util.Base64Utils
+import java.security.KeyFactory
+import java.security.interfaces.RSAPrivateKey
+import java.security.interfaces.RSAPublicKey
+import java.security.spec.PKCS8EncodedKeySpec
+import java.security.spec.X509EncodedKeySpec
+import javax.crypto.Cipher
+import javax.crypto.Mac
+import javax.crypto.spec.IvParameterSpec
+import javax.crypto.spec.SecretKeySpec
+import java.security.Signature
+import java.util.Random
+import javax.crypto.KeyGenerator
+
+<span class="nc" id="L32">object SignUtils {</span>
+<span class="nc" id="L33">    val KEY_ALGORITHM = &quot;RSA&quot;</span>
+<span class="nc" id="L34">    val SIGNATURE_ALGORITHM = &quot;MD5withRSA&quot;</span>
+    fun RSASign(privateKey: RSAPrivateKey, data: ByteArray, signAlgorithm: String = SIGNATURE_ALGORITHM): ByteArray {
+<span class="nc" id="L36">        val signature = Signature.getInstance(signAlgorithm)</span>
+<span class="nc" id="L37">        signature.initSign(privateKey)</span>
+<span class="nc" id="L38">        signature.update(data)</span>
+<span class="nc" id="L39">        return signature.sign()</span>
+    }
+
+    fun RSAVerify(publicKey: RSAPublicKey, data: ByteArray, sign: ByteArray, signAlgorithm: String = SIGNATURE_ALGORITHM): Boolean {
+<span class="nc" id="L43">        val signature = Signature.getInstance(signAlgorithm)</span>
+<span class="nc" id="L44">        signature.initVerify(publicKey)</span>
+<span class="nc" id="L45">        signature.update(data)</span>
+<span class="nc" id="L46">        val verifyRes = signature.verify(sign)</span>
+<span class="nc" id="L47">        return verifyRes</span>
+    }
+}
+
+<span class="nc" id="L51">object RSACipher1024 {</span>
+    //鍏挜鍔犲瘑
+    fun pubkEncrypt(publicKey: RSAPublicKey, obj: ByteArray): ByteArray {
+<span class="nc" id="L54">        val cipher = Cipher.getInstance(&quot;RSA&quot;)</span>
+<span class="nc" id="L55">        cipher.init(Cipher.ENCRYPT_MODE, publicKey)</span>
+<span class="nc" id="L56">        val result = cipher.doFinal(obj)</span>
+<span class="nc" id="L57">        return result</span>
+    }
+
+    //绉侀挜鍔犲瘑
+    fun prikEncrypt(privateKey: RSAPrivateKey, obj: ByteArray): ByteArray {
+<span class="nc" id="L62">        val cipher = Cipher.getInstance(&quot;RSA&quot;)</span>
+<span class="nc" id="L63">        cipher.init(Cipher.ENCRYPT_MODE, privateKey)</span>
+<span class="nc" id="L64">        val result = cipher.doFinal(obj)</span>
+<span class="nc" id="L65">        return result</span>
+    }
+    //鍏挜瑙ｅ瘑
+    fun pubkDecrypt(publicKey: RSAPublicKey, obj: ByteArray): ByteArray {
+<span class="nc" id="L69">        val cipher = Cipher.getInstance(&quot;RSA&quot;)</span>
+<span class="nc" id="L70">        cipher.init(Cipher.DECRYPT_MODE, publicKey)</span>
+<span class="nc" id="L71">        return cipher.doFinal(obj)</span>
+    }
+    //绉侀挜瑙ｅ瘑
+    fun prikDecrypt(privateKey: RSAPrivateKey, obj: ByteArray): ByteArray {
+<span class="nc" id="L75">        val cipher = Cipher.getInstance(&quot;RSA&quot;)</span>
+<span class="nc" id="L76">        cipher.init(Cipher.DECRYPT_MODE, privateKey)</span>
+<span class="nc" id="L77">        return cipher.doFinal(obj)</span>
+    }
+
+    fun getPublicKey(strPubKey: String): RSAPublicKey {
+        //鑾峰彇鍏挜
+<span class="nc" id="L82">        val pkBytes = Base64Utils.decodeFromString(strPubKey)</span>
+<span class="nc" id="L83">        val kSpec = X509EncodedKeySpec (pkBytes)</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">        val pubKey = KeyFactory.getInstance(&quot;RSA&quot;).generatePublic(kSpec) as RSAPublicKey</span>
+<span class="nc" id="L85">        return pubKey</span>
+    }
+    fun getPrivateKey(strPriKey: String): RSAPrivateKey {
+        //鑾峰彇鍏挜
+<span class="nc" id="L89">        val pkBytes = Base64Utils.decodeFromString(strPriKey)</span>
+<span class="nc" id="L90">        val kSpec = PKCS8EncodedKeySpec (pkBytes)</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">        val priKey = KeyFactory.getInstance(&quot;RSA&quot;).generatePrivate(kSpec) as RSAPrivateKey</span>
+<span class="nc" id="L92">        return priKey</span>
+    }
+}
+
+<span class="nc" id="L96">object HmacMd5 {</span>
+    fun hmacMd5Encrypt(hmacMd5sk: ByteArray, text: ByteArray): ByteArray {
+<span class="nc" id="L98">        val sk = SecretKeySpec(hmacMd5sk,&quot;HmacMD5&quot;)</span>
+<span class="nc" id="L99">        val mac = Mac.getInstance(sk.algorithm)</span>
+<span class="nc" id="L100">        mac.init(sk)</span>
+<span class="nc" id="L101">        return mac.doFinal(text)</span>
+    }
+}
+
+<span class="nc" id="L105">object AES128CBC {</span>
+    fun encrypt(sessionKey: ByteArray, data: ByteArray, paddingType: String = &quot;PKCS5Padding&quot;): ByteArray {
+<span class="nc" id="L107">        val key = sessionKey.dropLast(16)</span>
+<span class="nc" id="L108">        val IV = sessionKey.drop(16)</span>
+<span class="nc" id="L109">        val skeySpec = SecretKeySpec(key.toByteArray(), &quot;AES&quot;)</span>
+<span class="nc" id="L110">        val cipher = Cipher.getInstance(&quot;AES/CBC/$paddingType&quot;)//&quot;绠楁硶/妯″紡/琛ョ爜鏂瑰紡&quot;</span>
+<span class="nc" id="L111">        cipher.init(Cipher.ENCRYPT_MODE, skeySpec,IvParameterSpec(IV.toByteArray()))</span>
+<span class="nc" id="L112">        val result = cipher.doFinal(data)</span>
+<span class="nc" id="L113">        return result</span>
+    }
+
+    fun decrypt(sessionKey: ByteArray, data: ByteArray, paddingType: String = &quot;PKCS5Padding&quot;): ByteArray {
+<span class="nc" id="L117">        val key = sessionKey.dropLast(16)</span>
+<span class="nc" id="L118">        val IV = sessionKey.drop(16)</span>
+<span class="nc" id="L119">        val skeySpec = SecretKeySpec(key.toByteArray(), &quot;AES&quot;)</span>
+<span class="nc" id="L120">        val cipher = Cipher.getInstance(&quot;AES/CBC/$paddingType&quot;) ///////////////////////////////</span>
+<span class="nc" id="L121">        cipher.init(Cipher.DECRYPT_MODE, skeySpec,IvParameterSpec(IV.toByteArray()))</span>
+<span class="nc" id="L122">        val result = cipher.doFinal(data)</span>
+<span class="nc" id="L123">        return result</span>
+    }
+
+    fun getAESKey(keyLength: Int): ByteArray {
+<span class="nc" id="L127">        val kg = KeyGenerator.getInstance(&quot;AES&quot;)</span>
+<span class="nc" id="L128">        kg.init(keyLength)</span>
+<span class="nc" id="L129">        val sk = kg.generateKey()</span>
+<span class="nc" id="L130">        return sk.encoded</span>
+    }
+}
+
+<span class="nc" id="L134">object IntToByteArray {</span>
+    fun intToBytes(value: Int): ByteArray {
+<span class="nc" id="L136">        val src = ByteArray(4)</span>
+<span class="nc" id="L137">        src[3] = (value shr 24 and 0xFF).toByte()</span>
+<span class="nc" id="L138">        src[2] = (value shr 16 and 0xFF).toByte()</span>
+<span class="nc" id="L139">        src[1] = (value shr 8 and 0xFF).toByte()</span>
+<span class="nc" id="L140">        src[0] = (value and 0xFF).toByte()</span>
+<span class="nc" id="L141">        return src</span>
+    }
+}
+
+<span class="nc" id="L145">object RandomData {</span>
+    fun getRandomString(length: Int): String {
+<span class="nc" id="L147">        val base = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&quot;</span>
+<span class="nc" id="L148">        val random = Random()</span>
+<span class="nc" id="L149">        val sb = StringBuffer()</span>
+<span class="nc bnc" id="L150" title="All 4 branches missed.">        for (i in 0..length - 1) {</span>
+<span class="nc" id="L151">            val number = random.nextInt(base.length)</span>
+<span class="nc" id="L152">            sb.append(base[number])</span>
+        }
+<span class="nc" id="L154">        return sb.toString()</span>
+    }
+
+    fun getRandomByte(length: Int): ByteArray {
+<span class="nc" id="L158">        val byteArr = ByteArray(length)</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">        for(i in byteArr.indices) {</span>
+<span class="nc" id="L160">            byteArr[i] = Random().nextInt().toByte()</span>
+        }
+<span class="nc" id="L162">        return byteArr</span>
+    }
+
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

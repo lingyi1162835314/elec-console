@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DynamicByteBuffer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cop-console</a> &gt; <a href="index.source.html" class="el_package">com.aliyun.iot.util</a> &gt; <span class="el_source">DynamicByteBuffer.java</span></div><h1>DynamicByteBuffer.java</h1><pre class="source lang-java linenums">package com.aliyun.iot.util;
+
+import java.nio.Buffer;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+
+/**
+ * Created by Gary on 14-5-6.
+ */
+public final class DynamicByteBuffer {
+
+    private ByteBuffer buffer;
+
+<span class="nc" id="L14">    public DynamicByteBuffer(int cap, boolean useDirectBuffer) {</span>
+<span class="nc bnc" id="L15" title="All 2 branches missed.">        buffer = useDirectBuffer ? ByteBuffer.allocateDirect(cap) : ByteBuffer.allocate(cap);</span>
+<span class="nc" id="L16">    }</span>
+
+<span class="nc" id="L18">    public DynamicByteBuffer(byte[] array) {</span>
+<span class="nc bnc" id="L19" title="All 2 branches missed.">        buffer = array != null ? ByteBuffer.wrap(array) : ByteBuffer.allocate(0);</span>
+<span class="nc" id="L20">    }</span>
+
+<span class="nc" id="L22">    public DynamicByteBuffer(byte[] array, int offset, int length) {</span>
+<span class="nc" id="L23">        buffer = ByteBuffer.wrap(array, offset, length);</span>
+<span class="nc" id="L24">    }</span>
+
+<span class="nc" id="L26">    public DynamicByteBuffer(ByteBuffer buffer) {</span>
+<span class="nc" id="L27">        this.buffer = buffer;</span>
+<span class="nc" id="L28">    }</span>
+
+    public static DynamicByteBuffer allocate(int size) {
+
+<span class="nc" id="L32">        return new DynamicByteBuffer(size, false);</span>
+    }
+
+    public DynamicByteBuffer compact() {
+<span class="nc" id="L36">        buffer.compact();</span>
+<span class="nc" id="L37">        return this;</span>
+    }
+
+    public byte get() {
+<span class="nc" id="L41">        return buffer.get();</span>
+    }
+
+    public byte get(int index) {
+<span class="nc" id="L45">        return buffer.get(index);</span>
+    }
+
+    /**
+     * 灏嗗瓧鑺傛祦杞崲鍒扮粰瀹氱殑byte[]鏁扮粍褰撲腑.
+     *
+     * @param dst
+     *
+     * @return
+     */
+    public DynamicByteBuffer get(byte[] dst) {
+<span class="nc" id="L56">        buffer.get(dst);</span>
+<span class="nc" id="L57">        return this;</span>
+    }
+
+    public DynamicByteBuffer get(byte[] dst, int offset, int length) {
+<span class="nc" id="L61">        buffer.get(dst, offset, length);</span>
+<span class="nc" id="L62">        return this;</span>
+    }
+
+    public char getChar() {
+<span class="nc" id="L66">        check();</span>
+<span class="nc" id="L67">        return buffer.getChar();</span>
+    }
+
+    public char getChar(int index) {
+<span class="nc" id="L71">        check();</span>
+<span class="nc" id="L72">        return buffer.getChar(index);</span>
+    }
+
+    public double getDouble() {
+<span class="nc" id="L76">        check();</span>
+<span class="nc" id="L77">        return buffer.getDouble();</span>
+    }
+
+    public double getDouble(int index) {
+<span class="nc" id="L81">        check();</span>
+<span class="nc" id="L82">        return buffer.getDouble(index);</span>
+    }
+
+    public float getFloat() {
+<span class="nc" id="L86">        check();</span>
+<span class="nc" id="L87">        return buffer.getFloat();</span>
+    }
+
+    public float getFloat(int index) {
+<span class="nc" id="L91">        check();</span>
+<span class="nc" id="L92">        return buffer.getFloat(index);</span>
+    }
+
+    public int getInt() {
+<span class="nc" id="L96">        check();</span>
+<span class="nc" id="L97">        return buffer.getInt();</span>
+    }
+
+    public int getInt(int index) {
+<span class="nc" id="L101">        check();</span>
+<span class="nc" id="L102">        return buffer.getInt(index);</span>
+    }
+
+    public long getLong() {
+<span class="nc" id="L106">        check();</span>
+<span class="nc" id="L107">        return buffer.getLong();</span>
+    }
+
+    public long getLong(int index) {
+<span class="nc" id="L111">        check();</span>
+<span class="nc" id="L112">        return buffer.getLong(index);</span>
+    }
+
+    public short getShort() {
+<span class="nc" id="L116">        check();</span>
+<span class="nc" id="L117">        return buffer.getShort();</span>
+    }
+
+    public short getShort(int index) {
+<span class="nc" id="L121">        check();</span>
+<span class="nc" id="L122">        return buffer.getShort(index);</span>
+    }
+
+    public int getUnsignShort() {
+<span class="nc" id="L126">        check();</span>
+<span class="nc" id="L127">        return getShort() &amp; 0xFFFF;</span>
+    }
+
+    /**
+     * 灏嗘寚瀹氱殑瀛楄妭鍐欏叆鍒拌buffer褰撲腑.
+     *
+     * @param b
+     *
+     * @return
+     */
+    public DynamicByteBuffer put(byte b) {
+<span class="nc" id="L138">        ensureSize(1);</span>
+<span class="nc" id="L139">        buffer.put(b);</span>
+<span class="nc" id="L140">        return this;</span>
+    }
+
+    public DynamicByteBuffer put(int index, byte b) {
+<span class="nc" id="L144">        ensureSize(1);</span>
+<span class="nc" id="L145">        buffer.put(index, b);</span>
+<span class="nc" id="L146">        return this;</span>
+    }
+
+    public DynamicByteBuffer put(byte[] src) {
+<span class="nc" id="L150">        ensureSize(src.length);</span>
+<span class="nc" id="L151">        buffer.put(src);</span>
+<span class="nc" id="L152">        return this;</span>
+    }
+
+    public DynamicByteBuffer put(byte[] src, int offset, int length) {
+<span class="nc" id="L156">        ensureSize(length);</span>
+<span class="nc" id="L157">        buffer.put(src, offset, length);</span>
+<span class="nc" id="L158">        return this;</span>
+    }
+
+    public DynamicByteBuffer put(DynamicByteBuffer src) {
+
+<span class="nc" id="L163">        ensureSize(src.remaining());</span>
+<span class="nc" id="L164">        buffer.put(src.asBuffer());</span>
+<span class="nc" id="L165">        return this;</span>
+    }
+
+    public DynamicByteBuffer put(ByteBuffer src) {
+
+<span class="nc" id="L170">        ensureSize(src.remaining());</span>
+<span class="nc" id="L171">        buffer.put(src);</span>
+<span class="nc" id="L172">        return this;</span>
+    }
+
+    public DynamicByteBuffer putChar(int index, char value) {
+<span class="nc" id="L176">        ensureSize(2);</span>
+<span class="nc" id="L177">        buffer.putChar(index, value);</span>
+<span class="nc" id="L178">        return this;</span>
+    }
+
+    public DynamicByteBuffer putChar(char value) {
+<span class="nc" id="L182">        ensureSize(2);</span>
+<span class="nc" id="L183">        buffer.putChar(value);</span>
+<span class="nc" id="L184">        return this;</span>
+    }
+
+    public DynamicByteBuffer putDouble(int index, double value) {
+<span class="nc" id="L188">        ensureSize(8);</span>
+<span class="nc" id="L189">        buffer.putDouble(index, value);</span>
+<span class="nc" id="L190">        return this;</span>
+    }
+
+    public DynamicByteBuffer putDouble(double value) {
+<span class="nc" id="L194">        ensureSize(8);</span>
+<span class="nc" id="L195">        buffer.putDouble(value);</span>
+<span class="nc" id="L196">        return this;</span>
+    }
+
+    public DynamicByteBuffer putFloat(int index, float value) {
+<span class="nc" id="L200">        ensureSize(4);</span>
+<span class="nc" id="L201">        buffer.putFloat(index, value);</span>
+<span class="nc" id="L202">        return this;</span>
+    }
+
+    public DynamicByteBuffer putFloat(float value) {
+<span class="nc" id="L206">        ensureSize(4);</span>
+<span class="nc" id="L207">        buffer.putFloat(value);</span>
+<span class="nc" id="L208">        return this;</span>
+    }
+
+    public DynamicByteBuffer putInt(int index, int value) {
+<span class="nc" id="L212">        ensureSize(4);</span>
+<span class="nc" id="L213">        buffer.putInt(index, value);</span>
+<span class="nc" id="L214">        return this;</span>
+    }
+
+    public DynamicByteBuffer putInt(int value) {
+<span class="nc" id="L218">        ensureSize(4);</span>
+<span class="nc" id="L219">        buffer.putInt(value);</span>
+<span class="nc" id="L220">        return this;</span>
+    }
+
+    public DynamicByteBuffer putLong(int index, long value) {
+<span class="nc" id="L224">        ensureSize(8);</span>
+<span class="nc" id="L225">        buffer.putLong(index, value);</span>
+<span class="nc" id="L226">        return this;</span>
+    }
+
+    public DynamicByteBuffer putLong(long value) {
+<span class="nc" id="L230">        ensureSize(8);</span>
+<span class="nc" id="L231">        buffer.putLong(value);</span>
+<span class="nc" id="L232">        return this;</span>
+    }
+
+    public DynamicByteBuffer putShort(int index, short value) {
+<span class="nc" id="L236">        ensureSize(2);</span>
+<span class="nc" id="L237">        buffer.putShort(index, value);</span>
+<span class="nc" id="L238">        return this;</span>
+    }
+
+    public DynamicByteBuffer putShort(short value) {
+<span class="nc" id="L242">        ensureSize(2);</span>
+<span class="nc" id="L243">        buffer.putShort(value);</span>
+<span class="nc" id="L244">        return this;</span>
+    }
+
+    private void ensureSize(int i) {
+<span class="nc" id="L248">        check();</span>
+<span class="nc bnc" id="L249" title="All 2 branches missed.">        if (buffer.remaining() &lt; i) {</span>
+<span class="nc" id="L250">            int newCap = Math.max(buffer.limit() &lt;&lt; 1, buffer.limit() + i);</span>
+<span class="nc bnc" id="L251" title="All 2 branches missed.">            ByteBuffer newBuffer = buffer.isDirect() ? ByteBuffer.allocateDirect(newCap) : ByteBuffer.allocate(newCap);</span>
+<span class="nc" id="L252">            newBuffer.order(buffer.order());</span>
+<span class="nc" id="L253">            buffer.flip();</span>
+<span class="nc" id="L254">            newBuffer.put(buffer);</span>
+<span class="nc" id="L255">            buffer = newBuffer;</span>
+        }
+<span class="nc" id="L257">    }</span>
+
+    public DynamicByteBuffer duplicate() {
+<span class="nc" id="L260">        check();</span>
+<span class="nc" id="L261">        return new DynamicByteBuffer(buffer.duplicate());</span>
+    }
+
+    public DynamicByteBuffer slice() {
+<span class="nc" id="L265">        check();</span>
+<span class="nc" id="L266">        return new DynamicByteBuffer(buffer.slice());</span>
+    }
+
+    public Buffer clear() {
+<span class="nc" id="L270">        check();</span>
+<span class="nc" id="L271">        return buffer.clear();</span>
+    }
+
+    public Buffer flip() {
+<span class="nc" id="L275">        check();</span>
+<span class="nc" id="L276">        return buffer.flip();</span>
+    }
+
+    public int limit() {
+<span class="nc" id="L280">        check();</span>
+<span class="nc" id="L281">        return buffer.limit();</span>
+    }
+
+    public Buffer limit(int newLimit) {
+<span class="nc" id="L285">        check();</span>
+<span class="nc" id="L286">        return buffer.limit(newLimit);</span>
+    }
+
+    public Buffer mark() {
+<span class="nc" id="L290">        check();</span>
+<span class="nc" id="L291">        return buffer.mark();</span>
+    }
+
+    public int position() {
+<span class="nc" id="L295">        check();</span>
+<span class="nc" id="L296">        return buffer.position();</span>
+    }
+
+    public Buffer position(int newPosition) {
+<span class="nc" id="L300">        check();</span>
+<span class="nc" id="L301">        return buffer.position(newPosition);</span>
+    }
+
+    public int remaining() {
+<span class="nc" id="L305">        check();</span>
+<span class="nc" id="L306">        return buffer.remaining();</span>
+    }
+
+    public Buffer reset() {
+<span class="nc" id="L310">        check();</span>
+<span class="nc" id="L311">        return buffer.reset();</span>
+    }
+
+    public Buffer rewind() {
+<span class="nc" id="L315">        check();</span>
+<span class="nc" id="L316">        return buffer.rewind();</span>
+    }
+
+    public int capacity() {
+<span class="nc" id="L320">        check();</span>
+<span class="nc" id="L321">        return buffer.capacity();</span>
+    }
+
+    public boolean hasRemaining() {
+<span class="nc" id="L325">        check();</span>
+<span class="nc" id="L326">        return buffer.hasRemaining();</span>
+    }
+
+    public ByteBuffer asBuffer() {
+
+<span class="nc" id="L331">        return this.buffer.asReadOnlyBuffer();</span>
+    }
+
+    public Buffer getRealBuffer() {
+
+<span class="nc" id="L336">        return this.buffer;</span>
+    }
+
+    public byte[] array() {
+
+<span class="nc" id="L341">        check();</span>
+
+<span class="nc" id="L343">        int orig_position = buffer.position();</span>
+<span class="nc" id="L344">        int orig_limit = buffer.limit();</span>
+
+        try {
+
+<span class="nc" id="L348">            buffer.flip();</span>
+
+<span class="nc" id="L350">            byte bytes[] = new byte[buffer.limit()];</span>
+<span class="nc" id="L351">            buffer.get(bytes);</span>
+
+<span class="nc" id="L353">            return bytes;</span>
+
+        } finally {
+
+<span class="nc" id="L357">            buffer.position(orig_position);</span>
+<span class="nc" id="L358">            buffer.limit(orig_limit);</span>
+        }
+    }
+
+    public ByteOrder order() {
+<span class="nc" id="L363">        check();</span>
+<span class="nc" id="L364">        return buffer.order();</span>
+    }
+
+    public ByteBuffer order(ByteOrder order) {
+<span class="nc" id="L368">        check();</span>
+<span class="nc" id="L369">        return buffer.order(order);</span>
+    }
+
+    public void close() {
+<span class="nc" id="L373">        buffer.clear();</span>
+<span class="nc" id="L374">        buffer = null;</span>
+<span class="nc" id="L375">    }</span>
+
+    private void check() {
+<span class="nc bnc" id="L378" title="All 2 branches missed.">        if (buffer == null) {</span>
+<span class="nc" id="L379">            throw new IllegalStateException(&quot;Buffer is closed!&quot;);</span>
+        }
+<span class="nc" id="L381">    }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L385">        final StringBuilder sb = new StringBuilder(&quot;DynamicByteBuffer{&quot;);</span>
+<span class="nc bnc" id="L386" title="All 2 branches missed.">        if (buffer != null) {</span>
+<span class="nc" id="L387">            sb.append(&quot;position=&quot;).append(buffer.position());</span>
+<span class="nc" id="L388">            sb.append(&quot;, limit=&quot;).append(buffer.limit());</span>
+<span class="nc" id="L389">            sb.append(&quot;, capacity=&quot;).append(buffer.capacity());</span>
+<span class="nc" id="L390">            sb.append(&quot;, order=&quot;).append(buffer.order());</span>
+<span class="nc" id="L391">            sb.append(&quot;, direct=&quot;).append(buffer.isDirect());</span>
+        } else {
+<span class="nc" id="L393">            sb.append(&quot;&lt;CLOSED&gt;&quot;);</span>
+        }
+<span class="nc" id="L395">        sb.append('}');</span>
+<span class="nc" id="L396">        return sb.toString();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ScheduleService.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cop-console</a> &gt; <a href="index.source.html" class="el_package">com.csky.iot.console.service</a> &gt; <span class="el_source">ScheduleService.kt</span></div><h1>ScheduleService.kt</h1><pre class="source lang-java linenums">/*
+ * Copyright (C) 2017 C-SKY Microsystems Co., Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.csky.iot.console.service
+
+import com.alibaba.fastjson.JSONObject
+import com.csky.iot.console.manager.AliyunManager
+import com.csky.iot.console.manager.OnenetManager
+import com.csky.iot.console.service.entity.aliyun_iot.AliyunDeviceShadow
+import com.csky.iot.console.service.entity.onenet.NbiotShadow
+import com.csky.iot.console.service.entity.onenet.OneNetDeviceShadow
+import com.csky.iot.console.web.MsgTypeEnum
+import com.csky.iot.exception.CskyException
+import com.csky.iot.utils.LogUtil
+import com.csky.iot.utils.RedisUtil
+import com.csky.iot.utils.WebsocketUtil
+import org.springframework.scheduling.annotation.Async
+import org.springframework.scheduling.annotation.Scheduled
+import org.springframework.stereotype.Component
+import java.text.SimpleDateFormat
+import java.util.*
+
+@Component
+<span class="fc" id="L37">class ScheduleService(val redisUtil: RedisUtil,</span>
+<span class="fc" id="L38">                      val aliyunDeviceService: AliyunDeviceService,</span>
+<span class="fc" id="L39">                      val aliyunManager: AliyunManager,</span>
+<span class="fc" id="L40">                      val onenetManager: OnenetManager,</span>
+<span class="fc" id="L41">                      val websocketUtil: WebsocketUtil) {</span>
+    //@Async
+    //@Scheduled(fixedDelay = 1000)
+    fun pollingAndPubAliyunMsg() {
+       // println(&quot;${Thread.currentThread()}:@${LocalTime.now()}&quot;)
+
+<span class="fc" id="L47">        val aliyunDeviceShadowList = redisUtil.hashEntries(redisUtil.SCOPE_ALIYUN_DEVICE_SHADOW_MAP)</span>
+
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">        aliyunDeviceShadowList?.forEach {</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">            val aliyunDeviceShadow = it.value as AliyunDeviceShadow</span>
+
+//            val startTime = System.currentTimeMillis()
+<span class="fc" id="L53">            val aliyunMsgList = try {</span>
+<span class="fc" id="L54">                aliyunManager.receiveDeleteMessageList(aliyunDeviceShadow)</span>
+<span class="fc" id="L55">            } catch (e: CskyException) {</span>
+<span class="fc" id="L56">                val errorJson = JSONObject()</span>
+<span class="fc" id="L57">                errorJson[&quot;msgType&quot;] = MsgTypeEnum.CONSOLE_ERROR.value</span>
+<span class="fc" id="L58">                errorJson[&quot;payload&quot;] = e.msg</span>
+
+<span class="fc" id="L60">                websocketUtil.publishWebSocketMessage(&quot;/topic/${aliyunDeviceShadow.cid}&quot;, errorJson)</span>
+<span class="fc" id="L61">                null</span>
+            }
+//            val endTime = System.currentTimeMillis()
+//            println(&quot;POLLING ALI TIME:&quot; + (endTime-startTime))
+
+<span class="fc bfc" id="L66" title="All 2 branches covered.">            aliyunMsgList?.forEach {</span>
+<span class="fc" id="L67">                aliyunDeviceService.aliyunDeviceStatusPro(it)</span>
+<span class="fc" id="L68">                val responseJson = JSONObject()</span>
+<span class="fc" id="L69">                responseJson[&quot;msgType&quot;] = it.msgTypeEnum.value</span>
+<span class="fc" id="L70">                responseJson[&quot;payload&quot;] = it.msgData</span>
+
+<span class="fc" id="L72">                LogUtil.i(javaClass, &quot;$responseJson&quot;)</span>
+
+<span class="fc" id="L74">                websocketUtil.publishWebSocketMessage(&quot;/topic/${it.cid}&quot;, responseJson)</span>
+<span class="fc" id="L75">                }</span>
+<span class="fc" id="L76">        }</span>
+<span class="fc" id="L77">    }</span>
+
+    // OneNET
+    //@Async
+    //@Scheduled(fixedDelay = 1000)
+    fun pollingAndPubOnenetMsg() {
+      //  println(&quot;${Thread.currentThread()}, polling@ ${LocalTime.now()}&quot;)
+
+<span class="fc" id="L85">        val onenetDeviceShadowMapList = redisUtil.hashEntries(redisUtil.SCOPE_ONENET_DEVICE_SHADOW_MAP)</span>
+<span class="fc" id="L86">        onenetDeviceShadowMapList.forEach {</span>
+<span class="pc bpc" id="L87" title="1 of 2 branches missed.">            val oneNetDeviceShadow = it.value as OneNetDeviceShadow</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">            val oneNetMessage = try {</span>
+<span class="fc" id="L89">                onenetManager.nbiotGetResource(oneNetDeviceShadow, NbiotShadow())</span>
+<span class="fc" id="L90">            } catch (e: CskyException) {</span>
+<span class="fc" id="L91">                val errorJson = JSONObject()</span>
+<span class="fc" id="L92">                errorJson[&quot;msgType&quot;] = MsgTypeEnum.CONSOLE_ERROR.value</span>
+<span class="fc" id="L93">                errorJson[&quot;payload&quot;] = e.msg</span>
+
+<span class="fc" id="L95">                websocketUtil.publishWebSocketMessage(&quot;/topic/${oneNetDeviceShadow.cid}&quot;, errorJson)</span>
+<span class="fc" id="L96">                null</span>
+<span class="fc" id="L97">            } ?: return</span>
+
+<span class="fc" id="L99">            val responseJson = JSONObject()</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">            if (oneNetMessage.mnsErrno == 0) {</span>
+<span class="fc" id="L101">                responseJson[&quot;msgType&quot;] = &quot;upload&quot;</span>
+            } else {
+<span class="fc" id="L103">                responseJson[&quot;msgType&quot;] = &quot;status&quot;</span>
+            }
+
+<span class="fc" id="L106">            val payload = oneNetMessage.resResult</span>
+<span class="fc" id="L107">            payload.put(&quot;time&quot;, SimpleDateFormat(&quot;yyyy-MM-dd:HH:mm:ss&quot;).format(Date()))</span>
+<span class="fc" id="L108">            responseJson.put(&quot;payload&quot;, payload)</span>
+<span class="fc" id="L109">            websocketUtil.publishWebSocketMessage(&quot;/topic/${oneNetMessage.cid}&quot;, responseJson)</span>
+<span class="fc" id="L110">        }</span>
+<span class="fc" id="L111">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

@@ -1,0 +1,2161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d9590b92-3e13-4640-9399-c485d7caaff3" name="Default" comment="add timestamp check">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/manager/AliyunManager.kt" afterPath="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/manager/AliyunManager.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/manager/OnenetManager.kt" afterPath="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/manager/OnenetManager.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/ScheduleService.kt" afterPath="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/ScheduleService.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/logback-spring.xml" afterPath="$PROJECT_DIR$/src/main/resources/logback-spring.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunDeviceServiceTest.kt" afterPath="$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunDeviceServiceTest.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunManagerTest.kt" afterPath="$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunManagerTest.kt" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.gradle/" />
+    <ignored path="$PROJECT_DIR$/build/" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand />
+    <select />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cop-console" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cop-console" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cop-console" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cop-console" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="cop-console" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="AliyunManagerTest.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunManagerTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3591">
+              <caret line="133" column="30" lean-forward="false" selection-start-line="133" selection-start-column="30" selection-end-line="133" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AliyunManager.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/manager/AliyunManager.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="27">
+              <caret line="128" column="13" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="50" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#656#1411#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/settings.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OneNetDeviceService.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/OneNetDeviceService.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="45" column="78" lean-forward="false" selection-start-line="45" selection-start-column="78" selection-end-line="45" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConsoleController.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/ConsoleController.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="567">
+              <caret line="45" column="40" lean-forward="false" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OnenetManager.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/manager/OnenetManager.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1161">
+              <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="STOMPDisconnectEventListener.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/config/STOMPDisconnectEventListener.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConsoleService.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/ConsoleService.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="891">
+              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+              <folding>
+                <marker date="1513836992327" expanded="true" signature="663:667" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScheduleService.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/ScheduleService.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="43" column="34" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="43" selection-end-column="34" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#656#1438#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AliyunDeviceServiceTest.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunDeviceServiceTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2241">
+              <caret line="83" column="18" lean-forward="false" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="18" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#644#2572#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+        <option value="Kotlin Enum" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>mnsManager</find>
+      <find>mnsServiceImplMock</find>
+      <find>listRightPushAll</find>
+      <find>wait</find>
+      <find>redisUtil</find>
+      <find>please enable your device</find>
+      <find>sending</find>
+      <find>deviceShadow</find>
+      <find>DeviceMnsDTO</find>
+      <find>DeviceShadow</find>
+      <find>SCOPE_DEVICE_SHADOW_MAP</find>
+      <find>iotType is not</find>
+      <find>RFzZGvP71DrRFzZGvP71Dr</find>
+      <find>AliyunDeviceServiceImplMock</find>
+      <find>TEST_DEVICE_SHADOW</find>
+      <find>productRepository</find>
+      <find>AliyunMsgDTO</find>
+      <find>map</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>aliyunManager</replace>
+      <replace>listRightPush</replace>
+      <replace>aliyunServiceImplMock</replace>
+      <replace>aliyunDeviceShadow</replace>
+      <replace>AliyunDeviceShadow</replace>
+      <replace>SCOPE_ALIYUN_DEVICE_SHADOW_MAP</replace>
+      <replace>aliyunDeviceServiceImplMock</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>E:\javaProjects\developBranch\cop-console-develop</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="myGradleHomes">
+      <map>
+        <entry key="$PROJECT_DIR$" value="D:\Program Files\gradle-4.1" />
+      </map>
+    </option>
+    <option name="myGradleVersions">
+      <map>
+        <entry key="$PROJECT_DIR$" value="4.1" />
+      </map>
+    </option>
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="cop-console" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="cop-console" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="availableTasks">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <list>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the sub-projects of root project 'cop-console'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="projects" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Generates Gradle wrapper files." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="wrapper" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Creates a detekt baseline on the given --baseline path." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="detektBaseline" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs lint on the Kotlin source files." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="lintKotlin" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Verifies code coverage metrics based on specified rules for the test task." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="jacocoTestCoverageVerification" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="lintKotlinTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles a jar archive containing the main classes." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="jar" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the configuration model of root project 'cop-console'. [incubating]" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="model" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Analyze your kotlin code with detekt." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="detektCheck" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Processes main resources." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="processResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the tasks runnable from root project 'cop-console'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="tasks" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Initializes a new Gradle build." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="init" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Supported annotations: ; Presets: spring; Compiler plugin classpath: C:\Users\user\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-allopen\1.1.4-3\c30922e45bbd80a9572fe32a0106862d22a8c4e7\kotlin-allopen-1.1.4-3.jar" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="allOpenDataStorageTask" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs the unit tests." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="test" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the dependency management declared in root project 'cop-console'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="dependencyManagement" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Repackage existing JAR and WAR archives so that they can be executed from the command line using 'java -jar'" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="bootRepackage" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Compiles main Java source." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileJava" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs all checks." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="check" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays all dependencies declared in root project 'cop-console'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="dependencies" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Processes test resources." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="processTestResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles and tests this project and all projects it depends on." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="buildNeeded" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Uses an extern idea installation to inspect your code." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="detektIdeaInspect" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="lintKotlinMain" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the components produced by root project 'cop-console'. [incubating]" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="components" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles and tests this project and all projects that depend on it." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="buildDependents" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles main classes." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="classes" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the dependent components of components in root project 'cop-console'. [incubating]" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="dependentComponents" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays all buildscript dependencies declared in root project 'cop-console'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="buildEnvironment" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Generate a detekt configuration file inside your project." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="detektGenerateConfig" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="formatKotlinMain" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles test classes." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="testClasses" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Generates Javadoc API documentation for the main source code." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="javadoc" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Migrate your kotlin code with detekt." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="detektMigrate" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Formats the Kotlin source files." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="formatKotlin" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Run the project with support for auto-detecting main class and reloading static resources" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="bootRun" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Compiles the source set 'test'.kotlin." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileTestKotlin" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Format your kotlin code with detekt." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="detektFormat" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the insight into a specific dependency in root project 'cop-console'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="dependencyInsight" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Uses an extern idea installation to format your code." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="detektIdeaFormat" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Generates code coverage report for the test task." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="jacocoTestReport" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles the outputs of this project." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="assemble" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Deletes the build directory." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="clean" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Compiles test Java source." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileTestJava" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="formatKotlinTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays a help message." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="help" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Compiles the source set 'main'.kotlin." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileKotlin" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles and tests this project." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="build" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="findMainClass" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the properties of root project 'cop-console'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="properties" />
+              </ExternalTaskPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="modificationStamps">
+      <map>
+        <entry key="$PROJECT_DIR$" value="3019338791045" />
+      </map>
+    </option>
+    <option name="projectBuildClasspath">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <ExternalProjectBuildClasspathPojo>
+              <option name="modulesBuildClasspath">
+                <map>
+                  <entry key="$PROJECT_DIR$">
+                    <value>
+                      <ExternalModuleBuildClasspathPojo>
+                        <option name="entries">
+                          <list>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-gradle-plugin/1.5.6.RELEASE/86e765c58b4f26125714d466f1d0e0ff12b1ff76/spring-boot-gradle-plugin-1.5.6.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-gradle-plugin/1.5.6.RELEASE/c072438c3be7f48f1ecb595fe73d6140bbe8d1ae/spring-boot-gradle-plugin-1.5.6.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-gradle-plugin/1.1.4-3/3ea7740688bca8555a1b52d17fcd3133f8054bfe/kotlin-gradle-plugin-1.1.4-3-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-gradle-plugin/1.1.4-3/4e7a7626085b9bb0b45fbe17d4fd5b5deaf2c9af/kotlin-gradle-plugin-1.1.4-3.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-allopen/1.1.4-3/59da096dfd3606dfd8ed24186ce02b5a3bf122f1/kotlin-allopen-1.1.4-3-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-allopen/1.1.4-3/c30922e45bbd80a9572fe32a0106862d22a8c4e7/kotlin-allopen-1.1.4-3.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/gradle.plugin.org.jmailen.gradle/kotlinter-gradle/1.3.0/828456be9ace2bbc716ca8dff79adb2b121fa4a/kotlinter-gradle-1.3.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/gradle.plugin.org.jmailen.gradle/kotlinter-gradle/1.3.0/1c31521e81b46bec4246f1c85ba68c3968791f4/kotlinter-gradle-1.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/gradle.plugin.io.gitlab.arturbosch.detekt/detekt-gradle-plugin/1.0.0.RC1/ca48616b8f16a34d8bc22fb9c5ad30ba6f5419b7/detekt-gradle-plugin-1.0.0.RC1-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/gradle.plugin.io.gitlab.arturbosch.detekt/detekt-gradle-plugin/1.0.0.RC1/1596536432ca020f44b51302c00b1405b19e6489/detekt-gradle-plugin-1.0.0.RC1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-loader-tools/1.5.6.RELEASE/5c2596d77f3b1f87c921bb568f0203b54dcbd8b0/spring-boot-loader-tools-1.5.6.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-loader-tools/1.5.6.RELEASE/9cd2349e3be4af2a59210b37e7ee1fdab043644/spring-boot-loader-tools-1.5.6.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.spring.gradle/dependency-management-plugin/1.0.3.RELEASE/7bb9ab86474b9ff2e7aa8ea3609878a1750e3f90/dependency-management-plugin-1.0.3.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.spring.gradle/dependency-management-plugin/1.0.3.RELEASE/c7fc988680e19cef9bf91de0c39b891e4c8dca2d/dependency-management-plugin-1.0.3.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-gradle-plugin-api/1.1.4-3/255a5792671f60d5f014535117b4ae5c4ba177f6/kotlin-gradle-plugin-api-1.1.4-3-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-gradle-plugin-api/1.1.4-3/8fc1349f96383ec6472190959241cb2d2c8132a1/kotlin-gradle-plugin-api-1.1.4-3.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.1.4-3/3f64b358bd71a3b615c8cb90f35c3152492d4b27/kotlin-stdlib-1.1.4-3-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.1.4-3/7f07ece855a7d40d5ef430218593e92282ae2a74/kotlin-stdlib-1.1.4-3.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.1.4-3/1a9abf7e30064646cfa03cb4af6e8b094cee3eb/kotlin-android-extensions-1.1.4-3-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.1.4-3/e55dfe192c42b4295facf4157a8f8f47670feb81/kotlin-android-extensions-1.1.4-3.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-embeddable/1.1.4-3/1dec774ed3dd1f446290c982f93d63d88fd74ff4/kotlin-compiler-embeddable-1.1.4-3-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-embeddable/1.1.4-3/15ddf7af18d9931317d118834d71de5ba67b8035/kotlin-compiler-embeddable-1.1.4-3.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-runner/1.1.4-3/b4de9ae86deb0f490fec51f5e0381b986b0ac63b/kotlin-compiler-runner-1.1.4-3-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-runner/1.1.4-3/6bde318ad22bc3f8d698897ff8f711ee43d4e151/kotlin-compiler-runner-1.1.4-3.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-annotation-processing/1.1.4-3/f58985fa5a60dd3311dfa0897d702cd7379f38e0/kotlin-annotation-processing-1.1.4-3-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-annotation-processing/1.1.4-3/2e7044cbbc1aba3383f14cfd5dfcad5c0497c03b/kotlin-annotation-processing-1.1.4-3.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.shyiko/ktlint/0.9.1/942c9bc786d75fb9e7ccc120e80dd34bd9261c1b/ktlint-0.9.1-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.shyiko/ktlint/0.9.1/f372ed184489fa76e6a3109ab2ea40a7f1407349/ktlint-0.9.1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.gitlab.arturbosch.detekt/detekt-cli/1.0.0.RC1/d28caca838753fd771d493bfbc7fe645aacab9d6/detekt-cli-1.0.0.RC1-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.gitlab.arturbosch.detekt/detekt-cli/1.0.0.RC1/a67ec7523dce254be8719e799fae9eac14f9c83a/detekt-cli-1.0.0.RC1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.10.RELEASE/74cacfe24c0f88a4577990fb24c9fdf4a73f443c/spring-core-4.3.10.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.10.RELEASE/db1462df62dbedad7244da30ec471390660271c0/spring-core-4.3.10.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.shyiko.ktlint/ktlint-core/0.9.1/1e9c58cef6efaf79996d40b9c8845ccc37c5f83c/ktlint-core-0.9.1-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.shyiko.ktlint/ktlint-core/0.9.1/9505009b4a195ae6bfb5ad7691144ff3bef4242b/ktlint-core-0.9.1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.shyiko.ktlint/ktlint-ruleset-standard/0.9.1/d9409160e0fb5417120783431798930f534be108/ktlint-ruleset-standard-0.9.1-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.shyiko.ktlint/ktlint-ruleset-standard/0.9.1/93bb25beb21c32fac7c0f75f128629b341ba9b0e/ktlint-ruleset-standard-0.9.1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.shyiko.ktlint/ktlint-reporter-plain/0.9.1/7202a4d5ad199bde99dedb44b02d8d5be0b7697b/ktlint-reporter-plain-0.9.1-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.shyiko.ktlint/ktlint-reporter-plain/0.9.1/35f8860c96b5dedf202d8665d1a453bca0431b58/ktlint-reporter-plain-0.9.1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.shyiko.ktlint/ktlint-reporter-json/0.9.1/68037be3d2eb52ece2c891e187dcf87046890461/ktlint-reporter-json-0.9.1-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.shyiko.ktlint/ktlint-reporter-json/0.9.1/f2eea90520ecc79b677365432d6925edfa681e95/ktlint-reporter-json-0.9.1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.shyiko.ktlint/ktlint-reporter-checkstyle/0.9.1/92fd2a7b8520b31e975b4f9422c9e221cb01fe26/ktlint-reporter-checkstyle-0.9.1-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.shyiko.ktlint/ktlint-reporter-checkstyle/0.9.1/8cef88b38c3bdc21452eb2710ca0f8c88b503f3d/ktlint-reporter-checkstyle-0.9.1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.shyiko.ktlint/ktlint-intellij-idea-integration/0.9.1/a4dedc52e9abce3ccc762a1d5806d66a1c82409f/ktlint-intellij-idea-integration-0.9.1-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.shyiko.ktlint/ktlint-intellij-idea-integration/0.9.1/e0fcde9cecd9097b56e9b25f8d60887e8ab5a9c/ktlint-intellij-idea-integration-0.9.1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.shyiko.klob/klob/0.2.0/cabc5a4d8c8d78856326f1617df16b722057db99/klob-0.2.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.shyiko.klob/klob/0.2.0/6c47c4bb34e061cb3d7e5f5f567d661139c45927/klob-0.2.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ini4j/ini4j/0.5.4/740798033b8a76f216de6a787684a6206a6f6a03/ini4j-0.5.4-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ini4j/ini4j/0.5.4/4a3ee4146a90c619b20977d65951825f5675b560/ini4j-0.5.4.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-aether-provider/3.2.5/4b70ad2a0a2f305278ee83c22f286fe14e65052f/maven-aether-provider-3.2.5-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-aether-provider/3.2.5/dfddf469d20b877b184dda5d6e60f0c75f558a72/maven-aether-provider-3.2.5.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/18.0/ad97fe8faaf01a3d3faacecd58e8fa6e78a973ca/guava-18.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/18.0/cce0823396aa693798f8882e64213b1772032b09/guava-18.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.aether/aether-api/1.1.0/5ea203196f2ff6554ed381a71db4287f371e5b48/aether-api-1.1.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.aether/aether-api/1.1.0/5dd291e788f50dfb48822dab29defc16ad70860/aether-api-1.1.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.aether/aether-spi/1.1.0/9764241b7b96d9ee93961e9c4a4ac182e5030b9e/aether-spi-1.1.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.aether/aether-spi/1.1.0/a532baa7b965d2893ceace03e804b1882f448052/aether-spi-1.1.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.aether/aether-util/1.1.0/dafe37ecbf804d2d0e366d2caca8b672a10bc31d/aether-util-1.1.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.aether/aether-util/1.1.0/d0f84ba994f0133580e8b957a44593eaa03d42cd/aether-util-1.1.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.aether/aether-impl/1.1.0/233b574a240a0dee6d3fd8e5cad70777159a8c80/aether-impl-1.1.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.aether/aether-impl/1.1.0/8236fde6a1a4a7c6018d0a09e476f11c5ca8c2e1/aether-impl-1.1.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.aether/aether-connector-basic/1.1.0/e57437db619ba4ba3bd9570fee1c7dbbeb3d3092/aether-connector-basic-1.1.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.aether/aether-connector-basic/1.1.0/f5c784bdd704ff64166c086eb6b31e2784c87b66/aether-connector-basic-1.1.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.aether/aether-transport-file/1.1.0/be73c50bc1157733b8a93839b71e242b47aa3e0b/aether-transport-file-1.1.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.aether/aether-transport-file/1.1.0/5c257319ccba22a02fa583c3946bfcbb47638bc8/aether-transport-file-1.1.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.aether/aether-transport-http/1.1.0/314cf29f68c2e541804f260aa7caf95a821cb207/aether-transport-http-1.1.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.aether/aether-transport-http/1.1.0/5beffae29e88251ac419bf96dd1426babdb6a66f/aether-transport-http-1.1.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-nop/1.6.2/dba50bbafa22dda15189e2c4baa4cce68ecd21f9/slf4j-nop-1.6.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-nop/1.6.2/f743dc5b4a3d1d1a64d868257e099e2e5004dcd9/slf4j-nop-1.6.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/args4j/args4j/2.33/155fd0af01281cf320eec1db59bb15507ddcb7bf/args4j-2.33-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/args4j/args4j/2.33/bd87a75374a6d6523de82fef51fc3cfe9baf9fc9/args4j-2.33.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.gitlab.arturbosch.detekt/detekt-core/1.0.0.RC1/486e1e828a66475a9831d8ed0a5ad29071226265/detekt-core-1.0.0.RC1-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.gitlab.arturbosch.detekt/detekt-core/1.0.0.RC1/291053d6aca5ab64eeb85c52f7727f6d7e414644/detekt-core-1.0.0.RC1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.gitlab.arturbosch.detekt/detekt-rules/1.0.0.RC1/c510b1cd9092ce527d6b5af5720d0fafa43cd002/detekt-rules-1.0.0.RC1-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.gitlab.arturbosch.detekt/detekt-rules/1.0.0.RC1/1ef5e585241087dbacf5f105f749b133cb916b37/detekt-rules-1.0.0.RC1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.gitlab.arturbosch.detekt/detekt-api/1.0.0.RC1/b6a0687e241b4fb8fca4bedfeca104aa28462e6a/detekt-api-1.0.0.RC1-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.gitlab.arturbosch.detekt/detekt-api/1.0.0.RC1/6f13a2dc0ff61811d6ceb705406042ff38ea3dde/detekt-api-1.0.0.RC1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.beust/jcommander/1.72/7ef123d5dfb6f839b41265648ff1be34982d50f8/jcommander-1.72-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.beust/jcommander/1.72/6375e521c1e11d6563d4f25a07ce124ccf8cd171/jcommander-1.72.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/ecf26c7507d67782a3bbd148d170b31dfad001aa/commons-logging-1.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/5991ca87ef1fb5544943d9abc5a9a37583fabe03/annotations-13.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-model/3.2.5/eb711c34d1e63e12494e37f6dd60c1908f45b0ef/maven-model-3.2.5-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-model/3.2.5/ced305476a43e8a042a59e94ef38b3291d9ce1e7/maven-model-3.2.5.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-model-builder/3.2.5/f13e0096acf5804b8de4594fae2a0a8708df6aab/maven-model-builder-3.2.5-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-model-builder/3.2.5/7a32f3966fab463df9cdae95fd6df8c2e561e3ae/maven-model-builder-3.2.5.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-repository-metadata/3.2.5/12dddfba835bc376a77301ba7bc5c99dcdab031d/maven-repository-metadata-3.2.5-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-repository-metadata/3.2.5/17049c63ce63654c112eeb82797edee49f8a4601/maven-repository-metadata-3.2.5.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-component-annotations/1.5.5/b10462efcf1ac1915797958d479c724d1bd5008d/plexus-component-annotations-1.5.5-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-component-annotations/1.5.5/c72f2660d0cbed24246ddb55d7fdc4f7374d2078/plexus-component-annotations-1.5.5.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-utils/3.0.20/26853754b29534121010a00464b71e6cc0c403f2/plexus-utils-3.0.20-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-utils/3.0.20/e121ed37af8ee3928952f6d8a303de24e019aab0/plexus-utils-3.0.20.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.3.5/9351922abd5e659dcbacb1d38b81d8069bac797b/httpclient-4.3.5-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.3.5/9783d89b8eea20a517a4afc5f979bd2882b54c44/httpclient-4.3.5.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.6.2/f1d6a191e0e09278a1f114e5812044b1f2faa459/jcl-over-slf4j-1.6.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.6.2/ac4cd2d6d0cf4342b4e8fd520c686851fc681912/jcl-over-slf4j-1.6.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.6.2/6b5f6572792e2192ecf714ea12ae894b0fbcf750/slf4j-api-1.6.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.6.2/8619e95939167fb37245b5670135e4feb0ec7d50/slf4j-api-1.6.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-interpolation/1.21/ec18e4d93661b15baf6868a8596b0a12f2678b0d/plexus-interpolation-1.21-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-interpolation/1.21/f92de59d295f16868001644acc21720f3ec9eb15/plexus-interpolation-1.21.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.3.2/4809f38359edeea9487f747e09aa58ec8d3a54c5/httpcore-4.3.2-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.3.2/31fbbff1ddbf98f3aa7377c94d33b0447c646b6e/httpcore-4.3.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.6/61e9f9d11fe3e12ec62f633006e99d75fd7f19c8/commons-codec-1.6-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.6/b7f0fc8f61ecadeb3695f0b9464755eee44374d4/commons-codec-1.6.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/1.18/17af1c263c33176842715cbfa677e14a5ad862dd/snakeyaml-1.18-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/1.18/e4a441249ade301985cb8d009d4e4a72b85bf68e/snakeyaml-1.18.jar" />
+                          </list>
+                        </option>
+                        <option name="path" value="$PROJECT_DIR$" />
+                      </ExternalModuleBuildClasspathPojo>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="name" value="cop-console" />
+              <option name="projectBuildClasspath">
+                <list>
+                  <option value="D:/Program Files/gradle-4.1/lib/ant-1.9.6.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/ant-launcher-1.9.6.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-base-services-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-base-services-groovy-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-cli-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-core-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-docs-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-installation-beacon-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-jvm-services-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-kotlin-dsl-0.10.3.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-kotlin-dsl-compiler-plugin-0.10.3.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-kotlin-dsl-tooling-builders-0.10.3.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-kotlin-dsl-tooling-models-0.10.3.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-launcher-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-logging-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-messaging-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-model-core-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-model-groovy-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-native-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-process-services-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-resources-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-runtime-api-info-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-tooling-api-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/gradle-wrapper-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/groovy-all-2.4.11.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-announce-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-antlr-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-build-cache-http-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-build-comparison-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-build-init-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-code-quality-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-composite-builds-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-dependency-management-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-diagnostics-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-ear-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-ide-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-ide-native-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-ide-play-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-ivy-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-jacoco-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-javascript-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-language-groovy-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-language-java-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-language-jvm-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-language-native-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-language-scala-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-maven-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-osgi-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-platform-base-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-platform-jvm-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-platform-native-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-platform-play-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-plugin-development-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-plugin-use-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-plugins-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-publish-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-reporting-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-resources-http-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-resources-s3-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-resources-sftp-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-scala-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-signing-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-test-kit-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-testing-base-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-testing-jvm-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-testing-native-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-tooling-api-builders-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/gradle-workers-4.1.jar" />
+                  <option value="D:/Program Files/gradle-4.1/lib/plugins/ivy-2.2.0.jar" />
+                  <option value="$PROJECT_DIR$/buildSrc/src/main/java" />
+                  <option value="$PROJECT_DIR$/buildSrc/src/main/groovy" />
+                </list>
+              </option>
+            </ExternalProjectBuildClasspathPojo>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/config/RedisConfig.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/DeviceService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/exception/GlobalExceptionHandler.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/vo/DevEnableVO.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/vo/SendMessageVO.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/ScheduledServiceTest.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/vo/DeviceVO.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/ScheduledService.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/CacheServiceTest.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/config/TaskSchedulerConfig.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/entity/AsyncTest.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/AsyncTest.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/entity/DeviceShadow.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/manager/dto/AliyunDeviceDTO.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/entity/QueueShadow.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/entity/MnsTypeEnum.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/entity/AliyunDeviceShadow.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/entity/OneNetDeviceShadow.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/OneNetService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/entity/onenet/NbiotShadow.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/CacheService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/config/STOMPConnectEventListener.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/config/WebSocketConfig.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/config/ChannelInterceptor.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunServiceTest.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/DeviceServiceTest.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/AliyunService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/utils/RedisUtil.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/config/STOMPDisconnectEventListener.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/msgTypeEnum.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/entity/aliyun_iot/AliyunDeviceShadow.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/entity/ProductIotTypeEnum.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/TestData.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/ConsoleControllerTest.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/ConsoleServiceTest.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/dao/ProductRepository.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/ConsoleService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/dao/entity/ProductOneNetDO.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/dao/entity/ProductAliyunDO.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/OneNetServiceTest.kt" />
+        <option value="$PROJECT_DIR$/src/main/resources/logback-spring.xml" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/ScheduleServiceTest.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunManagerTest.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/config/TaskExecutorConfig.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/AliyunDeviceService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/manager/AliyunManager.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/OneNetDeviceService.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/ConsoleController.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/manager/OnenetManager.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/ScheduleService.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunDeviceServiceTest.kt" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
+    <option name="height" value="1087" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="cop-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cop-console-develop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="cop-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cop-console-develop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cop-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cop-console-develop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="cop-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cop-console-develop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cop-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cop-console-develop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="iot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cop-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cop-console-develop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="iot" type="462c0819:PsiDirectoryNode" />
+              <item name="console" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cop-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cop-console-develop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="iot" type="462c0819:PsiDirectoryNode" />
+              <item name="console" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cop-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cop-console-develop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cop-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cop-console-develop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="cop-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cop-console-develop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cop-console" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cop-console-develop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path" value="D:/Program Files/nodejs/node" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.csky.iot.console.service.entity" />
+      <recent name="com.csky.iot.console.service.entity.aliyun_iot" />
+      <recent name="com.csky.iot.console.service.entity.onenet" />
+      <recent name="com.csky.iot.console.service" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.csky.iot.console.web.config" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\javaProjects\developBranch\cop-console-develop\src\main\kotlin\com\csky\iot\console\web\config" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.AliyunDeviceServiceTest.test1">
+    <configuration name="AliyunDeviceServiceTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.csky.iot.web.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="cop-console_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.csky.iot.web" />
+      <option name="MAIN_CLASS_NAME" value="com.csky.iot.web.AliyunDeviceServiceTest" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.csky.iot.Application" />
+      <module name="cop-console_main" />
+      <envs />
+    </configuration>
+    <configuration name="OneNetServiceTest.enableOnenetDeviceTest5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.csky.iot.web.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="cop-console_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.csky.iot.web" />
+      <option name="MAIN_CLASS_NAME" value="com.csky.iot.web.OneNetServiceTest" />
+      <option name="METHOD_NAME" value="enableOnenetDeviceTest5" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="aliyunManagerTest.crackTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.csky.iot.web.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="cop-console_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.csky.iot.web" />
+      <option name="MAIN_CLASS_NAME" value="com.csky.iot.web.aliyunManagerTest" />
+      <option name="METHOD_NAME" value="crackTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="cop-console-develop [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+    </configuration>
+    <configuration name="cop-console-develop [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+    </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Spring Boot.Application" />
+      <item index="1" class="java.lang.String" itemvalue="Gradle.cop-console-develop [bootRun]" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.OneNetServiceTest.enableOnenetDeviceTest5" />
+      <item index="3" class="java.lang.String" itemvalue="Gradle.cop-console-develop [test]" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.aliyunManagerTest.crackTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.AliyunDeviceServiceTest.test1" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.AliyunDeviceServiceTest.test1" />
+        <item index="1" class="java.lang.String" itemvalue="Gradle.cop-console-develop [bootRun]" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.aliyunManagerTest.crackTest" />
+        <item index="3" class="java.lang.String" itemvalue="Gradle.cop-console-develop [test]" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.OneNetServiceTest.enableOnenetDeviceTest5" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d9590b92-3e13-4640-9399-c485d7caaff3" name="Default" comment="" />
+      <created>1509669630342</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1509669630342</updated>
+      <workItem from="1509669632507" duration="25985000" />
+      <workItem from="1509930456739" duration="26000" />
+      <workItem from="1510283330474" duration="821000" />
+      <workItem from="1510297024256" duration="784000" />
+      <workItem from="1511761167522" duration="12603000" />
+      <workItem from="1511774539992" duration="4888000" />
+      <workItem from="1512445526167" duration="36779000" />
+      <workItem from="1512608288163" duration="1778000" />
+      <workItem from="1512616166149" duration="32000" />
+      <workItem from="1512721317010" duration="1612000" />
+      <workItem from="1512960261795" duration="4479000" />
+      <workItem from="1513582481881" duration="6234000" />
+      <workItem from="1513590123224" duration="1330000" />
+      <workItem from="1513738969881" duration="42142000" />
+      <workItem from="1514162310567" duration="1628000" />
+      <workItem from="1514183647458" duration="594000" />
+      <workItem from="1514279150144" duration="160000" />
+      <workItem from="1514440009077" duration="671000" />
+      <workItem from="1514450176753" duration="110000" />
+      <workItem from="1514854277627" duration="5812000" />
+      <workItem from="1514862124552" duration="4927000" />
+      <workItem from="1514876632925" duration="1653000" />
+      <workItem from="1514946320263" duration="627000" />
+      <workItem from="1515033766533" duration="654000" />
+      <workItem from="1515372426930" duration="17000" />
+      <workItem from="1521008725486" duration="231000" />
+    </task>
+    <task id="LOCAL-00001" summary="add redis log">
+      <created>1509670541685</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1509670541685</updated>
+    </task>
+    <task id="LOCAL-00002" summary="modify UT">
+      <created>1509671163772</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1509671163773</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update UT">
+      <created>1509673297272</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1509673297272</updated>
+    </task>
+    <task id="LOCAL-00004" summary="clear redis referring to console">
+      <created>1509673752332</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1509673752332</updated>
+    </task>
+    <task id="LOCAL-00005" summary="replace redis cursor to entries">
+      <created>1509691317341</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1509691317341</updated>
+    </task>
+    <task id="LOCAL-00006" summary="update UT">
+      <created>1509691339433</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1509691339433</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add VO validated">
+      <created>1509698449341</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1509698449341</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add devDisable func">
+      <created>1509698483525</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1509698483525</updated>
+    </task>
+    <task id="LOCAL-00009" summary="update UTs">
+      <created>1509698509489</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1509698509489</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update UTs">
+      <created>1509699998104</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1509699998104</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix UT">
+      <created>1509701324220</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1509701324220</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix warning">
+      <created>1509702237323</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1509702237323</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add schedule async configuration">
+      <created>1511837575475</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1511837575475</updated>
+    </task>
+    <task id="LOCAL-00014" summary="open async">
+      <created>1511837833887</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1511837833887</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add websocket log">
+      <created>1512465024300</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1512465024300</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add onenet feedback">
+      <created>1512465435969</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1512465435969</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add onenetManager">
+      <created>1512555363872</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1512555363872</updated>
+    </task>
+    <task id="LOCAL-00018" summary="modify thread">
+      <created>1512555403260</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1512555403260</updated>
+    </task>
+    <task id="LOCAL-00019" summary="add NbiotShadow">
+      <created>1512555446795</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1512555446795</updated>
+    </task>
+    <task id="LOCAL-00020" summary="modify ScheduleService">
+      <created>1512555518640</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1512555518640</updated>
+    </task>
+    <task id="LOCAL-00021" summary="modify ConsoleController">
+      <created>1512555537574</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1512555537574</updated>
+    </task>
+    <task id="LOCAL-00022" summary="add websocket config">
+      <created>1512555614917</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1512555614917</updated>
+    </task>
+    <task id="LOCAL-00023" summary="close test">
+      <created>1512555662775</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1512555662775</updated>
+    </task>
+    <task id="LOCAL-00024" summary="modify websocket config">
+      <created>1512608418998</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1512608418998</updated>
+    </task>
+    <task id="LOCAL-00025" summary="update log">
+      <created>1512609488184</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1512609488184</updated>
+    </task>
+    <task id="LOCAL-00026" summary="add message type enum">
+      <created>1512725448482</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1512725448482</updated>
+    </task>
+    <task id="LOCAL-00027" summary="remove websocket trace log">
+      <created>1512960350094</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1512960350095</updated>
+    </task>
+    <task id="LOCAL-00028" summary="adjust format">
+      <created>1513843473247</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1513843473248</updated>
+    </task>
+    <task id="LOCAL-00029" summary="reduce the number of threads in threadPool">
+      <created>1513843557300</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1513843557300</updated>
+    </task>
+    <task id="LOCAL-00030" summary="add override function">
+      <created>1513843581365</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1513843581365</updated>
+    </task>
+    <task id="LOCAL-00031" summary="modify the name of functions">
+      <created>1513844106140</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1513844106140</updated>
+    </task>
+    <task id="LOCAL-00032" summary="modify the name of funtions">
+      <created>1513844141016</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1513844141016</updated>
+    </task>
+    <task id="LOCAL-00033" summary="add async and clear all devices at 01:00 every day">
+      <created>1513844634684</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1513844634684</updated>
+    </task>
+    <task id="LOCAL-00034" summary="modify UTs">
+      <created>1513844924816</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1513844924816</updated>
+    </task>
+    <task id="LOCAL-00035" summary="modify TaskExecutorConfig">
+      <created>1514166093865</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1514166093865</updated>
+    </task>
+    <task id="LOCAL-00036" summary="add timestamp check">
+      <created>1514859256802</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1514859256802</updated>
+    </task>
+    <task id="LOCAL-00037" summary="modify thread config">
+      <created>1514859276185</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1514859276185</updated>
+    </task>
+    <task id="LOCAL-00038" summary="remove clear schedule">
+      <created>1514860158865</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1514860158865</updated>
+    </task>
+    <task id="LOCAL-00039" summary="fix timeout bug">
+      <created>1514862998149</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1514862998149</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="AliyunDeviceServiceTest_test1 - 2018.01.02 at 15h 08m 57s.xml">
+      <configuration name="AliyunDeviceServiceTest.test1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AliyunDeviceServiceTest_test1 - 2018.01.02 at 15h 19m 22s.xml">
+      <configuration name="AliyunDeviceServiceTest.test1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AliyunDeviceServiceTest_test1 - 2018.01.02 at 15h 20m 52s.xml">
+      <configuration name="AliyunDeviceServiceTest.test1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AliyunDeviceServiceTest_test1 - 2018.01.02 at 15h 22m 14s.xml">
+      <configuration name="AliyunDeviceServiceTest.test1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AliyunDeviceServiceTest_test1 - 2018.01.02 at 15h 26m 55s.xml">
+      <configuration name="AliyunDeviceServiceTest.test1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="aliyunManagerTest_crackTest - 2017.12.21 at 16h 44m 41s.xml">
+      <configuration name="aliyunManagerTest.crackTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="aliyunManagerTest_crackTest - 2017.12.21 at 16h 57m 11s.xml">
+      <configuration name="aliyunManagerTest.crackTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="cop-console-develop_[test] - 2017.12.21 at 15h 47m 21s.xml">
+      <configuration name="cop-console-develop [test]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="cop-console-develop_[test] - 2017.12.21 at 16h 24m 07s.xml">
+      <configuration name="cop-console-develop [test]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="cop-console-develop_[test] - 2017.12.21 at 16h 25m 43s.xml">
+      <configuration name="cop-console-develop [test]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="156577000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="0" width="974" height="1087" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295099" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15537018" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295099" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42778993" sideWeight="0.68506056" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27461708" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1214442" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44942647" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18763326" sideWeight="0.31493944" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15015641" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295099" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add websocket log" />
+    <MESSAGE value="add onenet feedback" />
+    <MESSAGE value="add onenetManager" />
+    <MESSAGE value="modify thread" />
+    <MESSAGE value="add NbiotShadow" />
+    <MESSAGE value="modify ScheduleService" />
+    <MESSAGE value="modify ConsoleController" />
+    <MESSAGE value="add websocket config" />
+    <MESSAGE value="close test" />
+    <MESSAGE value="modify websocket config" />
+    <MESSAGE value="update log" />
+    <MESSAGE value="add message type enum" />
+    <MESSAGE value="remove websocket trace log" />
+    <MESSAGE value="adjust format" />
+    <MESSAGE value="reduce the number of threads in threadPool" />
+    <MESSAGE value="add override function" />
+    <MESSAGE value="modify the name of functions" />
+    <MESSAGE value="modify the name of funtions" />
+    <MESSAGE value="add async and clear all devices at 01:00 every day" />
+    <MESSAGE value="modify UTs" />
+    <MESSAGE value="modify TaskExecutorConfig" />
+    <MESSAGE value="add timestamp check" />
+    <MESSAGE value="modify thread config" />
+    <MESSAGE value="remove clear schedule" />
+    <MESSAGE value="fix timeout bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix timeout bug" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/ConsoleServiceTest.kt</url>
+          <line>86</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/ConsoleService.kt</url>
+          <line>30</line>
+          <properties />
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunDeviceServiceTest.kt</url>
+          <line>147</line>
+          <properties />
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunDeviceServiceTest.kt</url>
+          <line>153</line>
+          <properties />
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunDeviceServiceTest.kt</url>
+          <line>265</line>
+          <properties />
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunDeviceServiceTest.kt</url>
+          <line>273</line>
+          <properties />
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunDeviceServiceTest.kt</url>
+          <line>281</line>
+          <properties />
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunDeviceServiceTest.kt</url>
+          <line>288</line>
+          <properties />
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunDeviceServiceTest.kt</url>
+          <line>363</line>
+          <properties />
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunDeviceServiceTest.kt</url>
+          <line>378</line>
+          <properties />
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/ConsoleService.kt</url>
+          <line>65</line>
+          <properties />
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/ScheduleServiceTest.kt</url>
+          <line>97</line>
+          <properties />
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/ScheduleServiceTest.kt</url>
+          <line>122</line>
+          <properties />
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/ScheduleServiceTest.kt</url>
+          <line>159</line>
+          <properties />
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/ConsoleControllerTest.kt</url>
+          <line>112</line>
+          <properties />
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/ConsoleController.kt</url>
+          <line>61</line>
+          <properties />
+          <option name="timeStamp" value="122" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/ConsoleController.kt</url>
+          <line>67</line>
+          <properties />
+          <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/ConsoleControllerTest.kt</url>
+          <line>103</line>
+          <properties />
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/ConsoleServiceTest.kt</url>
+          <line>172</line>
+          <properties />
+          <option name="timeStamp" value="125" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/ConsoleServiceTest.kt</url>
+          <line>248</line>
+          <properties />
+          <option name="timeStamp" value="126" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/OneNetServiceTest.kt</url>
+          <line>103</line>
+          <properties />
+          <option name="timeStamp" value="130" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/OneNetDeviceService.kt</url>
+          <line>86</line>
+          <properties />
+          <option name="timeStamp" value="135" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/OneNetServiceTest.kt</url>
+          <line>199</line>
+          <properties />
+          <option name="timeStamp" value="136" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/manager/AliyunManager.kt</url>
+          <line>139</line>
+          <properties />
+          <option name="timeStamp" value="138" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/manager/AliyunManager.kt</url>
+          <line>138</line>
+          <properties />
+          <option name="timeStamp" value="139" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunDeviceServiceTest.kt</url>
+          <line>126</line>
+          <properties />
+          <option name="timeStamp" value="145" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunDeviceServiceTest.kt</url>
+          <line>112</line>
+          <properties />
+          <option name="timeStamp" value="146" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunDeviceServiceTest.kt</url>
+          <line>133</line>
+          <properties />
+          <option name="timeStamp" value="148" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunDeviceServiceTest.kt</url>
+          <line>131</line>
+          <properties />
+          <option name="timeStamp" value="149" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="150" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/OneNetService.kt" />
+    <entry file="file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/WebsocketClient.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/AliyunService.kt" />
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/config/WebSocketConfig.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="28" column="6" lean-forward="false" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/config/ChannelInterceptor.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="35" column="50" lean-forward="false" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.csky.iot/cop-common/1.0.1-RELEASE/6acecf3678943dc7791173bc63ba9f344b479065/cop-common-1.0.1-RELEASE.jar!/com/csky/iot/constants/Constant.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/runners/model/FrameworkMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/entity/aliyun_iot/MnsTypeEnum.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/entity/onenet/NbiotShadow.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/dao/entity/LicenseCidDO.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="23" column="23" lean-forward="false" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-jpa/1.11.6.RELEASE/52b30482ad7525a67276f0c6a88021024640ef7d/spring-data-jpa-1.11.6.RELEASE-sources.jar!/org/springframework/data/jpa/repository/JpaRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="96" column="6" lean-forward="false" selection-start-line="96" selection-start-column="6" selection-end-line="96" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/dao/entity/ProductDO.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-155">
+          <caret line="26" column="20" lean-forward="false" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/entity/ProductIotTypeEnum.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="19" column="7" lean-forward="false" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/utils/RedisUtil.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="63" column="8" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/manager/dto/AliyunMsgDTO.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.1.4-3/3f64b358bd71a3b615c8cb90f35c3152492d4b27/kotlin-stdlib-1.1.4-3-sources.jar!/generated/_Collections.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="1478" column="0" lean-forward="false" selection-start-line="1478" selection-start-column="0" selection-end-line="1478" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/manager/dto/OneNetDeviceMnsDTO.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="21" column="25" lean-forward="false" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunServiceTest.kt" />
+    <entry file="file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/DeviceServiceTest.kt" />
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/vo/SendMessageVO.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="21" column="19" lean-forward="false" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/entity/onenet/OneNetDeviceShadow.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/dao/DeviceOneNetRepository.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="21" column="53" lean-forward="false" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/dao/entity/DeviceOneNetDO.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="26" column="25" lean-forward="false" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/dao/entity/ProductAliyunDO.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/dao/ProductRepository.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="21" column="10" lean-forward="false" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/entity/aliyun_iot/AliyunDeviceShadow.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/ConsoleControllerTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/ConsoleServiceTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="87" selection-end-column="66" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#644#1923#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/TestData.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="38" column="33" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/OneNetServiceTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#644#2040#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/logback-spring.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/ScheduleServiceTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4671">
+          <caret line="173" column="1" lean-forward="false" selection-start-line="173" selection-start-column="1" selection-end-line="173" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#644#1983#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/dao/DeviceRespository.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/dao/LicenseCidRepository.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="22" column="36" lean-forward="false" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/dao/LicenseRepository.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/config/TaskExecutorConfig.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#662#1348#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/dao/ProductOneNetRepository.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="21" column="65" lean-forward="false" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/dao/entity/ProductOneNetDO.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="30" column="21" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/MsgTypeEnum.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/AliyunDeviceService.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2646">
+          <caret line="124" column="5" lean-forward="false" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/OneNetDeviceService.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="45" column="78" lean-forward="false" selection-start-line="45" selection-start-column="78" selection-end-line="45" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/manager/OnenetManager.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1161">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/config/STOMPDisconnectEventListener.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/ConsoleService.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="891">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding>
+            <marker date="1513836992327" expanded="true" signature="663:667" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunManagerTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3591">
+          <caret line="133" column="30" lean-forward="false" selection-start-line="133" selection-start-column="30" selection-end-line="133" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/web/ConsoleController.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="45" column="40" lean-forward="false" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/service/ScheduleService.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="43" column="34" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="43" selection-end-column="34" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#656#1438#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/kotlin/com/csky/iot/web/AliyunDeviceServiceTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2241">
+          <caret line="83" column="18" lean-forward="false" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="18" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#644#2572#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/csky/iot/console/manager/AliyunManager.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="128" column="13" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="50" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#656#1411#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

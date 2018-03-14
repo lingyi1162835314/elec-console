@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProtocolUtils.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cop-console</a> &gt; <a href="index.source.html" class="el_package">com.aliyun.iot.util</a> &gt; <span class="el_source">ProtocolUtils.java</span></div><h1>ProtocolUtils.java</h1><pre class="source lang-java linenums">package com.aliyun.iot.util;
+
+import java.io.UnsupportedEncodingException;
+
+/**
+ * Created by Gary on 14-5-6.
+ */
+<span class="nc" id="L8">public class ProtocolUtils {</span>
+
+    public static final String CHAR_SET    = &quot;UTF-8&quot;;
+
+    public static final int    BUFFER_SIZE = 1024;
+
+    /**
+     * Return the bytes with string encoded as MSB, LSB and UTF-8 encoded string content.
+     */
+    public static byte[] encodeString(String str) {
+
+<span class="nc bnc" id="L19" title="All 2 branches missed.">        if (str == null) {</span>
+
+<span class="nc" id="L21">            str = &quot;&quot;;</span>
+        }
+
+<span class="nc" id="L24">        DynamicByteBuffer out = DynamicByteBuffer.allocate(2);</span>
+        byte[] raw;
+        try {
+<span class="nc" id="L27">            raw = str.getBytes(CHAR_SET);</span>
+            // NB every Java platform has got UTF-8 encoding by default, so this
+            // exception are never raised.
+<span class="nc" id="L30">        } catch (UnsupportedEncodingException ex) {</span>
+<span class="nc" id="L31">            return null;</span>
+<span class="nc" id="L32">        }</span>
+
+<span class="nc" id="L34">        writeWord(out, raw.length);</span>
+<span class="nc" id="L35">        out.put(raw);</span>
+
+<span class="nc" id="L37">        return out.array();</span>
+    }
+
+    /**
+     * Load a string from the given buffer, reading first the two bytes of len and then the UTF-8 bytes of the string.
+     * 
+     * @return the decoded string or null if NEED_DATA
+     */
+    public static String decodeString(DynamicByteBuffer in) {
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        if (in.remaining() &lt; 2) {</span>
+<span class="nc" id="L47">            return null;</span>
+        }
+
+<span class="nc" id="L50">        in.mark();</span>
+
+<span class="nc" id="L52">        int strLen = readWord(in);</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        if (in.remaining() &lt; strLen) {</span>
+<span class="nc" id="L54">            in.reset();</span>
+<span class="nc" id="L55">            return null;</span>
+        }
+
+<span class="nc" id="L58">        byte[] strRaw = new byte[strLen];</span>
+<span class="nc" id="L59">        in.get(strRaw);</span>
+
+        try {
+
+<span class="nc" id="L63">            return new String(strRaw, CHAR_SET);</span>
+<span class="nc" id="L64">        } catch (UnsupportedEncodingException ex) {</span>
+
+<span class="nc" id="L66">            return null;</span>
+        }
+    }
+
+    /**
+     * Read 2 bytes from in buffer first MSB, and then LSB returning as int.
+     */
+    private static int readWord(DynamicByteBuffer in) {
+<span class="nc" id="L74">        int msb = in.get() &amp; 0x00FF; // remove sign extension due to casting</span>
+<span class="nc" id="L75">        int lsb = in.get() &amp; 0x00FF;</span>
+<span class="nc" id="L76">        msb = (msb &lt;&lt; 8) | lsb;</span>
+<span class="nc" id="L77">        return msb;</span>
+    }
+
+    /**
+     * Writes as 2 bytes the int value into buffer first MSB, and then LSB.
+     */
+    private static void writeWord(DynamicByteBuffer out, int value) {
+<span class="nc" id="L84">        out.put((byte) ((value &amp; 0xFF00) &gt;&gt; 8)); // msb</span>
+<span class="nc" id="L85">        out.put((byte) (value &amp; 0x00FF)); // lsb</span>
+<span class="nc" id="L86">    }</span>
+
+    // private static long readDWord(DynamicByteBuffer in) {
+    // return (long) (in.get() &lt;&lt; 24 &amp; 0xFF000000l) +
+    // (in.get() &lt;&lt; 16 &amp; 0xFF0000) +
+    // (in.get() &lt;&lt; 8 &amp; 0xFF00) +
+    // (in.get() &lt;&lt; 0 &amp; 0xFF);
+    // }
+    //
+    // private static void writeDWord(DynamicByteBuffer out, long value) {
+    // out.put((byte) ((value &amp; 0xFF000000l) &gt;&gt; 24));
+    // out.put((byte) ((value &amp; 0xFF0000) &gt;&gt; 16));
+    // out.put((byte) ((value &amp; 0xFF00) &gt;&gt; 8));
+    // out.put((byte) (value &amp; 0x00FF));
+    // }
+
+    public static byte[] encodeVariableNumber(long value) {
+
+<span class="nc" id="L104">        DynamicByteBuffer out = DynamicByteBuffer.allocate(8);</span>
+<span class="nc" id="L105">        encodeVariableNumber(out, value);</span>
+
+<span class="nc" id="L107">        return out.array();</span>
+    }
+
+    public static void encodeVariableNumber(DynamicByteBuffer out, long value) {
+
+        byte digit;
+
+        do {
+
+<span class="nc" id="L116">            digit = (byte) (value % 128);</span>
+<span class="nc" id="L117">            value = value / 128;</span>
+            // if there are more digits to encodeBody, set the top bit of this digit
+<span class="nc bnc" id="L119" title="All 2 branches missed.">            if (value &gt; 0) {</span>
+<span class="nc" id="L120">                digit = (byte) (digit | 0x80);</span>
+            }
+
+<span class="nc" id="L123">            out.put(digit);</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">        } while (value &gt; 0);</span>
+<span class="nc" id="L125">    }</span>
+
+    public static long decodeVariableNumber(DynamicByteBuffer in) {
+        // TODO 闀垮害瑕佸仛涓�涓槻鑼�
+<span class="nc" id="L129">        long multiplier = 1;</span>
+<span class="nc" id="L130">        long value = 0;</span>
+        byte digit;
+
+        do {
+<span class="nc bnc" id="L134" title="All 2 branches missed.">            if (in.remaining() &lt; 1) {</span>
+
+<span class="nc" id="L136">                return -1;</span>
+            }
+
+<span class="nc" id="L139">            digit = in.get();</span>
+<span class="nc" id="L140">            value += (digit &amp; 0x7F) * multiplier;</span>
+<span class="nc" id="L141">            multiplier *= 128;</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">        } while ((digit &amp; 0x80) != 0);</span>
+
+<span class="nc" id="L144">        return value;</span>
+    }
+    
+   
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

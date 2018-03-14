@@ -1,0 +1,110 @@
+/*
+ * Copyright (C) 2017 C-SKY Microsystems Co., Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+buildscript {
+    ext {
+        springBootVersion = '1.5.6.RELEASE'
+        kotlinVersion = '1.1.4-3'
+    }
+
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+        classpath("gradle.plugin.org.jmailen.gradle:kotlinter-gradle:1.3.0")
+        classpath("gradle.plugin.io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.0.0.RC1")
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'jacoco'
+apply plugin: 'org.jmailen.kotlinter'
+apply plugin: 'io.gitlab.arturbosch.detekt'
+
+group 'com.csky.iot'
+version '1.0.0-RELEASE'
+archivesBaseName = 'cop-console'
+
+sourceCompatibility = 1.8
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+def env = System.getProperty("env") ?: "dev"
+sourceSets {
+    main {
+        resources {
+            srcDirs = ["src/main/resources", "src/main/profile/$env"]
+        }
+    }
+}
+
+repositories {
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    maven { url 'http://ci.c-sky.com:60060/repository/c-sky/'}
+}
+
+ext {
+    springCloudVersion = 'Dalston.SR3'
+    springfoxVersion = '2.7.0'
+}
+
+dependencies {
+    compile("com.csky.iot:cop-common:1.0.1-RELEASE")
+    compile("com.csky.iot:cop-cid:1.0.1-RELEASE")
+
+    compile("org.springframework.cloud:spring-cloud-starter-config")
+    compile("org.springframework.cloud:spring-cloud-starter-eureka")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-data-redis")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile('org.springframework.boot:spring-boot-starter-websocket')
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+
+    compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
+    compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
+
+    compile("com.alibaba:druid:1.0.31")
+    compile("com.alibaba:fastjson:1.2.15")
+
+    compile("org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0")
+    compile("com.aliyun:aliyun-java-sdk-iot:2.2.0")
+    compile("com.aliyun:aliyun-java-sdk-core:3.2.4")
+    compile("com.aliyun.mns:aliyun-sdk-mns:1.1.8.4")
+
+    compile("io.springfox:springfox-swagger2:$springfoxVersion")
+    compile("io.springfox:springfox-swagger-ui:$springfoxVersion")
+
+    runtime("mysql:mysql-connector-java")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}

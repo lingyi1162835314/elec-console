@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Md5.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cop-console</a> &gt; <a href="index.source.html" class="el_package">com.aliyun.iot.util</a> &gt; <span class="el_source">Md5.java</span></div><h1>Md5.java</h1><pre class="source lang-java linenums">/**
+ * Alibaba.com Inc.
+ * Copyright (c) 2004-2016 All Rights Reserved.
+ */
+package com.aliyun.iot.util;
+
+
+/**
+ * 鎬讳綋璇存槑
+ *
+ * &lt;p&gt;鍏蜂綋璇存槑&lt;/p&gt;
+ *
+ * @version $Id: Md5.java,v 0.1 2016骞�1鏈�19鏃� 涓嬪崍5:55:16  Exp $
+ */
+public class Md5 {
+    /*
+     * 涓嬮潰杩欎簺S11-S44瀹為檯涓婃槸涓�涓�4*4鐨勭煩闃碉紝鍦ㄥ師濮嬬殑C瀹炵幇涓槸鐢�#define 瀹炵幇鐨勶紝 杩欓噷鎶婂畠浠疄鐜版垚涓簊tatic
+     * final鏄〃绀轰簡鍙锛屼笖鍙兘鍦ㄥ悓涓�涓繘绋嬬┖闂村唴鐨勫涓� Instance闂村叡浜�
+     */
+    private static final int S11 = 7;
+
+    private static final int S12 = 12;
+
+    private static final int S13 = 17;
+
+    private static final int S14 = 22;
+
+    private static final int S21 = 5;
+
+    private static final int S22 = 9;
+
+    private static final int S23 = 14;
+
+    private static final int S24 = 20;
+
+    private static final int S31 = 4;
+
+    private static final int S32 = 11;
+
+    private static final int S33 = 16;
+
+    private static final int S34 = 23;
+
+    private static final int S41 = 6;
+
+    private static final int S42 = 10;
+
+    private static final int S43 = 15;
+
+    private static final int S44 = 21;
+
+<span class="nc" id="L52">    private static final byte[] PADDING = {-128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,</span>
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+    /*
+     * 涓嬮潰鐨勪笁涓垚鍛樻槸MD5璁＄畻杩囩▼涓敤鍒扮殑3涓牳蹇冩暟鎹紝鍦ㄥ師濮嬬殑C瀹炵幇涓瀹氫箟鍒癕D5_CTX缁撴瀯涓�
+     */
+<span class="nc" id="L59">    private long[] state = new long[4];             // state (ABCD)</span>
+
+<span class="nc" id="L61">    private long[] count = new long[2];             // number of bits, modulo 2^64 (lsb</span>
+
+    // first)
+
+<span class="nc" id="L65">    private byte[] buffer = new byte[64];            // input buffer</span>
+
+    /*
+     * digestHexStr鏄疢D5鐨勫敮涓�涓�涓叕鍏辨垚鍛橈紝鏄渶鏂颁竴娆¤绠楃粨鏋滅殑16杩涘埗ASCII琛ㄧず.
+     */
+    private String digestHexStr;
+    /*
+     * digest,鏄渶鏂颁竴娆¤绠楃粨鏋滅殑2杩涘埗鍐呴儴琛ㄧず锛岃〃绀�128bit鐨凪D5鍊�.
+     */
+<span class="nc" id="L74">    private byte[] digest = new byte[16];</span>
+
+<span class="nc" id="L76">    private Md5() {</span>
+<span class="nc" id="L77">        md5Init();</span>
+<span class="nc" id="L78">    }</span>
+
+    public static Md5 getInstance() {
+<span class="nc" id="L81">        return new Md5();</span>
+    }
+
+    /*
+     * b2iu鏄竴涓妸byte鎸夌収涓嶈�冭檻姝ｈ礋鍙风殑鍘熷垯鐨勶紓鍗囦綅锛傜▼搴忥紝鍥犱负java娌℃湁unsigned杩愮畻
+     */
+    public static long b2iu(byte b) {
+<span class="nc bnc" id="L88" title="All 2 branches missed.">        return b &lt; 0 ? b &amp; 0x7F + 128 : b;</span>
+    }
+
+    /*
+     * byteHEX()锛岀敤鏉ユ妸涓�涓猙yte绫诲瀷鐨勬暟杞崲鎴愬崄鍏繘鍒剁殑ASCII琛ㄧず锛� 鍥犱负java涓殑byte鐨則oString鏃犳硶瀹炵幇杩欎竴鐐�
+     */
+    public static String byteHEX(byte ib) {
+<span class="nc" id="L95">        char[] Digit = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e',</span>
+                'f'};
+<span class="nc" id="L97">        char[] ob = new char[2];</span>
+<span class="nc" id="L98">        ob[0] = Digit[(ib &gt;&gt;&gt; 4) &amp; 0X0F];</span>
+<span class="nc" id="L99">        ob[1] = Digit[ib &amp; 0X0F];</span>
+<span class="nc" id="L100">        String s = new String(ob);</span>
+<span class="nc" id="L101">        return s;</span>
+    }
+
+
+
+    public String md5_32(String inbuf) {
+<span class="nc" id="L107">        md5Update(inbuf.getBytes(), inbuf.length());</span>
+<span class="nc" id="L108">        md5Final();</span>
+<span class="nc" id="L109">        this.digestHexStr = &quot;&quot;;</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">        for (int i = 0; i &lt; 16; i++) {</span>
+<span class="nc" id="L111">            this.digestHexStr += byteHEX(this.digest[i]);</span>
+        }
+<span class="nc" id="L113">        return this.digestHexStr;</span>
+    }
+
+    /*
+     * 绫籑D5鏈�涓昏鐨勫叕鍏辨柟娉曪紝鍏ュ彛鍙傛暟鏄綘鎯宠杩涜MD5鍙樻崲鐨勫瓧绗︿覆杩斿洖鐨勬槸鍙樻崲瀹岀殑缁撴灉锛岃繖涓粨鏋滄槸浠庡叕鍏辨垚鍛榙igestHexStr鍙栧緱鐨勶紟
+     */
+    public String md5_16(String inbuf) {
+<span class="nc" id="L120">        return md5_32(inbuf).substring(8, 24);</span>
+    }
+
+    public String md5_8(String inbuf) {
+<span class="nc" id="L124">        return md5_32(inbuf).substring(0, 8);</span>
+    }
+
+    /* md5Init鏄竴涓垵濮嬪寲鍑芥暟锛屽垵濮嬪寲鏍稿績鍙橀噺锛岃鍏ユ爣鍑嗙殑骞绘暟 */
+    private void md5Init() {
+<span class="nc" id="L129">        this.count[0] = 0L;</span>
+<span class="nc" id="L130">        this.count[1] = 0L;</span>
+
+<span class="nc" id="L132">        this.state[0] = 0x67452301L;</span>
+<span class="nc" id="L133">        this.state[1] = 0xefcdab89L;</span>
+<span class="nc" id="L134">        this.state[2] = 0x98badcfeL;</span>
+<span class="nc" id="L135">        this.state[3] = 0x10325476L;</span>
+<span class="nc" id="L136">    }</span>
+
+    /* F, G, H ,I 鏄�4涓熀鏈殑MD5鍑芥暟锛� */
+    private long F(long x, long y, long z) {
+<span class="nc" id="L140">        return (x &amp; y) | ((~x) &amp; z);</span>
+
+    }
+
+    private long G(long x, long y, long z) {
+<span class="nc" id="L145">        return (x &amp; z) | (y &amp; (~z));</span>
+
+    }
+
+    private long H(long x, long y, long z) {
+<span class="nc" id="L150">        return x ^ y ^ z;</span>
+    }
+
+    private long I(long x, long y, long z) {
+<span class="nc" id="L154">        return y ^ (x | (~z));</span>
+    }
+
+    private long FF(long a, long b, long c, long d, long x, long s, long ac) {
+<span class="nc" id="L158">        a += F(b, c, d) + x + ac;</span>
+<span class="nc" id="L159">        a = ((int) a &lt;&lt; s) | ((int) a &gt;&gt;&gt; (32 - s));</span>
+<span class="nc" id="L160">        a += b;</span>
+<span class="nc" id="L161">        return a;</span>
+    }
+
+    private long GG(long a, long b, long c, long d, long x, long s, long ac) {
+<span class="nc" id="L165">        a += G(b, c, d) + x + ac;</span>
+<span class="nc" id="L166">        a = ((int) a &lt;&lt; s) | ((int) a &gt;&gt;&gt; (32 - s));</span>
+<span class="nc" id="L167">        a += b;</span>
+<span class="nc" id="L168">        return a;</span>
+    }
+
+    private long HH(long a, long b, long c, long d, long x, long s, long ac) {
+<span class="nc" id="L172">        a += H(b, c, d) + x + ac;</span>
+<span class="nc" id="L173">        a = ((int) a &lt;&lt; s) | ((int) a &gt;&gt;&gt; (32 - s));</span>
+<span class="nc" id="L174">        a += b;</span>
+<span class="nc" id="L175">        return a;</span>
+    }
+
+    private long II(long a, long b, long c, long d, long x, long s, long ac) {
+<span class="nc" id="L179">        a += I(b, c, d) + x + ac;</span>
+<span class="nc" id="L180">        a = ((int) a &lt;&lt; s) | ((int) a &gt;&gt;&gt; (32 - s));</span>
+<span class="nc" id="L181">        a += b;</span>
+<span class="nc" id="L182">        return a;</span>
+    }
+
+    /*
+     * md5Update鏄疢D5鐨勪富璁＄畻杩囩▼锛宨nbuf鏄鍙樻崲鐨勫瓧鑺備覆锛宨nputlen鏄暱搴︼紝杩欎釜
+     * 鍑芥暟鐢眒d5璋冪敤锛岃皟鐢ㄤ箣鍓嶉渶瑕佽皟鐢╩d5init锛屽洜姝ゆ妸瀹冭璁℃垚private鐨�
+     */
+    private void md5Update(byte[] inbuf, int inputLen) {
+
+        int i, index, partLen;
+<span class="nc" id="L192">        byte[] block = new byte[64];</span>
+<span class="nc" id="L193">        index = (int) (this.count[0] &gt;&gt;&gt; 3) &amp; 0x3F;</span>
+        // /* Update number of bits */
+<span class="nc bnc" id="L195" title="All 2 branches missed.">        if ((this.count[0] += (inputLen &lt;&lt; 3)) &lt; (inputLen &lt;&lt; 3)) {</span>
+<span class="nc" id="L196">            this.count[1]++;</span>
+        }
+<span class="nc" id="L198">        this.count[1] += (inputLen &gt;&gt;&gt; 29);</span>
+
+<span class="nc" id="L200">        partLen = 64 - index;</span>
+        // Transform as many times as possible.
+<span class="nc bnc" id="L202" title="All 2 branches missed.">        if (inputLen &gt;= partLen) {</span>
+<span class="nc" id="L203">            md5Memcpy(this.buffer, inbuf, index, 0, partLen);</span>
+<span class="nc" id="L204">            md5Transform(this.buffer);</span>
+<span class="nc bnc" id="L205" title="All 2 branches missed.">            for (i = partLen; i + 63 &lt; inputLen; i += 64) {</span>
+<span class="nc" id="L206">                md5Memcpy(block, inbuf, 0, i, 64);</span>
+<span class="nc" id="L207">                md5Transform(block);</span>
+            }
+<span class="nc" id="L209">            index = 0;</span>
+        } else {
+<span class="nc" id="L211">            i = 0;</span>
+        }
+        // /* Buffer remaining input */
+<span class="nc" id="L214">        md5Memcpy(this.buffer, inbuf, index, i, inputLen - i);</span>
+
+<span class="nc" id="L216">    }</span>
+
+    /*
+     * md5Final鏁寸悊鍜屽～鍐欒緭鍑虹粨鏋�
+     */
+    private void md5Final() {
+<span class="nc" id="L222">        byte[] bits = new byte[8];</span>
+        int index, padLen;
+        // /* Save number of bits */
+<span class="nc" id="L225">        encode(bits, this.count, 8);</span>
+        // /* Pad out to 56 mod 64.
+<span class="nc" id="L227">        index = (int) (this.count[0] &gt;&gt;&gt; 3) &amp; 0x3f;</span>
+<span class="nc bnc" id="L228" title="All 2 branches missed.">        padLen = (index &lt; 56) ? (56 - index) : (120 - index);</span>
+<span class="nc" id="L229">        md5Update(PADDING, padLen);</span>
+        // /* Append length (before padding) */
+<span class="nc" id="L231">        md5Update(bits, 8);</span>
+        // /* Store state in digest */
+<span class="nc" id="L233">        encode(this.digest, this.state, 16);</span>
+<span class="nc" id="L234">    }</span>
+
+    /*
+     * md5Memcpy鏄竴涓唴閮ㄤ娇鐢ㄧ殑byte鏁扮粍鐨勫潡鎷疯礉鍑芥暟锛屼粠input鐨刬npos寮�濮嬫妸len闀垮害鐨�
+     * 瀛楄妭鎷疯礉鍒皁utput鐨刼utpos浣嶇疆寮�濮�
+     */
+    private void md5Memcpy(byte[] output, byte[] input, int outpos, int inpos, int len) {
+        int i;
+<span class="nc bnc" id="L242" title="All 2 branches missed.">        for (i = 0; i &lt; len; i++) {</span>
+<span class="nc" id="L243">            output[outpos + i] = input[inpos + i];</span>
+        }
+<span class="nc" id="L245">    }</span>
+
+    /*
+     * md5Transform鏄疢D5鏍稿績鍙樻崲绋嬪簭锛屾湁md5Update璋冪敤锛宐lock鏄垎鍧楃殑鍘熷瀛楄妭
+     */
+    private void md5Transform(byte block[]) {
+<span class="nc" id="L251">        long a = this.state[0], b = this.state[1], c = this.state[2], d = this.state[3];</span>
+<span class="nc" id="L252">        long[] x = new long[16];</span>
+<span class="nc" id="L253">        decode(x, block, 64);</span>
+
+        /* Round 1 */
+<span class="nc" id="L256">        a = FF(a, b, c, d, x[0], S11, 0xd76aa478L); /* 1 */</span>
+<span class="nc" id="L257">        d = FF(d, a, b, c, x[1], S12, 0xe8c7b756L); /* 2 */</span>
+<span class="nc" id="L258">        c = FF(c, d, a, b, x[2], S13, 0x242070dbL); /* 3 */</span>
+<span class="nc" id="L259">        b = FF(b, c, d, a, x[3], S14, 0xc1bdceeeL); /* 4 */</span>
+<span class="nc" id="L260">        a = FF(a, b, c, d, x[4], S11, 0xf57c0fafL); /* 5 */</span>
+<span class="nc" id="L261">        d = FF(d, a, b, c, x[5], S12, 0x4787c62aL); /* 6 */</span>
+<span class="nc" id="L262">        c = FF(c, d, a, b, x[6], S13, 0xa8304613L); /* 7 */</span>
+<span class="nc" id="L263">        b = FF(b, c, d, a, x[7], S14, 0xfd469501L); /* 8 */</span>
+<span class="nc" id="L264">        a = FF(a, b, c, d, x[8], S11, 0x698098d8L); /* 9 */</span>
+<span class="nc" id="L265">        d = FF(d, a, b, c, x[9], S12, 0x8b44f7afL); /* 10 */</span>
+<span class="nc" id="L266">        c = FF(c, d, a, b, x[10], S13, 0xffff5bb1L); /* 11 */</span>
+<span class="nc" id="L267">        b = FF(b, c, d, a, x[11], S14, 0x895cd7beL); /* 12 */</span>
+<span class="nc" id="L268">        a = FF(a, b, c, d, x[12], S11, 0x6b901122L); /* 13 */</span>
+<span class="nc" id="L269">        d = FF(d, a, b, c, x[13], S12, 0xfd987193L); /* 14 */</span>
+<span class="nc" id="L270">        c = FF(c, d, a, b, x[14], S13, 0xa679438eL); /* 15 */</span>
+<span class="nc" id="L271">        b = FF(b, c, d, a, x[15], S14, 0x49b40821L); /* 16 */</span>
+        /* Round 2 */
+<span class="nc" id="L273">        a = GG(a, b, c, d, x[1], S21, 0xf61e2562L); /* 17 */</span>
+<span class="nc" id="L274">        d = GG(d, a, b, c, x[6], S22, 0xc040b340L); /* 18 */</span>
+<span class="nc" id="L275">        c = GG(c, d, a, b, x[11], S23, 0x265e5a51L); /* 19 */</span>
+<span class="nc" id="L276">        b = GG(b, c, d, a, x[0], S24, 0xe9b6c7aaL); /* 20 */</span>
+<span class="nc" id="L277">        a = GG(a, b, c, d, x[5], S21, 0xd62f105dL); /* 21 */</span>
+<span class="nc" id="L278">        d = GG(d, a, b, c, x[10], S22, 0x2441453L); /* 22 */</span>
+<span class="nc" id="L279">        c = GG(c, d, a, b, x[15], S23, 0xd8a1e681L); /* 23 */</span>
+<span class="nc" id="L280">        b = GG(b, c, d, a, x[4], S24, 0xe7d3fbc8L); /* 24 */</span>
+<span class="nc" id="L281">        a = GG(a, b, c, d, x[9], S21, 0x21e1cde6L); /* 25 */</span>
+<span class="nc" id="L282">        d = GG(d, a, b, c, x[14], S22, 0xc33707d6L); /* 26 */</span>
+<span class="nc" id="L283">        c = GG(c, d, a, b, x[3], S23, 0xf4d50d87L); /* 27 */</span>
+<span class="nc" id="L284">        b = GG(b, c, d, a, x[8], S24, 0x455a14edL); /* 28 */</span>
+<span class="nc" id="L285">        a = GG(a, b, c, d, x[13], S21, 0xa9e3e905L); /* 29 */</span>
+<span class="nc" id="L286">        d = GG(d, a, b, c, x[2], S22, 0xfcefa3f8L); /* 30 */</span>
+<span class="nc" id="L287">        c = GG(c, d, a, b, x[7], S23, 0x676f02d9L); /* 31 */</span>
+<span class="nc" id="L288">        b = GG(b, c, d, a, x[12], S24, 0x8d2a4c8aL); /* 32 */</span>
+        /* Round 3 */
+<span class="nc" id="L290">        a = HH(a, b, c, d, x[5], S31, 0xfffa3942L); /* 33 */</span>
+<span class="nc" id="L291">        d = HH(d, a, b, c, x[8], S32, 0x8771f681L); /* 34 */</span>
+<span class="nc" id="L292">        c = HH(c, d, a, b, x[11], S33, 0x6d9d6122L); /* 35 */</span>
+<span class="nc" id="L293">        b = HH(b, c, d, a, x[14], S34, 0xfde5380cL); /* 36 */</span>
+<span class="nc" id="L294">        a = HH(a, b, c, d, x[1], S31, 0xa4beea44L); /* 37 */</span>
+<span class="nc" id="L295">        d = HH(d, a, b, c, x[4], S32, 0x4bdecfa9L); /* 38 */</span>
+<span class="nc" id="L296">        c = HH(c, d, a, b, x[7], S33, 0xf6bb4b60L); /* 39 */</span>
+<span class="nc" id="L297">        b = HH(b, c, d, a, x[10], S34, 0xbebfbc70L); /* 40 */</span>
+<span class="nc" id="L298">        a = HH(a, b, c, d, x[13], S31, 0x289b7ec6L); /* 41 */</span>
+<span class="nc" id="L299">        d = HH(d, a, b, c, x[0], S32, 0xeaa127faL); /* 42 */</span>
+<span class="nc" id="L300">        c = HH(c, d, a, b, x[3], S33, 0xd4ef3085L); /* 43 */</span>
+<span class="nc" id="L301">        b = HH(b, c, d, a, x[6], S34, 0x4881d05L); /* 44 */</span>
+<span class="nc" id="L302">        a = HH(a, b, c, d, x[9], S31, 0xd9d4d039L); /* 45 */</span>
+<span class="nc" id="L303">        d = HH(d, a, b, c, x[12], S32, 0xe6db99e5L); /* 46 */</span>
+<span class="nc" id="L304">        c = HH(c, d, a, b, x[15], S33, 0x1fa27cf8L); /* 47 */</span>
+<span class="nc" id="L305">        b = HH(b, c, d, a, x[2], S34, 0xc4ac5665L); /* 48 */</span>
+        /* Round 4 */
+<span class="nc" id="L307">        a = II(a, b, c, d, x[0], S41, 0xf4292244L); /* 49 */</span>
+<span class="nc" id="L308">        d = II(d, a, b, c, x[7], S42, 0x432aff97L); /* 50 */</span>
+<span class="nc" id="L309">        c = II(c, d, a, b, x[14], S43, 0xab9423a7L); /* 51 */</span>
+<span class="nc" id="L310">        b = II(b, c, d, a, x[5], S44, 0xfc93a039L); /* 52 */</span>
+<span class="nc" id="L311">        a = II(a, b, c, d, x[12], S41, 0x655b59c3L); /* 53 */</span>
+<span class="nc" id="L312">        d = II(d, a, b, c, x[3], S42, 0x8f0ccc92L); /* 54 */</span>
+<span class="nc" id="L313">        c = II(c, d, a, b, x[10], S43, 0xffeff47dL); /* 55 */</span>
+<span class="nc" id="L314">        b = II(b, c, d, a, x[1], S44, 0x85845dd1L); /* 56 */</span>
+<span class="nc" id="L315">        a = II(a, b, c, d, x[8], S41, 0x6fa87e4fL); /* 57 */</span>
+<span class="nc" id="L316">        d = II(d, a, b, c, x[15], S42, 0xfe2ce6e0L); /* 58 */</span>
+<span class="nc" id="L317">        c = II(c, d, a, b, x[6], S43, 0xa3014314L); /* 59 */</span>
+<span class="nc" id="L318">        b = II(b, c, d, a, x[13], S44, 0x4e0811a1L); /* 60 */</span>
+<span class="nc" id="L319">        a = II(a, b, c, d, x[4], S41, 0xf7537e82L); /* 61 */</span>
+<span class="nc" id="L320">        d = II(d, a, b, c, x[11], S42, 0xbd3af235L); /* 62 */</span>
+<span class="nc" id="L321">        c = II(c, d, a, b, x[2], S43, 0x2ad7d2bbL); /* 63 */</span>
+<span class="nc" id="L322">        b = II(b, c, d, a, x[9], S44, 0xeb86d391L); /* 64 */</span>
+<span class="nc" id="L323">        this.state[0] += a;</span>
+<span class="nc" id="L324">        this.state[1] += b;</span>
+<span class="nc" id="L325">        this.state[2] += c;</span>
+<span class="nc" id="L326">        this.state[3] += d;</span>
+
+<span class="nc" id="L328">    }</span>
+
+    /*
+     * Encode鎶妉ong鏁扮粍鎸夐『搴忔媶鎴恇yte鏁扮粍锛屽洜涓簀ava鐨刲ong绫诲瀷鏄�64bit鐨勶紝鍙媶浣�32bit
+     */
+    private void encode(byte[] output, long[] input, int len) {
+        int i, j;
+<span class="nc bnc" id="L335" title="All 2 branches missed.">        for (i = 0, j = 0; j &lt; len; i++, j += 4) {</span>
+<span class="nc" id="L336">            output[j] = (byte) (input[i] &amp; 0xffL);</span>
+<span class="nc" id="L337">            output[j + 1] = (byte) ((input[i] &gt;&gt;&gt; 8) &amp; 0xffL);</span>
+<span class="nc" id="L338">            output[j + 2] = (byte) ((input[i] &gt;&gt;&gt; 16) &amp; 0xffL);</span>
+<span class="nc" id="L339">            output[j + 3] = (byte) ((input[i] &gt;&gt;&gt; 24) &amp; 0xffL);</span>
+        }
+<span class="nc" id="L341">    }</span>
+
+    /*
+     * Decode鎶奲yte鏁扮粍鎸夐『搴忓悎鎴愭垚long鏁扮粍锛屽洜涓簀ava鐨刲ong绫诲瀷鏄�64bit鐨勶紝 鍙悎鎴愪綆32bit锛岄珮32bit娓呴浂
+     */
+    private void decode(long[] output, byte[] input, int len) {
+        int i, j;
+<span class="nc bnc" id="L348" title="All 2 branches missed.">        for (i = 0, j = 0; j &lt; len; i++, j += 4) {</span>
+<span class="nc" id="L349">            output[i] = b2iu(input[j]) | (b2iu(input[j + 1]) &lt;&lt; 8) | (b2iu(input[j + 2]) &lt;&lt; 16)</span>
+<span class="nc" id="L350">                    | (b2iu(input[j + 3]) &lt;&lt; 24);</span>
+        }
+<span class="nc" id="L352">        return;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

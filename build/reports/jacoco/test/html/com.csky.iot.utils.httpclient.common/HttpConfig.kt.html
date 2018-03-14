@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HttpConfig.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cop-console</a> &gt; <a href="index.source.html" class="el_package">com.csky.iot.utils.httpclient.common</a> &gt; <span class="el_source">HttpConfig.kt</span></div><h1>HttpConfig.kt</h1><pre class="source lang-java linenums">package com.csky.iot.utils.httpclient.common
+
+import java.io.OutputStream
+import java.nio.charset.Charset
+import java.util.HashMap
+
+import org.apache.http.Header
+import org.apache.http.client.HttpClient
+import org.apache.http.protocol.HttpContext
+
+
+<span class="nc" id="L12">class HttpConfig private constructor() {</span>
+
+    /**
+     * HttpClient瀵硅薄
+     */
+    private var client: HttpClient? = null
+
+    /**
+     * Header澶翠俊鎭�
+     */
+    private var headers: Array&lt;Header?&gt;? = null
+
+    /**
+     * 鏄惁杩斿洖response鐨刪eaders
+     */
+<span class="nc" id="L27">    var sReturnRespHeaders: Boolean = false</span>
+        private set
+
+    /**
+     * 璇锋眰鏂规硶
+     */
+<span class="nc" id="L33">    private var method = HttpMethods.GET</span>
+
+    /**
+     * 璇锋眰鏂规硶鍚嶇О
+     */
+    private var methodName: String? = null
+
+    /**
+     * 鐢ㄤ簬cookie鎿嶄綔
+     */
+    private var context: HttpContext? = null
+
+    /**
+     * 浼犻�掑弬鏁�
+     */
+    private var map: MutableMap&lt;String, Any&gt;? = null
+
+    /**
+     * 浠son鏍煎紡浣滀负杈撳叆鍙傛暟
+     */
+    private var json: String? = null
+
+    /**
+     * 杈撳叆杈撳嚭缂栫爜
+     */
+<span class="nc" id="L58">    private var encoding = Charset.defaultCharset().displayName()</span>
+
+    /**
+     * 杈撳叆缂栫爜
+     */
+    private var inenc: String? = null
+
+    /**
+     * 杈撳嚭缂栫爜
+     */
+    private var outenc: String? = null
+
+    /**
+     * HttpClient瀵硅薄
+     */
+    fun client(client: HttpClient): HttpConfig {
+<span class="nc" id="L74">        this.client = client</span>
+<span class="nc" id="L75">        return this</span>
+    }
+
+    /**
+     * 璧勬簮url
+     */
+    fun url(url: String): HttpConfig {
+<span class="nc" id="L82">        urls.set(url)</span>
+<span class="nc" id="L83">        return this</span>
+    }
+
+    /**
+     * Header澶翠俊鎭�
+     */
+    fun headers(headers: Array&lt;Header?&gt;): HttpConfig {
+<span class="nc" id="L90">        this.headers = headers</span>
+<span class="nc" id="L91">        return this</span>
+    }
+
+    /**
+     * Header澶翠俊鎭�(鏄惁杩斿洖response涓殑headers)
+     */
+    fun headers(headers: Array&lt;Header?&gt;, isReturnRespHeaders: Boolean): HttpConfig {
+<span class="nc" id="L98">        this.headers = headers</span>
+<span class="nc" id="L99">        this.sReturnRespHeaders = isReturnRespHeaders</span>
+<span class="nc" id="L100">        return this</span>
+    }
+
+    /**
+     * 璇锋眰鏂规硶
+     */
+    fun method(method: HttpMethods): HttpConfig {
+<span class="nc" id="L107">        this.method = method</span>
+<span class="nc" id="L108">        return this</span>
+    }
+
+    /**
+     * 璇锋眰鏂规硶
+     */
+    fun methodName(methodName: String): HttpConfig {
+<span class="nc" id="L115">        this.methodName = methodName</span>
+<span class="nc" id="L116">        return this</span>
+    }
+
+    /**
+     * cookie鎿嶄綔鐩稿叧
+     */
+    fun context(context: HttpContext): HttpConfig {
+<span class="nc" id="L123">        this.context = context</span>
+<span class="nc" id="L124">        return this</span>
+    }
+
+    /**
+     * 浼犻�掑弬鏁�
+     */
+    fun map(map: MutableMap&lt;String, Any&gt;?): HttpConfig {
+<span class="nc" id="L131">        synchronized(javaClass) {</span>
+<span class="nc bnc" id="L132" title="All 4 branches missed.">            if (this.map == null || map == null) {</span>
+<span class="nc" id="L133">                this.map = map</span>
+            } else {
+<span class="nc bnc" id="L135" title="All 2 branches missed.">                this.map!!.putAll(map)</span>
+            }
+<span class="nc" id="L137">        }</span>
+<span class="nc" id="L138">        return this</span>
+    }
+
+    /**
+     * 浠son鏍煎紡瀛楃涓蹭綔涓哄弬鏁�
+     */
+    fun json(json: String): HttpConfig {
+<span class="nc" id="L145">        this.json = json</span>
+<span class="nc" id="L146">        map = HashMap&lt;String, Any&gt;()</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">        map!!.put(Utils.ENTITY_STRING, json)</span>
+<span class="nc" id="L148">        return this</span>
+    }
+
+    /**
+     * 涓婁紶鏂囦欢鏃剁敤鍒�
+     * @param filePaths            寰呬笂浼犳枃浠舵墍鍦ㄨ矾寰�
+     * *
+     * @param inputName        鍗砯ile input 鏍囩鐨刵ame鍊硷紝榛樿涓篺ile
+     * *
+     * @param forceRemoveContentTypeChraset
+     * *
+     * @return
+     */
+    @JvmOverloads
+    fun files(filePaths: Array&lt;String&gt;, inputName: String = &quot;file&quot;, forceRemoveContentTypeChraset: Boolean = false): HttpConfig {
+<span class="nc" id="L163">        synchronized(javaClass) {</span>
+<span class="nc bnc" id="L164" title="All 2 branches missed.">            if (this.map == null) {</span>
+<span class="nc" id="L165">                this.map = HashMap&lt;String, Any&gt;()</span>
+            }
+<span class="nc" id="L167">        }</span>
+<span class="nc bnc" id="L168" title="All 2 branches missed.">        map!!.put(Utils.ENTITY_MULTIPART, filePaths)</span>
+<span class="nc bnc" id="L169" title="All 2 branches missed.">        map!!.put(Utils.ENTITY_MULTIPART + &quot;.name&quot;, inputName)</span>
+<span class="nc bnc" id="L170" title="All 2 branches missed.">        map!!.put(Utils.ENTITY_MULTIPART + &quot;.rmCharset&quot;, forceRemoveContentTypeChraset)</span>
+<span class="nc" id="L171">        return this</span>
+    }
+
+    /**
+     * 杈撳叆杈撳嚭缂栫爜
+     */
+    fun encoding(encoding: String): HttpConfig {
+        //璁剧疆杈撳叆杈撳嚭
+<span class="nc" id="L179">        inenc(encoding)</span>
+<span class="nc" id="L180">        outenc(encoding)</span>
+<span class="nc" id="L181">        this.encoding = encoding</span>
+<span class="nc" id="L182">        return this</span>
+    }
+
+    /**
+     * 杈撳叆缂栫爜
+     */
+    fun inenc(inenc: String): HttpConfig {
+<span class="nc" id="L189">        this.inenc = inenc</span>
+<span class="nc" id="L190">        return this</span>
+    }
+
+    /**
+     * 杈撳嚭缂栫爜
+     */
+    fun outenc(outenc: String): HttpConfig {
+<span class="nc" id="L197">        this.outenc = outenc</span>
+<span class="nc" id="L198">        return this</span>
+    }
+
+    /**
+     * 杈撳嚭娴佸璞�
+     */
+    fun out(out: OutputStream): HttpConfig {
+<span class="nc" id="L205">        outs.set(out)</span>
+<span class="nc" id="L206">        return this</span>
+    }
+
+    fun client(): HttpClient? {
+<span class="nc" id="L210">        return client</span>
+    }
+
+    fun headers(): Array&lt;Header?&gt;? {
+<span class="nc" id="L214">        return headers</span>
+    }
+
+    fun url(): String {
+<span class="nc" id="L218">        return urls.get()</span>
+    }
+
+    fun method(): HttpMethods {
+<span class="nc" id="L222">        return method</span>
+    }
+
+    fun methodName(): String {
+<span class="nc bnc" id="L226" title="All 2 branches missed.">        return methodName!!</span>
+    }
+
+    fun context(): HttpContext? {
+<span class="nc" id="L230">        return context</span>
+    }
+
+    fun map(): MutableMap&lt;String, Any&gt;? {
+<span class="nc" id="L234">        return map</span>
+    }
+
+    fun json(): String? {
+<span class="nc" id="L238">        return json</span>
+    }
+
+    fun encoding(): String {
+<span class="nc" id="L242">        return encoding</span>
+    }
+
+    fun inenc(): String {
+<span class="nc bnc" id="L246" title="All 4 branches missed.">        return if (inenc == null) encoding else inenc!!</span>
+    }
+
+    fun outenc(): String {
+<span class="nc bnc" id="L250" title="All 4 branches missed.">        return if (outenc == null) encoding else outenc!!</span>
+    }
+
+    fun out(): OutputStream {
+<span class="nc" id="L254">        return outs.get()</span>
+    }
+
+<span class="nc" id="L257">    companion object {</span>
+
+        /**
+         * 鑾峰彇瀹炰緥
+         * @return
+         */
+        fun custom(): HttpConfig {
+<span class="nc" id="L264">            return HttpConfig()</span>
+        }
+
+        /**
+         * 瑙ｅ喅澶氱嚎绋嬩笅杞芥椂锛宻trean琚玞lose鐨勯棶棰�
+         */
+<span class="nc" id="L270">        private val outs = ThreadLocal&lt;OutputStream&gt;()</span>
+
+        /**
+         * 瑙ｅ喅澶氱嚎绋嬪鐞嗘椂锛寀rl琚鐩栭棶棰�
+         */
+<span class="nc" id="L275">        private val urls = ThreadLocal&lt;String&gt;()</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CipherUtils.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cop-console</a> &gt; <a href="index.source.html" class="el_package">com.aliyun.iot.util</a> &gt; <span class="el_source">CipherUtils.java</span></div><h1>CipherUtils.java</h1><pre class="source lang-java linenums">package com.aliyun.iot.util;
+
+/**
+ * Created by Gary on 14-5-10.
+ */
+
+<span class="nc" id="L7">public class CipherUtils {</span>
+
+    private static byte toByte(char c) {
+
+<span class="nc" id="L11">        return (byte) &quot;0123456789ABCDEF&quot;.indexOf(c);</span>
+    }
+
+    public static byte[] hexStringToByte(String hex) {
+
+<span class="nc" id="L16">        int len = (hex.length() / 2);</span>
+<span class="nc" id="L17">        byte[] result = new byte[len];</span>
+<span class="nc" id="L18">        char[] achar = hex.toCharArray();</span>
+<span class="nc bnc" id="L19" title="All 2 branches missed.">        for (int i = 0; i &lt; len; i++) {</span>
+<span class="nc" id="L20">            int pos = i * 2;</span>
+<span class="nc" id="L21">            result[i] = (byte) (toByte(achar[pos]) &lt;&lt; 4 | toByte(achar[pos + 1]));</span>
+        }
+<span class="nc" id="L23">        return result;</span>
+    }
+
+    public static final String bytesToHexString(byte[] bArray) {
+
+<span class="nc" id="L28">        StringBuffer sb = new StringBuffer(bArray.length);</span>
+        String sTemp;
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        for (int i = 0; i &lt; bArray.length; i++) {</span>
+<span class="nc" id="L31">            sTemp = Integer.toHexString(0xFF &amp; bArray[i]);</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">            if (sTemp.length() &lt; 2) {</span>
+<span class="nc" id="L33">                sb.append(0);</span>
+            }
+<span class="nc" id="L35">            sb.append(sTemp.toUpperCase());</span>
+        }
+<span class="nc" id="L37">        return sb.toString();</span>
+    }
+
+
+    
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

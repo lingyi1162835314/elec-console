@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsoleService.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cop-console</a> &gt; <a href="index.source.html" class="el_package">com.csky.iot.console.service</a> &gt; <span class="el_source">ConsoleService.kt</span></div><h1>ConsoleService.kt</h1><pre class="source lang-java linenums">/*
+ * Copyright (C) 2017 C-SKY Microsystems Co., Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.csky.iot.console.service
+
+import com.csky.iot.console.dao.LicenseCidRepository
+import com.csky.iot.console.dao.LicenseRepository
+import com.csky.iot.console.dao.ProductRepository
+import com.csky.iot.console.service.entity.ProductIotTypeEnum
+import com.csky.iot.console.service.entity.productIotTypeGetEnum
+import com.csky.iot.constants.Constant
+import com.csky.iot.exception.CskyException
+import org.springframework.stereotype.Service
+
+interface ConsoleService {
+    fun enableDevice(cid: String)
+
+    fun disableDevice(cid: String)
+
+    fun sendMessageToDevice(cid: String, message: String): String?
+}
+
+@Service
+<span class="fc" id="L37">class ConsoleServiceImpl(val aliyunDeviceService: AliyunDeviceService,</span>
+<span class="fc" id="L38">                         val oneNetDeviceService: OneNetDeviceService,</span>
+<span class="fc" id="L39">                         val licenseCidRepository: LicenseCidRepository,</span>
+<span class="fc" id="L40">                         val licenseRepository: LicenseRepository,</span>
+<span class="fc" id="L41">                         val productRepository: ProductRepository): ConsoleService {</span>
+
+    override fun enableDevice(cid: String) {
+<span class="fc" id="L44">        val iotTypeEnum = getDeviceIotType(cid)</span>
+
+<span class="pc bpc" id="L46" title="1 of 4 branches missed.">        when (iotTypeEnum) {</span>
+<span class="fc" id="L47">            ProductIotTypeEnum.AliMQTT -&gt; aliyunDeviceService.enableAliyunDevice(cid)</span>
+<span class="fc" id="L48">            ProductIotTypeEnum.AliCoAP -&gt; aliyunDeviceService.enableAliyunDevice(cid)</span>
+<span class="fc" id="L49">            ProductIotTypeEnum.OneNET_NBCoAP -&gt; oneNetDeviceService.enableOnenetDevice(cid)</span>
+        }
+<span class="fc" id="L51">    }</span>
+
+    override fun disableDevice(cid: String) {
+<span class="fc" id="L54">        val iotTypeEnum = getDeviceIotType(cid)</span>
+
+<span class="pc bpc" id="L56" title="1 of 4 branches missed.">        when (iotTypeEnum) {</span>
+<span class="fc" id="L57">            ProductIotTypeEnum.AliMQTT -&gt; aliyunDeviceService.disableAliyunDevice(cid)</span>
+<span class="fc" id="L58">            ProductIotTypeEnum.AliCoAP -&gt; aliyunDeviceService.disableAliyunDevice(cid)</span>
+<span class="fc" id="L59">            ProductIotTypeEnum.OneNET_NBCoAP -&gt;  oneNetDeviceService.disableOnenetDevice(cid)</span>
+        }
+<span class="fc" id="L61">    }</span>
+
+    override fun sendMessageToDevice(cid: String, message: String): String? {
+<span class="fc" id="L64">        val iotTypeEnum = getDeviceIotType(cid)</span>
+
+<span class="pc bpc" id="L66" title="1 of 4 branches missed.">        when (iotTypeEnum) {</span>
+            ProductIotTypeEnum.AliMQTT -&gt;
+<span class="fc" id="L68">                throw CskyException(Constant.PARAM_ERROR,</span>
+<span class="fc" id="L69">                        &quot;[$cid] Sending message via AliMqtt channel is not supported by the device&quot;)</span>
+            ProductIotTypeEnum.AliCoAP -&gt;
+<span class="fc" id="L71">                throw CskyException(Constant.PARAM_ERROR,</span>
+<span class="fc" id="L72">                        &quot;[$cid] Sending message via AliCoap channel is not supported by the device&quot;)</span>
+            ProductIotTypeEnum.OneNET_NBCoAP -&gt;
+<span class="pc" id="L74">                return oneNetDeviceService.pubMessage(cid, message)</span>
+        }
+    }
+
+    fun getDeviceIotType(cid: String): ProductIotTypeEnum {
+<span class="fc bfc" id="L79" title="All 4 branches covered.">        val licenseId = licenseCidRepository.findByCid(cid)?.licenseId</span>
+<span class="fc" id="L80">                ?: throw CskyException(Constant.PARAM_ERROR, &quot;[$cid] Device's licenseId is not exist&quot;)</span>
+<span class="fc bfc" id="L81" title="All 4 branches covered.">        val productId = licenseRepository.findById(licenseId)?.productId</span>
+<span class="fc" id="L82">                ?: throw CskyException(Constant.PARAM_ERROR, &quot;[$cid] Device's productId is not exist&quot;)</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">        val iotType =(productRepository.getOne(productId)?.iotType</span>
+<span class="fc" id="L84">                ?: throw CskyException(Constant.PARAM_ERROR, &quot;[$cid] Device's iotType is not exist&quot;)).toByte()</span>
+
+<span class="fc bfc" id="L86" title="All 2 branches covered.">        val iotTypeEnum = productIotTypeGetEnum(iotType)</span>
+<span class="fc" id="L87">                ?: throw CskyException(Constant.PARAM_ERROR, &quot;[$cid] Device's iotType is not exist&quot;)</span>
+
+<span class="fc" id="L89">        return iotTypeEnum</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

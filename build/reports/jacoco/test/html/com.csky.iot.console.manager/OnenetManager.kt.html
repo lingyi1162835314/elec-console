@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OnenetManager.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cop-console</a> &gt; <a href="index.source.html" class="el_package">com.csky.iot.console.manager</a> &gt; <span class="el_source">OnenetManager.kt</span></div><h1>OnenetManager.kt</h1><pre class="source lang-java linenums">/*
+ * Copyright (C) 2017 C-SKY Microsystems Co., Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.csky.iot.console.manager
+
+import com.alibaba.fastjson.JSONObject
+import com.csky.iot.console.dao.DeviceOneNetRepository
+import com.csky.iot.console.manager.dto.OneNetDevicesMnsDTO
+import com.csky.iot.console.service.entity.onenet.NbiotShadow
+import com.csky.iot.console.service.entity.onenet.OneNetDeviceShadow
+import com.csky.iot.constants.Constant
+import com.csky.iot.exception.CskyException
+import com.csky.iot.utils.LogUtil
+import com.csky.iot.utils.httpclient.HttpClientUtil
+import com.csky.iot.utils.httpclient.common.HttpConfig
+import com.csky.iot.utils.httpclient.common.HttpHeader
+import org.springframework.stereotype.Service
+
+interface OnenetManager {
+    fun nbiotGetResource(oneNetDeviceShadow: OneNetDeviceShadow,nbiotShadow: NbiotShadow): OneNetDevicesMnsDTO
+    fun nbiotExecute(oneNetDeviceShadow: OneNetDeviceShadow, message: String, nbiotShadow: NbiotShadow): String
+}
+
+@Service
+<span class="pc" id="L38">class OnenetManagerImpl(val deviceOneNetRepository: DeviceOneNetRepository): OnenetManager {</span>
+<span class="fc" id="L39">    private val IOT_TAG = &quot;onenet_iot&quot;</span>
+
+    override fun nbiotGetResource(oneNetDeviceShadow: OneNetDeviceShadow, nbiotShadow: NbiotShadow): OneNetDevicesMnsDTO {
+<span class="nc" id="L42">        val imei = oneNetDeviceShadow.imei</span>
+<span class="nc" id="L43">        val apiKey = oneNetDeviceShadow.apiKey</span>
+<span class="nc" id="L44">        val url = &quot;http://api.heclouds.com/nbiot?imei=$imei&amp;obj_id=${nbiotShadow.OBJ_ID}&amp;obj_inst_id=&quot; +</span>
+<span class="nc" id="L45">                &quot;${nbiotShadow.OBJ_INST_ID}&amp;res_id=${nbiotShadow.RES_ID}&quot;</span>
+<span class="nc" id="L46">        val headers = HttpHeader.custom().contentType(&quot;application/json&quot;).other(&quot;api-key&quot;, apiKey).build()</span>
+<span class="nc" id="L47">        val config = HttpConfig.custom().url(url).headers(headers).encoding(&quot;utf-8&quot;)</span>
+<span class="nc" id="L48">        try {</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">            val result = JSONObject.parse(HttpClientUtil.get(config)) as JSONObject</span>
+<span class="nc" id="L50">            val errno = result.getIntValue(&quot;errno&quot;)</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">            if (errno == 0) {</span>
+<span class="nc" id="L52">                val mnsData = result.getJSONArray(&quot;data&quot;)</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">                val res_json = mnsData.get(0) as JSONObject</span>
+<span class="nc" id="L54">                val res = res_json.getJSONArray(&quot;res&quot;)</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">                val res_result = res.get(0) as JSONObject</span>
+<span class="nc" id="L56">                res_result.put(&quot;type&quot;, 1)</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">                if (res_result.get(&quot;res_id&quot;) == 1) {</span>
+<span class="nc" id="L58">                    res_result.put(&quot;status&quot;, &quot;online&quot;)</span>
+                } else {
+<span class="nc" id="L60">                    res_result.put(&quot;status&quot;, &quot;offline&quot;)</span>
+                }
+<span class="nc bnc" id="L62" title="All 2 branches missed.">                val cid = (deviceOneNetRepository.findByImei(imei)</span>
+<span class="nc" id="L63">                        ?: throw CskyException(Constant.PARAM_ERROR, &quot;[$imei] device imei does not bind any cid&quot;)).cid</span>
+<span class="nc" id="L64">                return OneNetDevicesMnsDTO(errno, res_result, cid)</span>
+            }
+<span class="nc" id="L66">            throw CskyException(Constant.PARAM_ERROR, result.getString(&quot;error&quot;))</span>
+<span class="nc" id="L67">        } catch (e: Exception) {</span>
+<span class="nc" id="L68">            LogUtil.i(javaClass, &quot;[@$IOT_TAG]${e.message}&quot;)</span>
+
+<span class="nc" id="L70">            throw CskyException(Constant.PARAM_ERROR, &quot;[@$IOT_TAG]${e.message}&quot;)</span>
+        }
+    }
+
+    override fun nbiotExecute(oneNetDeviceShadow: OneNetDeviceShadow, message: String, nbiotShadow: NbiotShadow): String{
+        val res: String
+<span class="nc" id="L76">        val imei = oneNetDeviceShadow.imei</span>
+<span class="nc" id="L77">        val apiKey = oneNetDeviceShadow.apiKey</span>
+<span class="nc" id="L78">        val url = &quot;http://api.heclouds.com/nbiot/execute?imei=$imei&amp;obj_id=${nbiotShadow.OBJ_ID}&amp;obj_inst_id=&quot; +</span>
+<span class="nc" id="L79">                &quot;${nbiotShadow.OBJ_INST_ID}&amp;res_id=${nbiotShadow.RES_ID}&quot;</span>
+<span class="nc" id="L80">        val headers = HttpHeader.custom().contentType(&quot;application/json&quot;).other(&quot;api-key&quot;, apiKey).build()</span>
+<span class="nc" id="L81">        val map = mutableMapOf&lt;String, Any&gt;()</span>
+<span class="nc" id="L82">        map.put(&quot;args&quot;, message)</span>
+<span class="nc" id="L83">        val config = HttpConfig.custom().url(url).headers(headers).map(map).encoding(&quot;utf-8&quot;)</span>
+<span class="nc" id="L84">        try {</span>
+<span class="nc" id="L85">            res = HttpClientUtil.post(config)</span>
+<span class="nc" id="L86">            LogUtil.d(javaClass, res)</span>
+<span class="nc" id="L87">        } catch (e: Exception) {</span>
+<span class="nc" id="L88">            LogUtil.i(javaClass, &quot;[@$IOT_TAG]OneNET publish message got an exception: ${e.message}&quot;)</span>
+
+<span class="nc" id="L90">            throw CskyException(Constant.PARAM_ERROR, &quot;[@$IOT_TAG]${e.message}&quot;)</span>
+        }
+<span class="nc" id="L92">        LogUtil.i(javaClass, &quot;[@$IOT_TAG]Publishing onenet message ends&quot;)</span>
+<span class="nc" id="L93">        return res</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>
