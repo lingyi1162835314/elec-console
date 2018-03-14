@@ -1,0 +1,56 @@
+#
+# Copyright (C) 2017 C-SKY Microsystems Co., Ltd.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://jorchiout.mysql.rds.aliyuncs.com/smart_crack?characterEncoding=utf8&useSSL=false
+    username: inspect
+    password: '!@#old423'
+    type: com.alibaba.druid.pool.DruidDataSource
+    initial-size: 5
+    min-idle: 5
+    max-active: 20
+    max-wait: 60000
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 300000
+    validation-query: select 1 from dual
+    test-on-borrow: false
+    test-while-idle: true
+    test-on-return: false
+    pool-prepared-statements: true
+    max-pool-prepared-statement-per-connection-size: 50
+  jpa:
+    database: mysql
+    show-sql: true
+  message:
+    basename: messages
+    encoding: UTF-8
+
+
+log4j:
+  logger:
+    org.springframework.scheduling: INFO
+
+aliyun:
+  accessKey: LTAIWNSEkB6dQQGu
+  accessSecret: iJy37ZyckF1H3gj0LnHCnCVF2X1bhw
+  endpoint: http://1874502761491910.mns.cn-shanghai.aliyuncs.com/
+  queue: aliyun-iot-HKqVTNSLsJX
+  appKey: 24618991
+
+door:
+  password_salt: abcddcd
+
