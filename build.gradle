@@ -1,0 +1,55 @@
+group 'elec-console'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlinVersion = '1.2.0'
+    ext.springBootVersion = '1.5.7.RELEASE'
+
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("gradle.plugin.org.jmailen.gradle:kotlinter-gradle:1.3.0")
+        classpath("gradle.plugin.io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.0.0.RC1")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+//apply plugin: 'kotlin-spring'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+}
+
+dependencies {
+    compile group: "org.springframework.boot", name: "spring-boot-starter-web"
+    compile group: "org.springframework.boot", name: "spring-boot-starter-data-jpa"
+    compile group: "org.springframework.boot", name: "spring-boot-configuration-processor"
+
+    compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
+
+    compile("com.alibaba:druid:1.0.31")
+    compile("com.alibaba:fastjson:1.2.15")
+
+    compile("com.aliyun:aliyun-java-sdk-iot:2.2.0")
+    compile("com.aliyun:aliyun-java-sdk-core:3.2.4")
+    compile("com.aliyun.mns:aliyun-sdk-mns:1.1.8.4")
+
+    runtime group: "mysql", name: "mysql-connector-java"
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
